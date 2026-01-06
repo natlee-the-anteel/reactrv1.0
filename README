@@ -1,51 +1,5 @@
-REACTRv5 (Rapid Exploration and Automated Characterization Tool for Research)
-
-steps for users
-if you want to load new genomes
-    1. edit the taxonomy IDs in the config.yaml
-    2. delete the folder "reactr/data" if applicable
-    3. run "snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p"
-    4. wait. it will take sometime (usually ~15 minutes at least on average)
-if you are content with the current genomes or don't have one yet
-    1. edit in desired protein fasta(s) from the base genome, into "query/true_query.fasta"
-    2. check if it matches the base genome and ideally, the same sequenced version
-    3. delete the folder "reactr/output" if applicable
-    4. run "snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p"
-    5. wait. this should take a few minutes max, though it scales with the number of proteins you query
-    6. run "snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p" again
-
-Note for step 1:
-    its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file
-    rather than just a singular gene. however, it's not the end of the world if you cant; we automatically
-    do a blastp on your arabidopsis query against the arabidopsis genome, just to find similar arabdiposis genes
-    when building trees/meme/msa --to note, we get rid of all duplicates
-    it's also highly recommeneded, for clarity, that your gene headers for true_query.fasta are the common gene ID
-    i.e. AT2G45160 rather than something like NP_182041.1
-------------------------------------------------------------------------------------------
-    Runtime
-        iqtree takes decent amount of time, primer search takes a lot of time (we've commented it out), uploading 
-        new genomes also takes a bunch of time (mostly became of gmap databse loading)
-        everything else should generally run decently fast.
-    Only doing certain things
-        sure. all you need to do is comment out what you dont want in
-        the top of mainpipeline.smk rule all: input: etc (begins right around line 30). 
-        do it line by line, but be aware that if that thing is demanded in line after it, it will still run
-    taxononomy IDs
-        we only select one sequenced version for simplicity, but be aware that it might not be the correct strain or correct
-        sequenced dataset that you may want (i.e. you might get West Indian avocado instead of Hass avocado)
-        you can manually upload your data, but make sure the paths are updated
-        and the folder format is wildcard_constraints
-    What are your future directions?
-        trying to add more modules (i.e. gRNA design, gene expression incorportation, etc)
-        would also love to see if possible to run this on ALL species and GENOME inputs
-        instead of individual fastas, reach out if you want to collaborate
-        also trying to get runtime down, especially species loading, if not possible, am also looking
-        into getting servers or more powerful computers that can do this FASTA (pun intended).
-        if you want to see more, check the updatelog
-
--------------------------------------------------------------------------------------------
 please contact natlee@nuevaschool.org for a copy of current citations, if help is needed, or want to reach out.
-
+---------------------------------------------
 ## 1. System Preparation
 Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries.
     1. Open Terminal (Command + Space, type "Terminal").
@@ -59,6 +13,13 @@ We use Miniforge to manage software dependencies automatically.
     1. Download and run the installer:
     curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -o miniforge.sh
     bash miniforge.sh
+
+## 3. Installation of reactr
+    run the following
+    $ git clone https://github.com/natlee-the-anteel/reactrv1.0
+    $ cd reactrv1.0
+    # Add the bin to PATH
+    $ export PATH=/path/to/reactrv1.0/bin/:$PATH
 
 ## 3. Startup the environment
     run "conda env create --file environment.yaml" while in the reactrv3 directory
@@ -84,4 +45,47 @@ We use Miniforge to manage software dependencies automatically.
         2. move the resultant downloads (Pfam-A.hmm), into the reactrv3/preset folder
         3. run hmmpress -f preset/pfam/Pfam-A.hmm
 
-pal2nal?
+-----------------------------------------------------
+REACTRv5 (Rapid Exploration and Automated Characterization Tool for Research)
+
+steps for users
+if you want to load new genomes
+    1. edit the taxonomy IDs in the config.yaml
+    2. delete the folder "reactr/data" if applicable
+    3. run "snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p"
+    4. wait. it will take sometime (usually ~15 minutes at least on average)
+if you are content with the current genomes or don't have one yet
+    1. edit in desired protein fasta(s) from the base genome, in the top of the config.yaml
+    2. check if it matches the base genome and ideally, the same sequenced version
+    3. delete the folder "reactr/output" if applicable
+    4. run "snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p"
+    5. wait. this should take a few minutes max, though it scales with the number of proteins you query
+    6. run "snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p" again
+    7. (Q: why do i have to run it twice? A: we have wildcards based on domains detected, the first one is to identify them
+        and the second is to do all the domain_sorted rules (i.e. meme, iqtree)
+
+Note for step 1:
+    its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file
+    rather than just a singular gene. however, it's not the end of the world if you cant; we automatically
+    do a blastp on your arabidopsis query against the arabidopsis genome, just to find similar arabdiposis genes
+    when building trees/meme/msa --to note, we get rid of all duplicates
+    it's also highly recommeneded, for clarity, that your gene headers for true_query.fasta are the common gene ID
+    i.e. AT2G45160 rather than something like NP_182041.1
+------------------------------------------------------------------------------------------
+    Runtime
+        LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level
+        and size of the genomes. Example, avocado target + arabidopsis base = ~20 minutes. 
+        (mostly became of gmap databse loading). you should expect MainPipeline.smk to be a lot faster (a few minutes max), but
+        this also depends on the number of query sequences you upload
+        everything else should generally run decently fast.
+    Only doing certain things
+        sure. all you need to do is comment out what you dont want in
+        the top of mainpipeline.smk rule all: input: etc (begins right around line 30). 
+        do it line by line, but be aware that if that thing is demanded in line after it, it will still run
+    taxononomy IDs
+        we only select one sequenced version for simplicity, but be aware that it might not be the correct strain or correct
+        sequenced dataset that you may want (i.e. you might get West Indian avocado instead of Hass avocado)
+        you can manually upload your data, but make sure the paths are updated
+        and the folder format is wildcard_constraints
+
+-------------------------------------------------------------------------------------------
