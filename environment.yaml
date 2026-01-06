@@ -45,6 +45,7 @@ dependencies:
   - gffutils=0.13
   - gmap=2025.07.31
   - h2=4.2.0
+  - hmmer
   - hpack=4.1.0
   - hyperframe=6.1.0
   - hyphy=2.5.73
@@ -63,7 +64,7 @@ dependencies:
   - libblas=3.9.0
   - libcblas=3.9.0
   - libcurl=8.13.0
-  - libcxx=20.1.4
+  - libcxx=20.1.4 #not allowed linux, can eliminate it using sed
   - libdeflate=1.24
   - libedit=3.1.20250104
   - libev=4.33
@@ -73,12 +74,12 @@ dependencies:
   - libfreetype6=2.13.3
   - libgd=2.3.3
   - libgettextpo=0.25.1
-  - libgfortran=5.0.0
-  - libgfortran5=14.2.0
+  - libgfortran=5.0.0 #not allowed linux, can eliminate it using sed
+  - libgfortran5=14.2.0 #not allowed linux, can eliminate it using sed
   - libharu=2.4.5
   - libiconv=1.18
   - libidn2=2.3.8
-  - libintl=0.25.1
+  - libintl=0.25.1 #not allowed linux, can eliminate it using sed
   - libjpeg-turbo=3.1.0
   - liblapack=3.9.0
   - liblzma=5.8.1
