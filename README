@@ -27,22 +27,53 @@ We use Miniforge to manage software dependencies automatically.
 
 ## 5. Download the non-conda tools
     1. for Flashfry
-        0. make sure you have java installed
-        1. navigate to the /preset folder in reactrv3 
-        2. run wget https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar
-        3. rename that Flashfry java file to FlashFry.jar
-    2. for MCScanX
-        1. make sure you're still in the /preset directory
-        2. download MCSCANX: https://github.com/wyp1125/MCScanX
-        3. unzip MCscanx.zip, navigate to that directory, then $make it
-        4. the main programs that are necesary are "MCScanX" and "duplicate_gene_classifier," move them into the larger /preset directory
-        5. delete the other programs if needed
-    3. for pfam database
-        0. note that this is pretty larger
-        1. go to https://www.ebi.ac.uk/interpro/download/Pfam/ and download "Pfam-A models"
-        2. move the resultant downloads (Pfam-A.hmm), into the reactrv3/preset folder
-        3. run hmmpress -f preset/pfam/Pfam-A.hmm
+        # 1. Navigate to the folder (create it if it doesn't exist)
+        mkdir -p preset
+        cd preset
+        
+        # 2. Download FlashFry
+        wget https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar
+        
+        # 3. Rename the file
+        mv FlashFry-assembly-1.15.jar FlashFry.jar
 
+
+    2. for MCScanX
+        # 1. Download the repository as a ZIP file
+        wget https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
+        
+        # 2. Unzip and enter the directory
+        unzip MCScanX.zip
+        cd MCScanX-master
+        
+        # 3. Compile the program
+        make
+        
+        # 4. Move the necessary programs up one level (to /preset)
+        mv MCScanX ../
+        mv duplicate_gene_classifier ../
+        
+        # 5. Return to /preset and clean up (delete source folder and zip)
+        cd ..
+        rm -rf MCScanX-master MCScanX.zip
+
+
+    3. for pfam database
+        # 1. Create a directory for pfam to keep it organized (optional but recommended)
+        mkdir -p pfam
+        cd pfam
+        
+        # 2. Download Pfam-A models (Standard URL for current release)
+        wget http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+        
+        # 3. Unzip the data (this will replace .gz with the uncompressed .hmm file)
+        gunzip Pfam-A.hmm.gz
+        
+        # 4. Navigate back up to the root reactrv3 folder
+        cd ../.. 
+        
+        # 5. Run hmmpress exactly as requested
+        hmmpress -f preset/pfam/Pfam-A.hmm
 -----------------------------------------------------
 REACTRv5 (Rapid Exploration and Automated Characterization Tool for Research)
 
