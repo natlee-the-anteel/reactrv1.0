@@ -1,78 +1,59 @@
 please contact natlee@nuevaschool.org for a copy of current citations, if help is needed, or want to reach out.
 ---------------------------------------------
+DOWNLOAD AND INSTALL INSTRUCTIONS:
 ## 1. System Preparation
 Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries.
     1. Open Terminal (Command + Space, type "Terminal").
-    2. Install Apple Command Line Tools:
+    2. Install Apple Command Line Tools and Rosetta:
+        
     xcode-select --install
-    3. Install Rosetta 2 (Required for M1/M2/M3 Macs):
     softwareupdate --install-rosetta --agree-to-license
 
 ## 2. Installation of Package Manager (Miniforge)
-We use Miniforge to manage software dependencies automatically.
-    1. Download and run the installer:
+We use Miniforge to manage most of the software dependencies automatically.
+
     curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -o miniforge.sh
     bash miniforge.sh
 
 ## 3. Installation of reactr
-    run the following
-    $ git clone https://github.com/natlee-the-anteel/reactrv1.0.git
-    $ cd reactrv1.0
-    # Add the bin to PATH
-    $ export PATH=/path/to/reactrv1.0/bin/:$PATH
+run the following
+  
+    git clone https://github.com/natlee-the-anteel/reactrv1.0.git
+    cd reactrv1.0
+    export PATH=/path/to/reactrv1.0/bin/:$PATH
 
 ## 3. Startup the environment and activate it
-    run "conda env create --file environment.yaml" while in the reactrv3 directory
-    run "conda activate reactrv3"
+run the following
 
-## 5. Download the non-conda tools
-    1. for Flashfry
-        # 1. Navigate to the folder (create it if it doesn't exist)
+    conda env create --file environment.yaml
+    conda activate reactrv.10
+
+## 5. Download the non-conda dependencies
+1. for Flashfry
+    
         mkdir -p preset
         cd preset
-        
-        # 2. Download FlashFry
         wget https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar
-        
-        # 3. Rename the file
         mv FlashFry-assembly-1.15.jar FlashFry.jar
 
+2. for MCScanX
 
-    2. for MCScanX
-        # 1. Download the repository as a ZIP file
         wget https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
-        
-        # 2. Unzip and enter the directory
         unzip MCScanX.zip
         cd MCScanX-master
-        
-        # 3. Compile the program
         make
-        
-        # 4. Move the necessary programs up one level (to /preset)
         mv MCScanX ../
         mv duplicate_gene_classifier ../
-        
-        # 5. Return to /preset and clean up (delete source folder and zip)
         cd ..
         rm -rf MCScanX-master MCScanX.zip
 
+3. for pfam database
 
-    3. for pfam database
-        # 1. Create a directory for pfam to keep it organized (optional but recommended)
         mkdir -p pfam
         cd pfam
-        
-        # 2. Download Pfam-A models (Standard URL for current release)
         wget http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
-        
-        # 3. Unzip the data (this will replace .gz with the uncompressed .hmm file)
         gunzip Pfam-A.hmm.gz
-        
-        # 4. Navigate back up to the root reactrv3 folder
         cd ../.. 
-        
-        # 5. Run hmmpress exactly as requested
         hmmpress -f preset/pfam/Pfam-A.hmm
 -----------------------------------------------------
 REACTRv5 (Rapid Exploration and Automated Characterization Tool for Research)
@@ -81,8 +62,10 @@ steps for users
 if you want to load new genomes
     1. edit the taxonomy IDs in the config.yaml
     2. delete the folder "reactr/data" if applicable
-    3. run "snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p"
-    4. wait. it will take sometime (usually ~15 minutes at least on average)
+    3. run 
+    
+    snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p"
+
 if you are content with the current genomes or don't have one yet
     1. edit in desired protein fasta(s) from the base genome, in the top of the config.yaml
     2. check if it matches the base genome and ideally, the same sequenced version
