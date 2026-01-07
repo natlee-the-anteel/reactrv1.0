@@ -2,7 +2,7 @@ DOWNLOAD AND INSTALL INSTRUCTIONS:
 ---------------------------------------------
 please contact natlee@nuevaschool.org for a copy of current citations, if help is needed, or want to reach out.
 ## 1. System Preparation
-Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries.
+Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries. you must also download java. 
         
     xcode-select --install
     softwareupdate --install-rosetta --agree-to-license
@@ -68,12 +68,21 @@ if you are content with the current genomes or don't have one yet: (1) edit in d
 wait. this should take a few minutes max, though it scales with the number of proteins you query. next, once it says it's complete, then run 
 
     snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p
-    
-Side Question: why do i have to run it twice?
+------------------------------------------------------
+Format Instructions
+The only things that you really should need to edit (unless you're directly manipulating to code), is just the config.yaml. Specifically, just the taxonids (they're ncbi ids, they autodownload all the necesary stuff if you simply run the loaddatasets.smk rule (see above), and the query. 
 
-A: we have wildcards based on domains detected, the first one is to identify them, and the second is to do all the domain_sorted rules (i.e. meme, iqtree)
+
+------------------------------------------------------ 
+Notes
+
+Note 0.
+
+        Q: why do i have to run it twice? A: we have wildcards based on domains detected, the first one is to identify them,
+        and the second is to do all the domain_sorted rules (i.e. meme, iqtree)
 
 Note 1.
+
     its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file
     rather than just a singular gene. however, it's not the end of the world if you cant; we automatically
     do a blastp on your arabidopsis query against the arabidopsis genome, just to find similar arabdiposis genes
@@ -81,16 +90,19 @@ Note 1.
     it's also highly recommeneded, for clarity, that your gene headers for true_query.fasta are the common gene ID
     i.e. AT2G45160 rather than something like NP_182041.1
 Note 2.
+
     LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level
     and size of the genomes. Example, avocado target + arabidopsis base = ~20 minutes. 
     (mostly became of gmap databse loading). you should expect MainPipeline.smk to be a lot faster (a few minutes max), but
     this also depends on the number of query sequences you upload
     everything else should generally run decently fast.
 Note 3.
+
     sure. all you need to do is comment out what you dont want in
     the top of mainpipeline.smk rule all: input: etc (begins right around line 30). 
     do it line by line, but be aware that if that thing is demanded in line after it, it will still run
 Note 4.
+
     we only select one sequenced version for simplicity, but be aware that it might not be the correct strain or correct
     sequenced dataset that you may want (i.e. you might get West Indian avocado instead of Hass avocado when you enter in 3435)
     you can manually upload your data, but make sure the paths are updated
