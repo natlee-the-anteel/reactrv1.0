@@ -3,8 +3,6 @@ DOWNLOAD AND INSTALL INSTRUCTIONS:
 please contact natlee@nuevaschool.org for a copy of current citations, if help is needed, or want to reach out.
 ## 1. System Preparation
 Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries.
-    1. Open Terminal (Command + Space, type "Terminal").
-    2. Install Apple Command Line Tools and Rosetta:
         
     xcode-select --install
     softwareupdate --install-rosetta --agree-to-license
