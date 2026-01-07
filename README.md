@@ -24,7 +24,7 @@ run the following
 run the following
 
     conda env create --file environment.yaml
-    conda activate reactrv.10
+    conda activate reactr
 
 ## 5. Download the non-conda dependencies
 1. for Flashfry
