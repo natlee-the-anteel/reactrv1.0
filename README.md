@@ -59,7 +59,7 @@ Usage Instructions
 steps for users
 if you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml (2) delete the folder "reactr/data" if applicable, (3) run 
     
-    snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p"
+    snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p
 
 if you are content with the current genomes or don't have one yet: (1) edit in desired protein fasta(s) from the base genome, in the top of the config.yaml, (2) check if it matches the base genome and ideally, the same sequenced version, (3) delete the folder "reactr/output" if applicable, (4) run
 
