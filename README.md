@@ -56,51 +56,48 @@ run the following
         cd ../.. 
         hmmpress -f preset/pfam/Pfam-A.hmm
 -----------------------------------------------------
-REACTRv5 (Rapid Exploration and Automated Characterization Tool for Research)
+Usage Instructions
 
 steps for users
-if you want to load new genomes
-    1. edit the taxonomy IDs in the config.yaml
-    2. delete the folder "reactr/data" if applicable
-    3. run 
+if you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml (2) delete the folder "reactr/data" if applicable, (3) run 
     
     snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p"
 
-if you are content with the current genomes or don't have one yet
-    1. edit in desired protein fasta(s) from the base genome, in the top of the config.yaml
-    2. check if it matches the base genome and ideally, the same sequenced version
-    3. delete the folder "reactr/output" if applicable
-    4. run "snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p"
-    5. wait. this should take a few minutes max, though it scales with the number of proteins you query
-    6. run "snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p" again
-    7. (Q: why do i have to run it twice? A: we have wildcards based on domains detected, the first one is to identify them
-        and the second is to do all the domain_sorted rules (i.e. meme, iqtree)
+if you are content with the current genomes or don't have one yet: (1) edit in desired protein fasta(s) from the base genome, in the top of the config.yaml, (2) check if it matches the base genome and ideally, the same sequenced version, (3) delete the folder "reactr/output" if applicable, (4) run
 
-Note for step 1:
+    snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p
+    
+wait. this should take a few minutes max, though it scales with the number of proteins you query. next, once it says it's complete, then run 
+
+    snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p
+    
+Side Question: why do i have to run it twice?
+
+A: we have wildcards based on domains detected, the first one is to identify them, and the second is to do all the domain_sorted rules (i.e. meme, iqtree)
+
+Note 1.
     its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file
     rather than just a singular gene. however, it's not the end of the world if you cant; we automatically
     do a blastp on your arabidopsis query against the arabidopsis genome, just to find similar arabdiposis genes
     when building trees/meme/msa --to note, we get rid of all duplicates
     it's also highly recommeneded, for clarity, that your gene headers for true_query.fasta are the common gene ID
     i.e. AT2G45160 rather than something like NP_182041.1
-------------------------------------------------------------------------------------------
-A couple side notes:
-    Runtime
-        LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level
-        and size of the genomes. Example, avocado target + arabidopsis base = ~20 minutes. 
-        (mostly became of gmap databse loading). you should expect MainPipeline.smk to be a lot faster (a few minutes max), but
-        this also depends on the number of query sequences you upload
-        everything else should generally run decently fast.
-    Only doing certain things
-        sure. all you need to do is comment out what you dont want in
-        the top of mainpipeline.smk rule all: input: etc (begins right around line 30). 
-        do it line by line, but be aware that if that thing is demanded in line after it, it will still run
-    taxononomy IDs
-        we only select one sequenced version for simplicity, but be aware that it might not be the correct strain or correct
-        sequenced dataset that you may want (i.e. you might get West Indian avocado instead of Hass avocado when you enter in 3435)
-        you can manually upload your data, but make sure the paths are updated
-        and the folder format is wildcard_constraints. Also, the purpose of the project is mainly to automate plant comparitivive
-        genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be
+Note 2.
+    LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level
+    and size of the genomes. Example, avocado target + arabidopsis base = ~20 minutes. 
+    (mostly became of gmap databse loading). you should expect MainPipeline.smk to be a lot faster (a few minutes max), but
+    this also depends on the number of query sequences you upload
+    everything else should generally run decently fast.
+Note 3.
+    sure. all you need to do is comment out what you dont want in
+    the top of mainpipeline.smk rule all: input: etc (begins right around line 30). 
+    do it line by line, but be aware that if that thing is demanded in line after it, it will still run
+Note 4.
+    we only select one sequenced version for simplicity, but be aware that it might not be the correct strain or correct
+    sequenced dataset that you may want (i.e. you might get West Indian avocado instead of Hass avocado when you enter in 3435)
+    you can manually upload your data, but make sure the paths are updated
+    and the folder format is wildcard_constraints. Also, the purpose of the project is mainly to automate plant comparitivive
+    genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be
         running this on plants, esp. non-model, little annotated, but commerically valuable crops.
 
 ------------------------------------------------------------------------------------------
