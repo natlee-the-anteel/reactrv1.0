@@ -1,4 +1,4 @@
-name: reactrv3
+name: reactr
 channels:
   - conda-forge
   - bioconda
