@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/1129249052.svg)](https://doi.org/10.5281/zenodo.18306541)
 DOWNLOAD AND INSTALL INSTRUCTIONS:
 ---------------------------------------------
 please contact natlee@nuevaschool.org for a copy of current citations, if help is needed, or want to reach out.
