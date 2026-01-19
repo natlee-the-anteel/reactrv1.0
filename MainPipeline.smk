@@ -720,14 +720,14 @@ rule extract_annotations_by_domain:
         sys.stderr.write(f"\n[STEP 1] Extracting IDs from GMAP file for: {target_domain}\n")
 
         # 1. Parse the GMAP GFF3 for Protein IDs
-        # We look for 'Name=XXGXXXXX.1' or 'Target=XXGXXXXX.1'
+        # We look for 'Name=XP_XXXXXX.1' or 'Target=XP_XXXXXX.1'
         if os.path.exists(input.gmap_gff):
             with open(input.gmap_gff, 'r') as f:
                 for line in f:
                     if line.startswith("#") or not line.strip():
                         continue
-                    # Use regex to find XXG IDs (e.g., XXG51085.1)
-                    matches = re.findall(r'XXG\d+\.\d+', line)
+                    # Use regex to find XP/NP IDs (e.g., XP_015624862.1)
+                    matches = re.findall(r'[XN]P_\d+\.\d+', line)
                     for m in matches:
                         target_protein_ids.add(m)
         
