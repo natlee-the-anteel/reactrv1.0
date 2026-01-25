@@ -132,10 +132,10 @@ Note 4.
     and the folder format is wildcard_constraints. Also, the purpose of the project is mainly to automate plant comparitivive
     genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be
         running this on plants, esp. non-model, little annotated, but commerically valuable crops.
-
 ------------------------------------------------------------------------------------------
+
 Acknowledgements
-Dr. Lindy Jensen for so much advice and fielding bioninfromatics questions. ChatGPT, Gemini, and Claude Sonnet 4.5 were used to edit code.  
+Dr. Lindy Jensen for so much advice and fielding bioninfromatics questions. ChatGPT, Gemini, and Claude Sonnet 4.5 were used to edit code. References and citations for tools used can be found here: https://docs.google.com/document/d/1oHGHfESWZp1mI8Li0z-tt5QZVYWrH3cMdS0kEEYk6go/edit?tab=t.0
 
 Draft abstract and case studies can be found here: https://docs.google.com/document/d/1D976M05Wr50h10oWD_6paHjQH0N7cYOb2-hXr9plfas/edit?tab=t.876970gi7bt9
 
