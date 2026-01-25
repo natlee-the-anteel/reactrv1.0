@@ -134,5 +134,8 @@ Note 4.
         running this on plants, esp. non-model, little annotated, but commerically valuable crops.
 
 ------------------------------------------------------------------------------------------
+Acknowledgements
+Dr. Lindy Jensen for so much advice and fielding bioninfromatics questions. ChatGPT, Gemini, and Claude Sonnet 4.5 were used to edit code.  
+
 Draft abstract and case studies can be found here: https://docs.google.com/document/d/1D976M05Wr50h10oWD_6paHjQH0N7cYOb2-hXr9plfas/edit?tab=t.876970gi7bt9
 
