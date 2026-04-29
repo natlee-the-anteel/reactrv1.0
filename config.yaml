@@ -2,80 +2,90 @@ taxon_ids:
   target: 4530 #example target sequence
   base: 3702    #example base sequence
 
-#below are example query sequences, should begin with a >, then name, followed with the amino acid fasta sequence in the next lane.
-query_contents: |
-  >NP_173292.1 myb domain protein 51 [Arabidopsis thaliana]
-  MVRTPCCKAELGLKKGAWTPEEDQKLLSYLNRHGEGGWRTLPEKAGLKRCGKSCRLRWANYLRPDIKRGE
-  FTEDEERSIISLHALHGNKWSAIARGLPGRTDNEIKNYWNTHIKKRLIKKGIDPVTHKGITSGTDKSENL
-  PEKQNVNLTTSDHDLDNDKAKKNNKNFGLSSASFLNKVANRFGKRINQSVLSEIIGSGGPLASTSHTTNT
-  TTTSVSVDSESVKSTSSSFAPTSNLLCHGTVATTPVSSNFDVDGNVNLTCSSSTFSDSSVNNPLMYCDNF
-  VGNNNVDDEDTIGFSTFLNDEDFMMLEESCVENTAFMKELTRFLHEDENDVVDVTPVYERQDLFDEIDNY
-  FG
-#
-output_domains: "output/hmmer/domains/*.fasta"
-filtered_pairs: "output/mcscanx/target_base.filtered_pairs.tsv"
-setup_marker: "output/.setup_done"
-secondary_query: "output/query.fasta"
-base_blast: "output/blast/base_blastp.tsv"
-target_blast: "output/blast/target_blastp.tsv"
-hmmer_scan: "output/hmmer/hmmer_scan.txt"
-hmmer_done: "output/hmmer/domains/.done"
-sort_marker: "output/domain_sorted/query_hmmer/domains/.done"
-sort_text: "output/domain_sorted/query_hmmer/hmmer_scan.txt"
-unique_pairs: "output/blast/unique_pairs_no_dup.tsv"
-meme_xml: "output/domain_sorted/meme_results/{domain}/meme.xml"
-msa_aligned: "output/domain_sorted/msa/{domain}.aligned.fasta"
-tree: "output/domain_sorted/tree/{domain}/{domain}.treefile"
-mrna: "output/domain_sorted/mrna/{domain}/mrna.fasta"
-first_property: "output/domain_sorted/properties/{domain}_pi_mw.tsv"
-gmap_annotation: "output/domain_sorted/gmap/{domain}.gff3"
-primers: "output/domain_sorted/primers/{domain}/{ptype}.txt"
-annotations: "output/domain_sorted/annotations_by_domain/{domain}.gff"
-select_genes: "output/domain_sorted/selected_genes/{domain}.txt"
-promoters: "output/domain_sorted/promoters/{domain}_promoters.fasta"
-promoter_meme: "output/domain_sorted/promoters/meme_results/{domain}/meme.html"
-primersearch_txt: "output/domain_sorted/primers/{domain}/{ptype}/primersearch.txt"
-primersearch_sim: "output/domain_sorted/primers/{domain}/{ptype}/_primersim.txt"
-crispr: "output/domain_sorted/crispr/{domain}/scored.tsv"
-pairs_to_run: "output/mcscanx/pairs_to_run.txt"
-pair_cds: "output/pairs_calculations/cds/{pair}.fasta"
-cds_align: "output/pairs_calculations/cds_aligned/{pair}.codon.fasta"
-ka/ks: "output/pairs_calculations/kaks/{pair}.kaks.txt"
-chromosome_map: "output/domain_sorted/chromosal_map/{domain}/chromosomal_map.png"
-gene_structure: "output/domain_sorted/gene_structures/{domain}/gene_structures"
-extra_properties: "output/domain_sorted/extra_properties/{domain}_physicochemical.csv"
-true_query: "output/true_query.fasta"
+# MULTI-QUERY SUPPORT
+# Define multiple queries as a dictionary. Each query has a name and sequence content.
+# The pipeline will run analysis for each query in parallel.
+# Format: query_name: |
+#   >sequence_header
+#   SEQUENCE_CONTENT
+queries:
+  DELLA_family: |
+    >NP_173292.1 myb domain protein 51 [Arabidopsis thaliana]
+    MVRTPCCKAELGLKKGAWTPEEDQKLLSYLNRHGEGGWRTLPEKAGLKRCGKSCRLRWANYLRPDIKRGE
+    FTEDEERSIISLHALHGNKWSAIARGLPGRTDNEIKNYWNTHIKKRLIKKGIDPVTHKGITSGTDKSENL
+    PEKQNVNLTTSDHDLDNDKAKKNNKNFGLSSASFLNKVANRFGKRINQSVLSEIIGSGGPLASTSHTTNT
+    TTTSVSVDSESVKSTSSSFAPTSNLLCHGTVATTPVSSNFDVDGNVNLTCSSSTFSDSSVNNPLMYCDNF
+    VGNNNVDDEDTIGFSTFLNDEDFMMLEESCVENTAFMKELTRFLHEDENDVVDVTPVYERQDLFDEIDNY
+    FG
+  # Example: add another family like this:
+  # HAM_family: |
+  #   >another_sequence_header
+  #   SEQUENCE_CONTENT_HERE
+output_domains: "output/{query}/hmmer/domains/*.fasta"
+filtered_pairs: "output/{query}/mcscanx/target_base.filtered_pairs.tsv"
+setup_marker: "output/{query}/.setup_done"
+secondary_query: "output/{query}/query.fasta"
+base_blast: "output/{query}/blast/base_blastp.tsv"
+target_blast: "output/{query}/blast/target_blastp.tsv"
+hmmer_scan: "output/{query}/hmmer/hmmer_scan.txt"
+hmmer_done: "output/{query}/hmmer/domains/.done"
+sort_marker: "output/{query}/domain_sorted/query_hmmer/domains/.done"
+sort_text: "output/{query}/domain_sorted/query_hmmer/hmmer_scan.txt"
+unique_pairs: "output/{query}/blast/unique_pairs_no_dup.tsv"
+meme_xml: "output/{query}/domain_sorted/meme_results/{domain}/meme.xml"
+msa_aligned: "output/{query}/domain_sorted/msa/{domain}.aligned.fasta"
+tree: "output/{query}/domain_sorted/tree/{domain}/{domain}.treefile"
+mrna: "output/{query}/domain_sorted/mrna/{domain}/mrna.fasta"
+first_property: "output/{query}/domain_sorted/properties/{domain}_pi_mw.tsv"
+gmap_annotation: "output/{query}/domain_sorted/gmap/{domain}.gff3"
+primers: "output/{query}/domain_sorted/primers/{domain}/{ptype}.txt"
+annotations: "output/{query}/domain_sorted/annotations_by_domain/{domain}.gff"
+select_genes: "output/{query}/domain_sorted/selected_genes/{domain}.txt"
+promoters: "output/{query}/domain_sorted/promoters/{domain}_promoters.fasta"
+promoter_meme: "output/{query}/domain_sorted/promoters/meme_results/{domain}/meme.html"
+primersearch_txt: "output/{query}/domain_sorted/primers/{domain}/{ptype}/primersearch.txt"
+primersearch_sim: "output/{query}/domain_sorted/primers/{domain}/{ptype}/_primersim.txt"
+crispr: "output/{query}/domain_sorted/crispr/{domain}/scored.tsv"
+pairs_to_run: "output/{query}/mcscanx/pairs_to_run.txt"
+pair_cds: "output/{query}/pairs_calculations/cds/{pair}.fasta"
+deeploc2_results: "output/{query}/domain_sorted/subcell_localization_prediction/results.csv"
+cds_align: "output/{query}/pairs_calculations/cds_aligned/{pair}.codon.fasta"
+ka/ks: "output/{query}/pairs_calculations/kaks/{pair}.kaks.txt"
+chromosome_map: "output/{query}/domain_sorted/chromosal_map/{domain}/chromosomal_map.png"
+gene_structure: "output/{query}/domain_sorted/gene_structures/{domain}/gene_structures"
+extra_properties: "output/{query}/domain_sorted/extra_properties/{domain}_physicochemical.csv"
+true_query: "output/{query}/true_query.fasta"
 target_proteome: "data/proteome/target/proteins.faa"
 target_prot_prefix: "data/proteome/target"
-target_tmp: "output/blast/tmp_target.tsv"
+target_tmp: "output/{query}/blast/tmp_target.tsv"
 base_proteome: "data/proteome/base/proteins.faa"
 base_prot_prefix: "data/proteome/base"
-hit_ids: "output/hmmer/hit_ids.txt"
-hit_seqs: "output/hmmer/hit_sequences.fasta"
+hit_ids: "output/{query}/hmmer/hit_ids.txt"
+hit_seqs: "output/{query}/hmmer/hit_sequences.fasta"
 pfam: "preset/pfam/Pfam-A.hmm"
-domain_tbl: "output/domain_sorted/query_hmmer/domtblout.txt"
-hmmer_hits: "output/domain_sorted/query_hmmer/combined_hits_query.fasta"
-hmmer_skip: "output/domain_sorted/query_hmmer/SKIPPED"
-combo_hits: "output/hmmer/combined_hits_query.fasta"
-domain_fasta: "output/hmmer/domains/{domain}.fasta"
-tree_skip: "output/domain_sorted/tree/{domain}/SKIPPED"
-tree_log: "output/domain_sorted/tree/{domain}/{domain}.iqtree.log"
+domain_tbl: "output/{query}/domain_sorted/query_hmmer/domtblout.txt"
+hmmer_hits: "output/{query}/domain_sorted/query_hmmer/combined_hits_query.fasta"
+hmmer_skip: "output/{query}/domain_sorted/query_hmmer/SKIPPED"
+combo_hits: "output/{query}/hmmer/combined_hits_query.fasta"
+domain_fasta: "output/{query}/hmmer/domains/{domain}.fasta"
+tree_skip: "output/{query}/domain_sorted/tree/{domain}/SKIPPED"
+tree_log: "output/{query}/domain_sorted/tree/{domain}/{domain}.iqtree.log"
 target_mrna: "data/genome/target/mrna.fasta"
 target_annotation: "data/genome/target/annotation.db"
 target_gmap: "data/gmap_db/target"
 target_genome: "data/genome/target/genome.fna"
-promoter_xml: "output/domain_sorted/promoters/meme_results/{domain}/meme.xml"
-promoter_skip: "output/domain_sorted/promoters/meme_results/{domain}/SKIPPED"
+promoter_xml: "output/{query}/domain_sorted/promoters/meme_results/{domain}/meme.xml"
+promoter_skip: "output/{query}/domain_sorted/promoters/meme_results/{domain}/SKIPPED"
 mcscanx_wgd_pairs: "data/mcscanx/target_base.wgd_pairs.tsv"
-conservation_stats: "output/mcscanx/conservation_stats.txt"
+conservation_stats: "output/{query}/mcscanx/conservation_stats.txt"
 base_cds: "data/genome/base/cds.fasta"
 target_cds: "data/genome/target/cds.fasta"
-pair_cds_fasta: "output/pairs_calculations/cds_aligned/{pair}.prot.fasta"
-cds_aligned_fasta: "output/pairs_calculations/cds_aligned/{pair}.prot.aln.fasta"
-axt_convert: "output/pairs_calculations/kaks_input/{pair}.axt"
+pair_cds_fasta: "output/{query}/pairs_calculations/cds_aligned/{pair}.prot.fasta"
+cds_aligned_fasta: "output/{query}/pairs_calculations/cds_aligned/{pair}.prot.aln.fasta"
+axt_convert: "output/{query}/pairs_calculations/kaks_input/{pair}.axt"
 flash_fry_index: "data/flashfry_index/genome"
 header: "data/flashfry_index/genome.header"
-gRNA_discovery: "output/domain_sorted/crispr/{domain}/discovery.output"
+gRNA_discovery: "output/{query}/domain_sorted/crispr/{domain}/discovery.output"
 target_gff: "data/genome/target/annotation.gff3"
 target_fai: "data/genome/target/genome.fna.fai"
 

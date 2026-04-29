@@ -54,6 +54,7 @@ run the following
         gunzip Pfam-A.hmm.gz
         cd ../.. 
         hmmpress -f preset/pfam/Pfam-A.hmm
+4. install deeploc2 from DTU (requires academic liscence, use the readme, can be long to install, so if needed, remove rule from main command)
 -----------------------------------------------------
 Usage Instructions
 
