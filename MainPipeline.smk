@@ -20,6 +20,9 @@ include: "modules/10_conservation.smk"
 include: "modules/11_visualization.smk"
 include: "modules/12_crispr.smk"
 
+# Include report generation module
+include: "GenerateReport.smk"
+
 # ============================================================================
 # MAIN AGGREGATION RULE
 # ============================================================================
@@ -65,3 +68,7 @@ rule all:
         *[expand(config["chromosome_map"], query=q, domain=get_domains(q)) for q in QUERIES],
         *[expand(config["gene_structure"], query=q, domain=get_domains(q)) for q in QUERIES],
         *[expand(config["extra_properties"], query=q, domain=get_domains(q)) for q in QUERIES],
+        
+        # Report generation
+        expand("output/{query}/report/final_report.html", query=QUERIES),
+        expand("output/{query}/report/report_metadata.json", query=QUERIES),

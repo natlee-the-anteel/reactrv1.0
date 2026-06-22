@@ -16,8 +16,8 @@ rule gmap_build_db:
     shell:
         """
         mkdir -p data/gmap_db/target
-        # Use the conda-installed gmap_build
-        gmap_build -D data/gmap_db/target -d db {input.genome}
+        # Use the conda-installed gmap_build with -L flag for large genomes
+        gmap_build -L -D data/gmap_db/target -d db {input.genome}
         touch {output.done}
         """
 

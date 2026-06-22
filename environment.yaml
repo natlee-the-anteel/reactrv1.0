@@ -104,7 +104,7 @@ dependencies:
   - meme
   - menuinst=2.2.0
   - mpi=1.0
-  - ncbi-datasets-cli=18.9.0
+  - ncbi-datasets-cli=18.30.1
   - ncbi-vdb=3.2.1
   - ncurses=6.5
   - nlohmann_json=3.11.3
