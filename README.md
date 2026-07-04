@@ -129,6 +129,3 @@ Sidenote: there were some discrepancies (relating to the isoforms), in which add
 Acknowledgements
 --------------------------------------------------------------
 The author conducted consultation calls with Dr. Zhiyong Wang, Dr. Jeffrey Groh, Shane Brubaker, and Dr. Lindy Jensen for advice on infrastructure changes, though this release does not necessarily reflect their views, nor does their inclusion constitute an endorsement of this code's content. The author would also like to thank Dr. Morton Nielson at the Technical University of Denmark for granting access to Deeploc (subcellular localization prediction). 
-
-Citations:
-https://drive.google.com/file/d/1yXfE7mirTI3_arohewrS54e4YhNeUgOE/view?usp=sharing
