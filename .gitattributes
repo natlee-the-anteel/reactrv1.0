@@ -1,3 +1,3 @@
 *.html linguist-generated=true
 *.ps linguist-generated=true
-reports/* linguist-documentation=true
+reactr_validation_examples/* linguist-documentation=true
