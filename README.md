@@ -54,12 +54,13 @@ run the following
         gunzip Pfam-A.hmm.gz
         cd ../.. 
         hmmpress -f preset/pfam/Pfam-A.hmm
-4. install deeploc2 from DTU (requires academic liscence, use the readme, can be long to install, so if needed, remove rule from main command)
+
+4. install deeploc2 from DTU (requires academic liscence, use the readme, can be long to install, so if needed, remove rule from main command). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
 -----------------------------------------------------
 Usage Instructions
 
 steps for users
-if you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml (2) delete the folder "reactr/data" if applicable, (3) run 
+if you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml and the asssembly accession number if needed. (2) delete the folder "reactr/data" if applicable, (3) run 
     
     snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p
 
@@ -70,8 +71,9 @@ if you are content with the current genomes or don't have one yet: (1) edit in d
 wait. this should take a few minutes max, though it scales with the number of proteins you query. next, once it says it's complete, then run 
 
     snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p
-------------------------------------------------------
+
 Format Instructions
+-----------------------------------------------------
 The only things that you really should need to edit (unless you're directly manipulating to code), is just the config.yaml. Specifically, just the taxonids (they're ncbi ids, they autodownload all the necesary stuff if you simply run the loaddatasets.smk rule (see above), and the query). Below is an example format: 
 
         query_contents: |
@@ -97,13 +99,29 @@ The only things that you really should need to edit (unless you're directly mani
 
 As you can see you only need to manipulate the line below the bar (|), and make sure that it startings with a "<", then continues with the name (the name format really does not matter, we clean your query's header to turn into the ncbi header in the output files). After that, you have the query in amino acid fasta format, all in caps with all the letters. 
 
-MISC Notes
-We have wildcards based on domains detected, the first one is to identify them,and the second is to do all the domain_sorted rules (i.e. meme, iqtree) its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file rather than just a singular gene. however, it's not the end of the world if you cant; we automatically do a blastp on your arabidopsis query against the arabidopsis genome, just to find similar arabdiposis genes when building trees/meme/msa --to note, we get rid of all duplicates it's also highly recommeneded, for clarity, that your gene headers for true_query.fasta are the common gene ID i.e. AT2G45160 rather than something like NP_182041.1 LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level and size of the genomes. Example, avocado target + arabidopsis base = ~20 minutes. (mostly became of gmap databse loading). you should expect MainPipeline.smk to be a lot faster (a few minutes max), but this also depends on the number of query sequences you upload everything else should generally run decently fast. If you don't want to run all the analysis tools, all you need to do is comment out what you dont want in the top of mainpipeline.smk rule all: input: etc (begins right around line 30). do it line by line, but be aware that if that thing is demanded in line after it, it will still run we allow only select one sequenced version for simplicity, make sure that you know what assembly accession you're using (go to NCBI for more details, example for arabidopsis: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=3702. Enter the Gen Bank ID please). You can manually upload your data, but make sure the paths are updated and the folder format is wildcard_constraints. Also, the purpose of the project is mainly to automate plant comparitivive genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be running this on plants, esp. non-model, little annotated, but commerically valuable crops.
+Q&A
+------------------------------------------
+1. We have wildcards based on domains detected, the first one is to identify them,and the second is to do all the domain_sorted rules (i.e. meme, iqtree) its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file rather than just a singular gene.
+2. Make sure that you know what assembly accession you're using (go to NCBI for more details, example for arabidopsis: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=3702. Enter the Gen Bank ID please (RefSeq ID's preferable whenever (even though they can often be misannotated with tons of unresolved isoforms)). Sidenote: we do have rules built in place to remove isoforms, but it's not 100% perfect yet. Bad annotations WILL cause problems with the pipeline as we're merely analyzing that data.
+3. We automatically do a blastp on your arabidopsis query against the arabidopsis genome, just to find similar arabdiposis genes when building trees/meme/msa --to note, we get rid of all duplicates
+4. LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level and size of the genomes. This may last up to a few hours for certain large genomes (due to tools that build larger databases). Example: avocado target + arabidopsis base = ~20 minutes. See snakemake validation logs (/reactr_validation_examples/{example_case/}
+5. You should expect MainPipeline.smk to be a lot faster (a few minutes max), but this also depends on the number of query sequences you upload (scales really high). For small gene families (<10), expect a few minutes. However, for larger ones, it make more time and may crash your computer depending on your infrastructure capabilites.
+6. If you don't want to run all the analysis tools, all you need to do is comment out what you dont want in the top of MainPipeline.smk rule all: input. Ddo it line by line, but be aware that if that thing is demanded in line after it, it will still run we allow only select one sequenced version for simplicity.
+7. You can manually upload your data, but make sure the paths are updated and the folder format is wildcard_constraints.
+8. The purpose of the project is mainly to automate plant comparitivive genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be running this on plants, esp. non-model, little annotated, but commerically valuable crops.
 
+Further directions
 ------------------------------------------------------------------------------------------
+Please reach out if you or your lab has access to HPCs. We're looking to use the HPCs to run this pipeline en masse and create a larger database that has the characterization profiles of as many species as possible, therby decreasing the need for more independent papers that analyze singular genes with the tools we already integrate. Also haven't conducted as many tests with larger gene families (i.e. 100+ genes per family) yet, due to limiations in personal computing power (the author has a macbook pro). Next, we're looking to increase compatibility with other OS systems (specifically Linux then Windows), which will likely be done through some Docker testing. Finally, a fully drafted manuscript that comprehensively describes this program is in the works
 
-Acknowledgements:
+Validation/Case studies Walkthough
+--------------------------------------------------------------------------------------------
+In each subfolder of /reactr_validation_examples, you can find the output table (similar structure to what you'll get if you run your own sequences and species in it). You'll see stuff like trees and protein properties, motifs and chromosomal localization, etc. These things are all sorted by domain (Pfam database). Addtionally, you'll see three snakemake logs, which detail the 3 commands and their outputs in your terminal (i.e. the step progress )when you run the program. 
 
+I did DELLA blueberry, HOOKLESS tomato, and PHYA rice. These were generally smaller (due to computational limits stated earlier) gene families. The number of genes, their identity, chromosomal localization, and phylogenetic trees seem to make sense. There are some areas of discreptancies (relating to the isoforms), in which additional splice variants/isoforms are included. However, further examinations with the phylogenetic trees makes it obvious to researchers that those are isoforms (we do have some counter measures by removing identical sequences, but small errors i.e. small variations in the C-terminus, do pass through.) The speed of all of them was remarkably quick compared to doing it by hand and also was highly accurate. 
+
+Acknowledgements
+--------------------------------------------------------------
 The author conducted consultation calls with Dr. Zhiyong Wang, Dr. Jeffrey Groh, Shane Brubaker, and Dr. Lindy Jensen for advice on infrastructure changes, though this release does not necessarily reflect their views, nor does their inclusion constitute an endorsement of this code's content. The author would also like to thank Dr. Morton Nielson at the Technical University of Denmark for granting access to Deeploc (subcellular localization prediction). 
 
 Citations:
