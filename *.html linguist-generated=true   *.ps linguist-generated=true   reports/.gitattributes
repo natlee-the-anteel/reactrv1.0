@@ -1,3 +1,0 @@
-  *.html linguist-generated=true
-  *.ps linguist-generated=true
-  reports/* linguist-documentation=true
