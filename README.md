@@ -55,7 +55,7 @@ run the following
         cd ../.. 
         hmmpress -f preset/pfam/Pfam-A.hmm
 
-4. install deeploc2 from DTU (requires academic liscence, use the readme, can be long to install, so if needed, remove rule from main command). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
+4. install deeploc2 from DTU (requires academic license, use the readme, can be long to install, so if needed, remove rule from main command). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
 -----------------------------------------------------
 Usage Instructions
 
