@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please also cite the underlying tools and databases listed below."
 title: "REACTR: a Rapid Exploration And Characterization Tool for Research"
 type: software
-author:
+authors:
   - family-names: Lee
     given-names: Nathan
 identifiers:
