@@ -1,9 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this software, please also cite the underlying tools and databases listed below."
-title: "Bioinformatics Pipeline"
+title: "REACTR: a Rapid Exploration And Characterization Tool for Research"
 type: software
-authors:
-  - name: "TODO: Add author name(s) here"
+author:
+  - family-names: Lee
+    given-names: Nathan
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.1830654
+date-released: 2026-01-19
 references:
   # --- Sequence Alignment & Search (BLAST, DIAMOND, FASTA) ---
   - type: article
