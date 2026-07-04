@@ -1,3 +1,4 @@
 *.html linguist-generated=true
-*.PostScript linguist-generated=true
+*.ps linguist-generated=true
+*.eps linguist-generated=true
 reactr_validation_examples/* linguist-documentation=true
