@@ -118,7 +118,13 @@ Validation/Case studies Walkthough
 --------------------------------------------------------------------------------------------
 In each subfolder of /reactr_validation_examples, you can find the output table (similar structure to what you'll get if you run your own sequences and species in it). You'll see stuff like trees and protein properties, motifs and chromosomal localization, etc. These things are all sorted by domain (Pfam database). Addtionally, you'll see three snakemake logs, which detail the 3 commands and their outputs in your terminal (i.e. the step progress )when you run the program. 
 
-I did DELLA blueberry, HOOKLESS tomato, and PHYA rice. These were generally smaller (due to computational limits stated earlier) gene families. The number of genes, their identity, chromosomal localization, and phylogenetic trees seem to make sense. There are some areas of discreptancies (relating to the isoforms), in which additional splice variants/isoforms are included. However, further examinations with the phylogenetic trees makes it obvious to researchers that those are isoforms (we do have some counter measures by removing identical sequences, but small errors i.e. small variations in the C-terminus, do pass through.) The speed of all of them was remarkably quick compared to doing it by hand and also was highly accurate. 
+I did validaiton on the DELLA blueberry (Vaccinium darrowii), HOOKLESS tomato (Solanum lycopersicum), and PHY rice gene families . These were generally smaller (due to computational limits stated earlier) gene families. The number of genes, their identity, chromosomal localization, and phylogenetic trees strongly agree with previous literature. The papers can be found here.
+
+        DELLA (Zhou et al., 2024) https://pmc.ncbi.nlm.nih.gov/articles/PMC11360860/
+        HOOKLESS (Chaabouni et al., 2016) https://www.sciencedirect.com/science/article/abs/pii/S0176161716300931
+        PHY (Takano et al., 2009) https://www.pnas.org/doi/10.1073/pnas.0907378106
+
+Sidenote: there were some discreptancies (relating to the isoforms), in which additional splice variants/isoforms are included during BLAST searches. However, further examinations with the phylogenetic trees makes it obvious to researchers that those are isoforms (we do have some counter measures by removing identical sequences, but small errors i.e. small variations in the C-terminus, do pass through.) The speed of all of them was remarkably quick compared to doing it by hand and also was highly accurate. 
 
 Acknowledgements
 --------------------------------------------------------------
