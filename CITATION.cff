@@ -1,0 +1,659 @@
+cff-version: 1.2.0
+message: "If you use this software, please also cite the underlying tools and databases listed below."
+title: "Bioinformatics Pipeline"
+type: software
+authors:
+  - name: "TODO: Add author name(s) here"
+references:
+  # --- Sequence Alignment & Search (BLAST, DIAMOND, FASTA) ---
+  - type: article
+    authors:
+      - family-names: Altschul
+        given-names: "S. F."
+      - family-names: Gish
+        given-names: "W."
+      - family-names: Miller
+        given-names: "W."
+      - family-names: Myers
+        given-names: "E. W."
+      - family-names: Lipman
+        given-names: "D. J."
+    title: "Basic local alignment search tool"
+    journal: "Journal of Molecular Biology"
+    volume: "215"
+    issue: "3"
+    start: "403"
+    end: "410"
+    year: 1990
+    doi: "10.1016/S0022-2836(05)80360-2"
+
+  - type: article
+    authors:
+      - family-names: Buchfink
+        given-names: "B."
+      - family-names: Reuter
+        given-names: "K."
+      - family-names: Drost
+        given-names: "H.-G."
+    title: "Sensitive protein alignments at tree-of-life scale using DIAMOND"
+    journal: "Nature Methods"
+    volume: "18"
+    issue: "4"
+    start: "366"
+    end: "368"
+    year: 2021
+    doi: "10.1038/s41592-021-01101-x"
+
+  - type: article
+    authors:
+      - family-names: Camacho
+        given-names: "C."
+      - family-names: Coulouris
+        given-names: "G."
+      - family-names: Avagyan
+        given-names: "V."
+      - family-names: Ma
+        given-names: "N."
+      - family-names: Papadopoulos
+        given-names: "J."
+      - family-names: Bealer
+        given-names: "K."
+      - family-names: Madden
+        given-names: "T. L."
+    title: "BLAST+: Architecture and applications"
+    journal: "BMC Bioinformatics"
+    volume: "10"
+    notes: "Article 421"
+    year: 2009
+    doi: "10.1186/1471-2105-10-421"
+
+  - type: article
+    authors:
+      - family-names: Pearson
+        given-names: "W. R."
+      - family-names: Lipman
+        given-names: "D. J."
+    title: "Improved tools for biological sequence comparison"
+    journal: "Proceedings of the National Academy of Sciences"
+    volume: "85"
+    issue: "8"
+    start: "2444"
+    end: "2448"
+    year: 1988
+    doi: "10.1073/pnas.85.8.2444"
+
+  # --- Multiple Sequence Alignment & Phylogenetics (MUSCLE, IQ-TREE) ---
+  - type: article
+    authors:
+      - family-names: Edgar
+        given-names: "R. C."
+    title: "MUSCLE: Multiple sequence alignment with high accuracy and high throughput"
+    journal: "Nucleic Acids Research"
+    volume: "32"
+    issue: "5"
+    start: "1792"
+    end: "1797"
+    year: 2004
+    doi: "10.1093/nar/gkh340"
+
+  - type: article
+    authors:
+      - family-names: Edgar
+        given-names: "R. C."
+    title: "MUSCLE v5 enables improved estimates of phylogenetic tree confidence by ensemble bootstrapping"
+    journal: "bioRxiv"
+    year: 2021
+    doi: "10.1101/2021.06.20.449169"
+
+  - type: article
+    authors:
+      - family-names: Minh
+        given-names: "B. Q."
+      - name: "et al."
+    title: "IQ-TREE 2: New models and efficient methods for phylogenetic inference in the genomic era"
+    journal: "Molecular Biology and Evolution"
+    volume: "37"
+    issue: "5"
+    start: "1530"
+    end: "1534"
+    year: 2020
+    doi: "10.1093/molbev/msaa015"
+
+  - type: article
+    authors:
+      - family-names: Nguyen
+        given-names: "L. T."
+      - family-names: Schmidt
+        given-names: "H. A."
+      - family-names: "von Haeseler"
+        given-names: "A."
+      - family-names: Minh
+        given-names: "B. Q."
+    title: "IQ-TREE: A fast and effective stochastic algorithm for estimating maximum-likelihood phylogenies"
+    journal: "Molecular Biology and Evolution"
+    volume: "32"
+    issue: "1"
+    start: "268"
+    end: "274"
+    year: 2015
+    doi: "10.1093/molbev/msu300"
+
+  # --- Python Libraries & Core Infrastructure (Biopython, Pandas, Matplotlib) ---
+  - type: article
+    authors:
+      - family-names: Chapman
+        given-names: "B."
+      - family-names: Chang
+        given-names: "J."
+    title: "Biopython: Python tools for computational biology"
+    journal: "ACM SIGBIO Newsletter"
+    volume: "20"
+    issue: "2"
+    start: "15"
+    end: "19"
+    year: 2000
+
+  - type: article
+    authors:
+      - family-names: Cock
+        given-names: "P. J. A."
+      - family-names: Antao
+        given-names: "T."
+      - family-names: Chang
+        given-names: "J. T."
+      - family-names: Chapman
+        given-names: "B. A."
+      - family-names: Cox
+        given-names: "C. J."
+      - family-names: Dalke
+        given-names: "A."
+      - name: "et al."
+      - family-names: "de Hoon"
+        given-names: "M. J. L."
+    title: "Biopython: Freely available Python tools for computational molecular biology and bioinformatics"
+    journal: "Bioinformatics"
+    volume: "25"
+    issue: "11"
+    start: "1422"
+    end: "1423"
+    year: 2009
+    doi: "10.1093/bioinformatics/btp163"
+
+  - type: article
+    authors:
+      - family-names: Hunter
+        given-names: "J. D."
+    title: "Matplotlib: A 2D graphics environment"
+    journal: "Computing in Science & Engineering"
+    volume: "9"
+    issue: "3"
+    start: "90"
+    end: "95"
+    year: 2007
+    doi: "10.1109/MCSE.2007.55"
+
+  - type: conference-paper
+    authors:
+      - family-names: McKinney
+        given-names: "W."
+    title: "Data Structures for Statistical Computing in Python"
+    conference:
+      name: "9th Python in Science Conference"
+    start: "56"
+    end: "61"
+    year: 2010
+    doi: "10.25080/Majora-92bf1922-00a"
+
+  # --- Genomic File Manipulation (gffutils, pybedtools, SAMtools) ---
+  - type: software
+    authors:
+      - family-names: Dale
+        given-names: "R. K."
+    title: "gffutils: GFF and GTF file manipulation and interconversion"
+    version: "0.13"
+    year: 2024
+    url: "https://github.com/daler/gffutils"
+
+  - type: article
+    authors:
+      - family-names: Dale
+        given-names: "R. K."
+      - family-names: Pedersen
+        given-names: "B. S."
+      - family-names: Quinlan
+        given-names: "A. R."
+    title: "Pybedtools: A flexible Python library for manipulating genomic datasets and annotations"
+    journal: "Bioinformatics"
+    volume: "27"
+    issue: "24"
+    start: "3423"
+    end: "3424"
+    year: 2011
+    doi: "10.1093/bioinformatics/btr539"
+
+  - type: article
+    authors:
+      - family-names: Danecek
+        given-names: "P."
+      - family-names: Bonfield
+        given-names: "J. K."
+      - family-names: Liddle
+        given-names: "J."
+      - family-names: Marshall
+        given-names: "J."
+      - family-names: Ohan
+        given-names: "V."
+      - family-names: Pollard
+        given-names: "M. O."
+      - name: "et al."
+      - family-names: Li
+        given-names: "H."
+    title: "Twelve years of SAMtools and BCFtools"
+    journal: "GigaScience"
+    volume: "10"
+    issue: "2"
+    notes: "Article giab008"
+    year: 2021
+    doi: "10.1093/gigascience/giab008"
+
+  # --- Genomics Utilities & Short Read Mapping (GMAP, GSNAP) ---
+  - type: article
+    authors:
+      - family-names: Wu
+        given-names: "T. D."
+      - family-names: Nacu
+        given-names: "S."
+    title: "Fast and SNP-tolerant detection of complex variants and splicing in short reads"
+    journal: "Bioinformatics"
+    volume: "26"
+    issue: "7"
+    start: "873"
+    end: "881"
+    year: 2010
+    doi: "10.1093/bioinformatics/btq057"
+
+  - type: article
+    authors:
+      - family-names: Wu
+        given-names: "T. D."
+      - family-names: Watanabe
+        given-names: "C. K."
+    title: "GMAP: A genomic mapping and alignment program for mRNA and EST sequences"
+    journal: "Bioinformatics"
+    volume: "21"
+    issue: "9"
+    start: "1859"
+    end: "1875"
+    year: 2005
+    doi: "10.1093/bioinformatics/bti310"
+
+  # --- Databases & Ontologies (Pfam, RefSeq, Sequence Ontology) ---
+  - type: article
+    authors:
+      - family-names: Bateman
+        given-names: "A."
+      - name: "et al."
+    title: "The Pfam protein families database"
+    journal: "Nucleic Acids Research"
+    volume: "32"
+    notes: "Database issue"
+    start: "D138"
+    end: "D141"
+    year: 2004
+    doi: "10.1093/nar/gkh121"
+
+  - type: article
+    authors:
+      - family-names: Eilbeck
+        given-names: "K."
+      - name: "et al."
+    title: "The Sequence Ontology: A tool for the unification of genome annotations"
+    journal: "Genome Biology"
+    volume: "6"
+    notes: "R44"
+    year: 2005
+    doi: "10.1186/gb-2005-6-5-r44"
+
+  - type: article
+    authors:
+      - family-names: Mistry
+        given-names: "J."
+      - name: "et al."
+    title: "Pfam: The protein families database in 2021"
+    journal: "Nucleic Acids Research"
+    volume: "49"
+    issue: "D1"
+    start: "D412"
+    end: "D419"
+    year: 2021
+    doi: "10.1093/nar/gkaa913"
+
+  - type: article
+    authors:
+      - family-names: "O'Leary"
+        given-names: "N. A."
+      - family-names: Wright
+        given-names: "M. W."
+      - family-names: Brister
+        given-names: "J. R."
+      - family-names: Ciufo
+        given-names: "S."
+      - family-names: Haddad
+        given-names: "D."
+      - family-names: McVeigh
+        given-names: "R."
+      - name: "et al."
+      - family-names: Pruitt
+        given-names: "K. D."
+    title: "Reference sequence (RefSeq) database at NCBI: Current status, taxonomic expansion, and functional annotation"
+    journal: "Nucleic Acids Research"
+    volume: "44"
+    issue: "D1"
+    start: "D733"
+    end: "D745"
+    year: 2016
+    doi: "10.1093/nar/gkv1189"
+
+  # --- Evolutionary Analysis & Codon Modeling (PAL2NAL, KaKs_Calculator, MCScanX) ---
+  - type: article
+    authors:
+      - family-names: Nei
+        given-names: "M."
+      - family-names: Gojobori
+        given-names: "T."
+    title: "Simple methods for estimating the numbers of synonymous and nonsynonymous nucleotide substitutions"
+    journal: "Molecular Biology and Evolution"
+    volume: "3"
+    issue: "5"
+    start: "418"
+    end: "426"
+    year: 1986
+    doi: "10.1093/oxfordjournals.molbev.a040410"
+
+  - type: article
+    authors:
+      - family-names: Suyama
+        given-names: "M."
+      - family-names: Torrents
+        given-names: "D."
+      - family-names: Bork
+        given-names: "P."
+    title: "PAL2NAL: Robust conversion of protein sequence alignments into the corresponding codon alignments"
+    journal: "Nucleic Acids Research"
+    volume: "34"
+    notes: "Web Server issue"
+    start: "W609"
+    end: "W612"
+    year: 2006
+    doi: "10.1093/nar/gkl315"
+
+  - type: article
+    authors:
+      - family-names: Wang
+        given-names: "D."
+      - family-names: Zhang
+        given-names: "Y."
+      - family-names: Zhang
+        given-names: "Z."
+      - family-names: Zhu
+        given-names: "J."
+      - family-names: Yu
+        given-names: "J."
+    title: "KaKs_Calculator 2.0: A toolkit incorporating gamma-series methods and sliding window strategies"
+    journal: "Genomics Proteomics Bioinformatics"
+    volume: "8"
+    issue: "1"
+    start: "77"
+    end: "80"
+    year: 2010
+    doi: "10.1016/S1672-0229(10)60008-3"
+
+  - type: article
+    authors:
+      - family-names: Wang
+        given-names: "Y."
+      - family-names: Tang
+        given-names: "H."
+      - family-names: DeBarry
+        given-names: "J. D."
+      - family-names: Tan
+        given-names: "X."
+      - family-names: Li
+        given-names: "J."
+      - family-names: Wang
+        given-names: "X."
+      - name: "et al."
+      - family-names: Paterson
+        given-names: "A. H."
+    title: "MCScanX: A toolkit for detection and evolutionary analysis of gene synteny and collinearity"
+    journal: "Nucleic Acids Research"
+    volume: "40"
+    issue: "7"
+    notes: "e49"
+    year: 2012
+    doi: "10.1093/nar/gkr1293"
+
+  - type: article
+    authors:
+      - family-names: Zhang
+        given-names: "Z."
+      - family-names: Li
+        given-names: "J."
+      - family-names: Zhao
+        given-names: "X. Q."
+      - family-names: Wang
+        given-names: "J."
+      - family-names: Wong
+        given-names: "G. K."
+      - family-names: Yu
+        given-names: "J."
+    title: "KaKs_Calculator: Calculating Ka and Ks through model selection and model averaging"
+    journal: "Genomics Proteomics Bioinformatics"
+    volume: "4"
+    issue: "4"
+    start: "259"
+    end: "263"
+    year: 2006
+    doi: "10.1016/S1672-0229(07)60007-2"
+
+  # --- Workflow Management (Snakemake) ---
+  - type: article
+    authors:
+      - family-names: Köster
+        given-names: "J."
+      - family-names: Rahmann
+        given-names: "S."
+    title: "Snakemake—a scalable bioinformatics workflow engine"
+    journal: "Bioinformatics"
+    volume: "28"
+    issue: "19"
+    start: "2520"
+    end: "2522"
+    year: 2012
+    doi: "10.1093/bioinformatics/bts480"
+
+  - type: article
+    authors:
+      - family-names: Mölder
+        given-names: "F."
+      - family-names: Jablonski
+        given-names: "K. P."
+      - family-names: Letcher
+        given-names: "B."
+      - family-names: Hall
+        given-names: "M. B."
+      - family-names: Tomkins-Tinch
+        given-names: "C. H."
+      - family-names: Sochat
+        given-names: "V."
+      - name: "et al."
+      - family-names: Köster
+        given-names: "J."
+    title: "Sustainable data analysis with Snakemake"
+    journal: "F1000Research"
+    volume: "10"
+    notes: "Article 33"
+    year: 2021
+    doi: "10.12688/f1000research.29032.2"
+
+  # --- Visualization Tools (pyGenomeViz, DNA Features Viewer) ---
+  - type: article
+    authors:
+      - family-names: Yamada
+        given-names: "K. D."
+    title: "pyGenomeViz: A genome visualization python package for comparative genomics"
+    journal: "Bioinformatics"
+    volume: "38"
+    issue: "19"
+    start: "4623"
+    end: "4625"
+    year: 2022
+    doi: "10.1093/bioinformatics/btac488"
+
+  - type: article
+    authors:
+      - family-names: Zulkower
+        given-names: "V."
+      - family-names: Rosser
+        given-names: "S."
+    title: "DNA Features Viewer: A sequence annotation formatting and plotting library for Python"
+    journal: "Bioinformatics"
+    volume: "36"
+    issue: "15"
+    start: "4350"
+    end: "4352"
+    year: 2020
+    doi: "10.1093/bioinformatics/btaa404"
+
+  # --- CRISPR Target Design (FlashFry, Hsu et al., Doench et al.) ---
+  - type: article
+    authors:
+      - family-names: Doench
+        given-names: "J. G."
+      - name: "et al."
+    title: "Rational design of highly active sgRNAs for CRISPR-Cas9–mediated gene inactivation"
+    journal: "Nature Biotechnology"
+    volume: "32"
+    start: "1262"
+    end: "1267"
+    year: 2014
+    doi: "10.1038/nbt.3026"
+
+  - type: article
+    authors:
+      - family-names: Hsu
+        given-names: "P. D."
+      - name: "et al."
+    title: "DNA targeting specificity of RNA-guided Cas9 nucleases"
+    journal: "Nature Biotechnology"
+    volume: "31"
+    start: "827"
+    end: "832"
+    year: 2013
+    doi: "10.1038/nbt.2647"
+
+  - type: article
+    authors:
+      - family-names: McKenna
+        given-names: "A."
+      - family-names: Shendure
+        given-names: "J."
+    title: "FlashFry: A fast and flexible tool for large-scale CRISPR target design"
+    journal: "BMC Biology"
+    volume: "16"
+    notes: "Article 74"
+    year: 2018
+    doi: "10.1186/s12915-018-0545-0"
+
+  # --- Motif Discovery & Hidden Markov Models (MEME Suite, HMMER) ---
+  - type: conference-paper
+    authors:
+      - family-names: Bailey
+        given-names: "T. L."
+      - family-names: Elkan
+        given-names: "C."
+    title: "Fitting a mixture model by expectation maximization to discover motifs in biopolymers"
+    conference:
+      name: "Proceedings of the International Conference on Intelligent Systems for Molecular Biology"
+    volume: "2"
+    start: "28"
+    end: "36"
+    year: 1994
+    notes: "PMID: 7584402"
+
+  - type: article
+    authors:
+      - family-names: Bailey
+        given-names: "T. L."
+      - family-names: Johnson
+        given-names: "J."
+      - family-names: Grant
+        given-names: "C. E."
+      - family-names: Noble
+        given-names: "W. S."
+    title: "The MEME Suite"
+    journal: "Nucleic Acids Research"
+    volume: "43"
+    issue: "W1"
+    start: "W39"
+    end: "W49"
+    year: 2015
+    doi: "10.1093/nar/gkv416"
+
+  - type: article
+    authors:
+      - family-names: Eddy
+        given-names: "S. R."
+    title: "Accelerated Profile HMM Searches"
+    journal: "PLOS Computational Biology"
+    volume: "7"
+    issue: "10"
+    notes: "e1002195"
+    year: 2011
+    doi: "10.1371/journal.pcbi.1002195"
+
+  # --- Primer Design & General Toolkits (Primer3, EMBOSS) ---
+  - type: article
+    authors:
+      - family-names: Koressaar
+        given-names: "T."
+      - family-names: Remm
+        given-names: "M."
+    title: "Enhancements and modifications of primer design program Primer3"
+    journal: "Bioinformatics"
+    volume: "23"
+    issue: "10"
+    start: "1289"
+    end: "1291"
+    year: 2007
+    doi: "10.1093/bioinformatics/btm091"
+
+  - type: article
+    authors:
+      - family-names: Rice
+        given-names: "P."
+      - family-names: Longden
+        given-names: "I."
+      - family-names: Bleasby
+        given-names: "A."
+    title: "EMBOSS: The European Molecular Biology Open Software Suite"
+    journal: "Trends in Genetics"
+    volume: "16"
+    issue: "6"
+    start: "276"
+    end: "277"
+    year: 2000
+    doi: "10.1016/S0168-9525(00)02024-2"
+
+  - type: article
+    authors:
+      - family-names: Untergasser
+        given-names: "A."
+      - name: "et al."
+    title: "Primer3—new capabilities and interfaces"
+    journal: "Nucleic Acids Research"
+    volume: "40"
+    issue: "15"
+    notes: "e115"
+    year: 2012
+    doi: "10.1093/nar/gks596"
