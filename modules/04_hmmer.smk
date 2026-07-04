@@ -82,10 +82,20 @@ rule combine_hits_and_query:
         combined=config["combo_hits"]
     run:
         from Bio import SeqIO
+
+        seen_sequences = set()
+        kept_records = []
+
+        for fasta_path in [input.query, input.hits]:
+            for rec in SeqIO.parse(fasta_path, "fasta"):
+                seq_key = str(rec.seq).strip().upper()
+                if seq_key in seen_sequences:
+                    continue
+                seen_sequences.add(seq_key)
+                kept_records.append(rec)
+
         with open(output.combined, "w") as out_f:
-            for f in [input.query, input.hits]:
-                for rec in SeqIO.parse(f, "fasta"):
-                    SeqIO.write(rec, out_f, "fasta")
+            SeqIO.write(kept_records, out_f, "fasta")
 
 rule run_hmmer:
     input:
@@ -105,9 +115,6 @@ rule split_by_domain:
         query_fasta=config["secondary_query"]
     output:
         done=config["hmmer_done"]
-    params:
-        max_total=8,
-        max_bg=6,
     run:
         import os
         import re
@@ -170,8 +177,7 @@ rule split_by_domain:
             if not query_hits:
                 continue
 
-            bg_hits = bg_hits[:params.max_bg]
-            final_ids = (query_hits + bg_hits)[:params.max_total]
+            final_ids = query_hits + bg_hits
 
             if len(final_ids) < 2:
                 continue

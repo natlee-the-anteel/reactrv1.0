@@ -1,0 +1,260 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                           count
+------------------------------------------  -------
+all                                               1
+blastp_base                                       1
+calculate_conservation_and_kaks_input             1
+combine_hits_and_query                            1
+convert_query_to_tsv                              1
+extract_filtered_target_hits                      1
+extract_hit_ids                                   1
+extract_hit_sequences                             1
+extract_unique_pairs_no_dup_within_species        1
+generate_query_fasta                              1
+run_deeploc2                                      1
+run_hmmer                                         1
+run_hmmer_on_query                                1
+setup_output                                      1
+split_by_domain                                   1
+split_query_by_domain                             1
+total                                            16
+
+Select jobs to execute...
+
+[Fri Jul  3 21:31:36 2026]
+rule setup_output:
+    output: output/PHY/.setup_done
+    jobid: 1
+    reason: Forced execution
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+rm -rf outputs/ && mkdir -p $(dirname output/PHY/.setup_done) && touch output/PHY/.setup_done
+
+[Fri Jul  3 21:31:36 2026]
+rule generate_query_fasta:
+    output: output/PHY/true_query.fasta
+    jobid: 3
+    reason: Forced execution
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+Touching output file output/PHY/.setup_done.
+[Fri Jul  3 21:31:36 2026]
+Finished job 1.
+1 of 16 steps (6%) done
+[Fri Jul  3 21:31:37 2026]
+Finished job 3.
+2 of 16 steps (12%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:37 2026]
+rule extract_filtered_target_hits:
+    input: output/PHY/true_query.fasta, data/proteome/target/proteins.faa
+    output: output/PHY/query.fasta
+    jobid: 2
+    reason: Missing output files: output/PHY/query.fasta; Input files updated by another job: output/PHY/true_query.fasta
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:41 2026]
+Finished job 2.
+3 of 16 steps (19%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:41 2026]
+rule run_hmmer_on_query:
+    input: output/PHY/query.fasta, preset/pfam/Pfam-A.hmm
+    output: output/PHY/domain_sorted/query_hmmer/hmmer_scan.txt, output/PHY/domain_sorted/query_hmmer/domtblout.txt, output/PHY/domain_sorted/query_hmmer/combined_hits_query.fasta, output/PHY/domain_sorted/query_hmmer/SKIPPED
+    jobid: 15
+    reason: Missing output files: output/PHY/domain_sorted/query_hmmer/hmmer_scan.txt, output/PHY/domain_sorted/query_hmmer/combined_hits_query.fasta; Input files updated by another job: output/PHY/query.fasta
+    wildcards: query=PHY
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:41 2026]
+rule run_deeploc2:
+    input: output/PHY/query.fasta
+    output: output/PHY/domain_sorted/subcell_localization_prediction/results.csv
+    jobid: 4
+    reason: Missing output files: output/PHY/domain_sorted/subcell_localization_prediction/results.csv; Input files updated by another job: output/PHY/query.fasta
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/PHY/domain_sorted/subcell_localization_prediction/results.csv)
+        deeploc2 -f output/PHY/query.fasta -o $(dirname output/PHY/domain_sorted/subcell_localization_prediction/results.csv)
+        # Rename the timestamped output to the expected filename
+        mv $(dirname output/PHY/domain_sorted/subcell_localization_prediction/results.csv)/results_*.csv output/PHY/domain_sorted/subcell_localization_prediction/results.csv
+        
+
+[Fri Jul  3 21:31:41 2026]
+rule blastp_base:
+    input: output/PHY/query.fasta, data/proteome/base/proteins.faa
+    output: output/PHY/blast/base_blastp.tsv
+    jobid: 5
+    reason: Missing output files: output/PHY/blast/base_blastp.tsv; Input files updated by another job: output/PHY/query.fasta
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        if [ ! -f data/proteome/base.pin ]; then
+            makeblastdb -in data/proteome/base/proteins.faa -dbtype prot -out data/proteome/base
+        fi
+        blastp -query output/PHY/query.fasta -db data/proteome/base -out output/PHY/blast/base_blastp.tsv -outfmt 6 -evalue 1e-5 -max_target_seqs 5
+        
+[Fri Jul  3 21:31:44 2026]
+Finished job 5.
+4 of 16 steps (25%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:44 2026]
+rule extract_unique_pairs_no_dup_within_species:
+    input: output/PHY/blast/base_blastp.tsv
+    output: output/PHY/blast/unique_pairs_no_dup.tsv
+    jobid: 8
+    reason: Missing output files: output/PHY/blast/unique_pairs_no_dup.tsv; Input files updated by another job: output/PHY/blast/base_blastp.tsv
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:45 2026]
+Finished job 15.
+5 of 16 steps (31%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:45 2026]
+rule split_query_by_domain:
+    input: output/PHY/domain_sorted/query_hmmer/hmmer_scan.txt, output/PHY/domain_sorted/query_hmmer/combined_hits_query.fasta
+    output: output/PHY/domain_sorted/query_hmmer/domains/.done
+    jobid: 14
+    reason: Missing output files: output/PHY/domain_sorted/query_hmmer/domains/.done; Input files updated by another job: output/PHY/domain_sorted/query_hmmer/hmmer_scan.txt, output/PHY/domain_sorted/query_hmmer/combined_hits_query.fasta
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:45 2026]
+Finished job 8.
+6 of 16 steps (38%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:45 2026]
+rule calculate_conservation_and_kaks_input:
+    input: data/mcscanx/target_base.wgd_pairs.tsv, output/PHY/blast/unique_pairs_no_dup.tsv
+    output: output/PHY/mcscanx/target_base.filtered_pairs.tsv, output/PHY/mcscanx/conservation_stats.txt, output/PHY/mcscanx/pairs_to_run.txt
+    jobid: 7
+    reason: Missing output files: output/PHY/mcscanx/pairs_to_run.txt, output/PHY/mcscanx/target_base.filtered_pairs.tsv; Input files updated by another job: output/PHY/blast/unique_pairs_no_dup.tsv
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:45 2026]
+Finished job 14.
+7 of 16 steps (44%) done
+[Fri Jul  3 21:31:46 2026]
+Finished job 7.
+8 of 16 steps (50%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:46 2026]
+rule convert_query_to_tsv:
+    input: output/PHY/query.fasta, output/PHY/mcscanx/target_base.filtered_pairs.tsv
+    output: output/PHY/blast/target_blastp.tsv
+    jobid: 6
+    reason: Missing output files: output/PHY/blast/target_blastp.tsv; Input files updated by another job: output/PHY/query.fasta, output/PHY/mcscanx/target_base.filtered_pairs.tsv
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:47 2026]
+Finished job 6.
+9 of 16 steps (56%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:47 2026]
+rule extract_hit_ids:
+    input: output/PHY/blast/base_blastp.tsv, output/PHY/blast/target_blastp.tsv
+    output: output/PHY/hmmer/hit_ids.txt
+    jobid: 12
+    reason: Missing output files: output/PHY/hmmer/hit_ids.txt; Input files updated by another job: output/PHY/blast/target_blastp.tsv, output/PHY/blast/base_blastp.tsv
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:47 2026]
+Finished job 12.
+10 of 16 steps (62%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:47 2026]
+rule extract_hit_sequences:
+    input: output/PHY/hmmer/hit_ids.txt, data/proteome/base/proteins.faa, data/proteome/target/proteins.faa
+    output: output/PHY/hmmer/hit_sequences.fasta
+    jobid: 11
+    reason: Missing output files: output/PHY/hmmer/hit_sequences.fasta; Input files updated by another job: output/PHY/hmmer/hit_ids.txt
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:48 2026]
+Finished job 11.
+11 of 16 steps (69%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:48 2026]
+rule combine_hits_and_query:
+    input: output/PHY/hmmer/hit_sequences.fasta, output/PHY/query.fasta
+    output: output/PHY/hmmer/combined_hits_query.fasta
+    jobid: 10
+    reason: Missing output files: output/PHY/hmmer/combined_hits_query.fasta; Input files updated by another job: output/PHY/hmmer/hit_sequences.fasta, output/PHY/query.fasta
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:49 2026]
+Finished job 10.
+12 of 16 steps (75%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:49 2026]
+rule run_hmmer:
+    input: output/PHY/hmmer/combined_hits_query.fasta, preset/pfam/Pfam-A.hmm
+    output: output/PHY/hmmer/hmmer_scan.txt
+    jobid: 9
+    reason: Missing output files: output/PHY/hmmer/hmmer_scan.txt; Input files updated by another job: output/PHY/hmmer/combined_hits_query.fasta
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        hmmscan --cpu 8 --tblout output/PHY/hmmer/hmmer_scan.txt preset/pfam/Pfam-A.hmm output/PHY/hmmer/combined_hits_query.fasta
+        
+[Fri Jul  3 21:31:58 2026]
+Finished job 9.
+13 of 16 steps (81%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:31:58 2026]
+rule split_by_domain:
+    input: output/PHY/hmmer/hmmer_scan.txt, output/PHY/hmmer/combined_hits_query.fasta, output/PHY/query.fasta
+    output: output/PHY/hmmer/domains/.done
+    jobid: 13
+    reason: Missing output files: output/PHY/hmmer/domains/.done; Input files updated by another job: output/PHY/hmmer/combined_hits_query.fasta, output/PHY/query.fasta, output/PHY/hmmer/hmmer_scan.txt
+    wildcards: query=PHY
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:31:59 2026]
+Finished job 13.
+14 of 16 steps (88%) done
+[Fri Jul  3 21:32:21 2026]
+Finished job 4.
+15 of 16 steps (94%) done
+Select jobs to execute...
+
+[Fri Jul  3 21:32:21 2026]
+localrule all:
+    input: output/PHY/.setup_done, output/PHY/query.fasta, output/PHY/true_query.fasta, output/PHY/domain_sorted/subcell_localization_prediction/results.csv, output/PHY/blast/base_blastp.tsv, output/PHY/blast/target_blastp.tsv, output/PHY/blast/unique_pairs_no_dup.tsv, output/PHY/hmmer/hmmer_scan.txt, output/PHY/hmmer/domains/.done, output/PHY/domain_sorted/query_hmmer/domains/.done, output/PHY/domain_sorted/query_hmmer/hmmer_scan.txt, output/PHY/mcscanx/pairs_to_run.txt
+    jobid: 0
+    reason: Input files updated by another job: output/PHY/domain_sorted/subcell_localization_prediction/results.csv, output/PHY/blast/target_blastp.tsv, output/PHY/domain_sorted/query_hmmer/hmmer_scan.txt, output/PHY/query.fasta, output/PHY/.setup_done, output/PHY/domain_sorted/query_hmmer/domains/.done, output/PHY/true_query.fasta, output/PHY/hmmer/hmmer_scan.txt, output/PHY/mcscanx/pairs_to_run.txt, output/PHY/blast/unique_pairs_no_dup.tsv, output/PHY/blast/base_blastp.tsv, output/PHY/hmmer/domains/.done
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Fri Jul  3 21:32:21 2026]
+Finished job 0.
+16 of 16 steps (100%) done
+Complete log: .snakemake/log/2026-07-03T213136.314272.snakemake.log

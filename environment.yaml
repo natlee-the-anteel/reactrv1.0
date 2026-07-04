@@ -101,7 +101,8 @@ dependencies:
   - lz4-c=1.10.0
   - lzo=2.10
   - mamba=2.1.1
-  - meme
+  - meme=5.5.9
+  - snakemake
   - menuinst=2.2.0
   - mpi=1.0
   - ncbi-datasets-cli=18.30.1

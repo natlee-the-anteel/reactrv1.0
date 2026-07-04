@@ -1,0 +1,2 @@
+Sequence	Method	Ka	Ks	Ka/Ks	P-Value(Fisher)	Length	S-Sites	N-Sites	Fold-Sites(0:2:4)	Substitutions	S-Substitutions	N-Substitutions	Fold-S-Substitutions(0:2:4)	Fold-N-Substitutions(0:2:4)	Divergence-Time	Substitution-Rate-Ratio(rTC:rAG:rTA:rCG:rTG:rCA/rCA)	GC(1:2:3)	ML-Score	AICc	Akaike-Weight	Model
+1 AEC07401.1 XP_004231914.1	NG	0.241318	1.8456	0.130753	1.69603e-51	1221	296.172	924.828	NA	394	203.167	190.833	NA	NA	0.630461	1:1:1:1:1:1	0.461781(0.515366:0.420804:0.449173)	NA	NA	NA	NA

@@ -12,8 +12,8 @@ rule extract_filtered_target_hits:
     params:
         db_prefix=config["target_prot_prefix"],
         tmp_blast=lambda wc: config["target_tmp"].format(query=wc.query),
-        evalue_thresh=1e-5,
-        min_identity=30,   # percent identity threshold
+        evalue_thresh=1e-10,
+        min_identity=15,   # percent identity threshold
         max_hits=5,           # max hits per Arabidopsis query
     run:
         import os
@@ -50,11 +50,44 @@ rule extract_filtered_target_hits:
             for hit in sorted_hits[:params.max_hits]:
                 selected_ids.add(hit[0])
 
-        # Extract protein sequences
+        def normalize_header(header):
+            if "." in header:
+                base, suffix = header.rsplit(".", 1)
+                if suffix.isdigit():
+                    return base
+            return header
+
+        # Extract protein sequences while collapsing versioned duplicate loci
+        matching_records = [
+            rec for rec in SeqIO.parse(input.db, "fasta")
+            if rec.id in selected_ids
+        ]
+
         records = []
-        for rec in SeqIO.parse(input.db, "fasta"):
-            if rec.id in selected_ids:
+        selected_by_locus = {}
+        seen_sequences = set()
+        for rec in matching_records:
+            locus = normalize_header(rec.id)
+            seq_key = str(rec.seq).strip().upper()
+
+            if seq_key in seen_sequences:
+                continue
+            seen_sequences.add(seq_key)
+
+            existing = selected_by_locus.get(locus)
+            if existing is None:
+                selected_by_locus[locus] = rec
                 records.append(rec)
+                continue
+
+            existing_is_versioned = existing.id != normalize_header(existing.id)
+            current_is_versioned = rec.id != locus
+            if existing_is_versioned and not current_is_versioned:
+                for idx, existing_rec in enumerate(records):
+                    if existing_rec.id == existing.id:
+                        records[idx] = rec
+                        break
+                selected_by_locus[locus] = rec
 
         os.makedirs(os.path.dirname(output.filtered), exist_ok=True)
         with open(output.filtered, "w") as out_f:

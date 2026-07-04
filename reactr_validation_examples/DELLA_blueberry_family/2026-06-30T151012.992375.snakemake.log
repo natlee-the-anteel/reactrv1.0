@@ -1,0 +1,1045 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                           count
+------------------------------------------  -------
+all                                               1
+blastp_base                                       1
+calculate_conservation_and_kaks_input             1
+calculate_extra_properties                        2
+calculate_kaks                                    3
+codon_align_pair                                  3
+codon_to_axt                                      3
+combine_hits_and_query                            1
+compute_protein_properties_per_domain             2
+convert_query_to_tsv                              1
+design_primers_per_domain                         6
+discover_and_score_grna                           2
+extract_annotations_by_domain                     2
+extract_filtered_target_hits                      1
+extract_hit_ids                                   1
+extract_hit_sequences                             1
+extract_mrna_for_domain                           2
+extract_pair_cds                                  3
+extract_promoters                                 2
+extract_selected_genes                            2
+extract_unique_pairs_no_dup_within_species        1
+generate_query_fasta                              1
+gmap_per_domain                                   2
+iqtree_per_domain                                 2
+meme_per_domain                                   2
+meme_promoters                                    2
+msa_per_domain                                    2
+plot_chromosomes                                  2
+plot_gene_structure                               2
+run_deeploc2                                      1
+run_hmmer                                         1
+run_hmmer_on_query                                1
+setup_output                                      1
+split_by_domain                                   1
+split_query_by_domain                             1
+total                                            62
+
+Select jobs to execute...
+
+[Tue Jun 30 15:10:13 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/DELLA_family/hmmer/domains/DELLA.fasta, data/genome/target/genome.fna.fai
+    output: output/DELLA_family/domain_sorted/chromosal_map/DELLA/chromosomal_map.png
+    jobid: 56
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:13 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/DELLA_family/hmmer/domains/DELLA.fasta
+    output: output/DELLA_family/domain_sorted/gene_structures/DELLA/gene_structures
+    jobid: 58
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:13 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEC05469.1.fasta
+    jobid: 45
+    reason: Forced execution
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEC05469.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:13 2026]
+rule extract_mrna_for_domain:
+    input: output/DELLA_family/hmmer/domains/GRAS.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    jobid: 23
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:13 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/DELLA_family/hmmer/domains/GRAS.fasta, data/genome/target/genome.fna.fai
+    output: output/DELLA_family/domain_sorted/chromosal_map/GRAS/chromosomal_map.png
+    jobid: 57
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:13 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEE29242.1.fasta
+    jobid: 44
+    reason: Forced execution
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEE29242.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:13 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/DELLA_family/pairs_calculations/cds/KAH7860325.1_vs_AEE33268.1.fasta
+    jobid: 46
+    reason: Forced execution
+    wildcards: query=DELLA_family, pair=KAH7860325.1_vs_AEE33268.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:13 2026]
+rule extract_mrna_for_domain:
+    input: output/DELLA_family/hmmer/domains/DELLA.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    jobid: 22
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:14 2026]
+Finished job 23.
+1 of 62 steps (2%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:14 2026]
+rule discover_and_score_grna:
+    input: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/DELLA_family/domain_sorted/crispr/GRAS/discovery.output, output/DELLA_family/domain_sorted/crispr/GRAS/scored.tsv
+    jobid: 43
+    reason: Missing output files: output/DELLA_family/domain_sorted/crispr/GRAS/scored.tsv; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta             --output output/DELLA_family/domain_sorted/crispr/GRAS/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/DELLA_family/domain_sorted/crispr/GRAS/discovery.output             --output output/DELLA_family/domain_sorted/crispr/GRAS/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+[Tue Jun 30 15:10:14 2026]
+Finished job 22.
+2 of 62 steps (3%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:14 2026]
+rule discover_and_score_grna:
+    input: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/DELLA_family/domain_sorted/crispr/DELLA/discovery.output, output/DELLA_family/domain_sorted/crispr/DELLA/scored.tsv
+    jobid: 42
+    reason: Missing output files: output/DELLA_family/domain_sorted/crispr/DELLA/scored.tsv; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta             --output output/DELLA_family/domain_sorted/crispr/DELLA/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/DELLA_family/domain_sorted/crispr/DELLA/discovery.output             --output output/DELLA_family/domain_sorted/crispr/DELLA/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+[Tue Jun 30 15:10:15 2026]
+Finished job 44.
+3 of 62 steps (5%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:15 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/DELLA_family/hmmer/domains/GRAS.fasta
+    output: output/DELLA_family/domain_sorted/gene_structures/GRAS/gene_structures
+    jobid: 59
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:15 2026]
+Finished job 45.
+4 of 62 steps (6%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:15 2026]
+rule design_primers_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    output: output/DELLA_family/domain_sorted/primers/GRAS/validation.txt
+    jobid: 32
+    reason: Missing output files: output/DELLA_family/domain_sorted/primers/GRAS/validation.txt; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    wildcards: query=DELLA_family, domain=GRAS, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:15 2026]
+Finished job 46.
+5 of 62 steps (8%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:15 2026]
+rule gmap_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    output: output/DELLA_family/domain_sorted/gmap/GRAS.gff3
+    jobid: 27
+    reason: Missing output files: output/DELLA_family/domain_sorted/gmap/GRAS.gff3; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/DELLA_family/domain_sorted/gmap/GRAS.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta > output/DELLA_family/domain_sorted/gmap/GRAS.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/DELLA_family/domain_sorted/gmap/GRAS.gff3
+        fi
+        
+[Tue Jun 30 15:10:16 2026]
+Finished job 27.
+6 of 62 steps (10%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:16 2026]
+rule extract_annotations_by_domain:
+    input: output/DELLA_family/domain_sorted/gmap/GRAS.gff3, data/genome/target/annotation.db
+    output: output/DELLA_family/domain_sorted/annotations_by_domain/GRAS.gff
+    jobid: 35
+    reason: Missing output files: output/DELLA_family/domain_sorted/annotations_by_domain/GRAS.gff; Input files updated by another job: output/DELLA_family/domain_sorted/gmap/GRAS.gff3
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:17 2026]
+Finished job 32.
+7 of 62 steps (11%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:17 2026]
+rule design_primers_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    output: output/DELLA_family/domain_sorted/primers/GRAS/cloning.txt
+    jobid: 31
+    reason: Missing output files: output/DELLA_family/domain_sorted/primers/GRAS/cloning.txt; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    wildcards: query=DELLA_family, domain=GRAS, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:18 2026]
+Finished job 35.
+8 of 62 steps (13%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:18 2026]
+rule design_primers_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    output: output/DELLA_family/domain_sorted/primers/GRAS/qpcr.txt
+    jobid: 33
+    reason: Missing output files: output/DELLA_family/domain_sorted/primers/GRAS/qpcr.txt; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta
+    wildcards: query=DELLA_family, domain=GRAS, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:19 2026]
+Finished job 31.
+9 of 62 steps (15%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:19 2026]
+rule gmap_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    output: output/DELLA_family/domain_sorted/gmap/DELLA.gff3
+    jobid: 26
+    reason: Missing output files: output/DELLA_family/domain_sorted/gmap/DELLA.gff3; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/DELLA_family/domain_sorted/gmap/DELLA.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta > output/DELLA_family/domain_sorted/gmap/DELLA.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/DELLA_family/domain_sorted/gmap/DELLA.gff3
+        fi
+        
+[Tue Jun 30 15:10:19 2026]
+Finished job 26.
+10 of 62 steps (16%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:19 2026]
+rule extract_annotations_by_domain:
+    input: output/DELLA_family/domain_sorted/gmap/DELLA.gff3, data/genome/target/annotation.db
+    output: output/DELLA_family/domain_sorted/annotations_by_domain/DELLA.gff
+    jobid: 34
+    reason: Missing output files: output/DELLA_family/domain_sorted/annotations_by_domain/DELLA.gff; Input files updated by another job: output/DELLA_family/domain_sorted/gmap/DELLA.gff3
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:20 2026]
+Finished job 33.
+11 of 62 steps (18%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:20 2026]
+rule design_primers_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    output: output/DELLA_family/domain_sorted/primers/DELLA/cloning.txt
+    jobid: 28
+    reason: Missing output files: output/DELLA_family/domain_sorted/primers/DELLA/cloning.txt; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    wildcards: query=DELLA_family, domain=DELLA, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:21 2026]
+Finished job 34.
+12 of 62 steps (19%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:21 2026]
+rule design_primers_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    output: output/DELLA_family/domain_sorted/primers/DELLA/qpcr.txt
+    jobid: 30
+    reason: Missing output files: output/DELLA_family/domain_sorted/primers/DELLA/qpcr.txt; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    wildcards: query=DELLA_family, domain=DELLA, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:22 2026]
+Finished job 28.
+13 of 62 steps (21%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:22 2026]
+rule design_primers_per_domain:
+    input: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    output: output/DELLA_family/domain_sorted/primers/DELLA/validation.txt
+    jobid: 29
+    reason: Missing output files: output/DELLA_family/domain_sorted/primers/DELLA/validation.txt; Input files updated by another job: output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta
+    wildcards: query=DELLA_family, domain=DELLA, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:23 2026]
+Finished job 30.
+14 of 62 steps (23%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:23 2026]
+rule compute_protein_properties_per_domain:
+    input: output/DELLA_family/hmmer/domains/DELLA.fasta
+    output: output/DELLA_family/domain_sorted/properties/DELLA_pi_mw.tsv
+    jobid: 24
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:23 2026]
+Finished job 29.
+15 of 62 steps (24%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:23 2026]
+rule calculate_extra_properties:
+    input: output/DELLA_family/hmmer/domains/DELLA.fasta
+    output: output/DELLA_family/domain_sorted/extra_properties/DELLA_physicochemical.csv
+    jobid: 60
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:24 2026]
+Finished job 24.
+16 of 62 steps (26%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:24 2026]
+rule meme_per_domain:
+    input: output/DELLA_family/hmmer/domains/DELLA.fasta
+    output: output/DELLA_family/domain_sorted/meme_results/DELLA/meme.xml
+    jobid: 16
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/DELLA_family/domain_sorted/meme_results/DELLA/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/DELLA_family/hmmer/domains/DELLA.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Tue Jun 30 15:10:25 2026]
+Finished job 60.
+17 of 62 steps (27%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:25 2026]
+rule meme_per_domain:
+    input: output/DELLA_family/hmmer/domains/GRAS.fasta
+    output: output/DELLA_family/domain_sorted/meme_results/GRAS/meme.xml
+    jobid: 17
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/DELLA_family/domain_sorted/meme_results/GRAS/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/DELLA_family/hmmer/domains/GRAS.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Tue Jun 30 15:10:37 2026]
+Finished job 16.
+18 of 62 steps (29%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:37 2026]
+rule compute_protein_properties_per_domain:
+    input: output/DELLA_family/hmmer/domains/GRAS.fasta
+    output: output/DELLA_family/domain_sorted/properties/GRAS_pi_mw.tsv
+    jobid: 25
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:39 2026]
+Finished job 17.
+19 of 62 steps (31%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:39 2026]
+rule calculate_extra_properties:
+    input: output/DELLA_family/hmmer/domains/GRAS.fasta
+    output: output/DELLA_family/domain_sorted/extra_properties/GRAS_physicochemical.csv
+    jobid: 61
+    reason: Forced execution
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:39 2026]
+Finished job 25.
+20 of 62 steps (32%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:39 2026]
+rule codon_align_pair:
+    input: output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEC05469.1.fasta
+    output: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.prot.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.prot.aln.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.codon.fasta
+    jobid: 48
+    reason: Missing output files: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.codon.fasta; Input files updated by another job: output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEC05469.1.fasta
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEC05469.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:41 2026]
+Finished job 61.
+21 of 62 steps (34%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:41 2026]
+rule codon_align_pair:
+    input: output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEE29242.1.fasta
+    output: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.prot.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.prot.aln.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.codon.fasta
+    jobid: 47
+    reason: Missing output files: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.codon.fasta; Input files updated by another job: output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEE29242.1.fasta
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEE29242.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:42 2026]
+Finished job 48.
+22 of 62 steps (35%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:42 2026]
+rule codon_to_axt:
+    input: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.codon.fasta
+    output: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEC05469.1.axt
+    jobid: 53
+    reason: Missing output files: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEC05469.1.axt; Input files updated by another job: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.codon.fasta
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEC05469.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:43 2026]
+Finished job 47.
+23 of 62 steps (37%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:43 2026]
+rule codon_to_axt:
+    input: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.codon.fasta
+    output: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEE29242.1.axt
+    jobid: 51
+    reason: Missing output files: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEE29242.1.axt; Input files updated by another job: output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.codon.fasta
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEE29242.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:44 2026]
+Finished job 53.
+24 of 62 steps (39%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:44 2026]
+rule calculate_kaks:
+    input: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEC05469.1.axt
+    output: output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEC05469.1.kaks.txt
+    jobid: 52
+    reason: Missing output files: output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEC05469.1.kaks.txt; Input files updated by another job: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEC05469.1.axt
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEC05469.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEC05469.1.kaks.txt)
+        KaKs_Calculator -i output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEC05469.1.axt -o output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEC05469.1.kaks.txt -m NG
+        
+[Tue Jun 30 15:10:44 2026]
+Finished job 52.
+25 of 62 steps (40%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:44 2026]
+rule codon_align_pair:
+    input: output/DELLA_family/pairs_calculations/cds/KAH7860325.1_vs_AEE33268.1.fasta
+    output: output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.prot.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.prot.aln.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.codon.fasta
+    jobid: 49
+    reason: Missing output files: output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.codon.fasta; Input files updated by another job: output/DELLA_family/pairs_calculations/cds/KAH7860325.1_vs_AEE33268.1.fasta
+    wildcards: query=DELLA_family, pair=KAH7860325.1_vs_AEE33268.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:44 2026]
+Finished job 51.
+26 of 62 steps (42%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:44 2026]
+rule calculate_kaks:
+    input: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEE29242.1.axt
+    output: output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEE29242.1.kaks.txt
+    jobid: 50
+    reason: Missing output files: output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEE29242.1.kaks.txt; Input files updated by another job: output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEE29242.1.axt
+    wildcards: query=DELLA_family, pair=KAH7834344.1_vs_AEE29242.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEE29242.1.kaks.txt)
+        KaKs_Calculator -i output/DELLA_family/pairs_calculations/kaks_input/KAH7834344.1_vs_AEE29242.1.axt -o output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEE29242.1.kaks.txt -m NG
+        
+[Tue Jun 30 15:10:44 2026]
+Finished job 50.
+27 of 62 steps (44%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:44 2026]
+rule extract_selected_genes:
+    input: output/DELLA_family/domain_sorted/gmap/GRAS.gff3
+    output: output/DELLA_family/domain_sorted/selected_genes/GRAS.txt
+    jobid: 37
+    reason: Missing output files: output/DELLA_family/domain_sorted/selected_genes/GRAS.txt; Input files updated by another job: output/DELLA_family/domain_sorted/gmap/GRAS.gff3
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/DELLA_family/domain_sorted/gmap/GRAS.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/DELLA_family/domain_sorted/selected_genes/GRAS.txt
+        
+[Tue Jun 30 15:10:44 2026]
+Finished job 37.
+28 of 62 steps (45%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:44 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/DELLA_family/domain_sorted/selected_genes/GRAS.txt
+    output: output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta
+    jobid: 39
+    reason: Missing output files: output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta; Input files updated by another job: output/DELLA_family/domain_sorted/selected_genes/GRAS.txt
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:46 2026]
+Finished job 49.
+29 of 62 steps (47%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:46 2026]
+rule codon_to_axt:
+    input: output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.codon.fasta
+    output: output/DELLA_family/pairs_calculations/kaks_input/KAH7860325.1_vs_AEE33268.1.axt
+    jobid: 55
+    reason: Missing output files: output/DELLA_family/pairs_calculations/kaks_input/KAH7860325.1_vs_AEE33268.1.axt; Input files updated by another job: output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.codon.fasta
+    wildcards: query=DELLA_family, pair=KAH7860325.1_vs_AEE33268.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:48 2026]
+Finished job 42.
+30 of 62 steps (48%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:48 2026]
+rule extract_selected_genes:
+    input: output/DELLA_family/domain_sorted/gmap/DELLA.gff3
+    output: output/DELLA_family/domain_sorted/selected_genes/DELLA.txt
+    jobid: 36
+    reason: Missing output files: output/DELLA_family/domain_sorted/selected_genes/DELLA.txt; Input files updated by another job: output/DELLA_family/domain_sorted/gmap/DELLA.gff3
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/DELLA_family/domain_sorted/gmap/DELLA.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/DELLA_family/domain_sorted/selected_genes/DELLA.txt
+        
+[Tue Jun 30 15:10:48 2026]
+Finished job 36.
+31 of 62 steps (50%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:48 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/DELLA_family/domain_sorted/selected_genes/DELLA.txt
+    output: output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta
+    jobid: 38
+    reason: Missing output files: output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta; Input files updated by another job: output/DELLA_family/domain_sorted/selected_genes/DELLA.txt
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:48 2026]
+Finished job 55.
+32 of 62 steps (52%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:48 2026]
+rule calculate_kaks:
+    input: output/DELLA_family/pairs_calculations/kaks_input/KAH7860325.1_vs_AEE33268.1.axt
+    output: output/DELLA_family/pairs_calculations/kaks/KAH7860325.1_vs_AEE33268.1.kaks.txt
+    jobid: 54
+    reason: Missing output files: output/DELLA_family/pairs_calculations/kaks/KAH7860325.1_vs_AEE33268.1.kaks.txt; Input files updated by another job: output/DELLA_family/pairs_calculations/kaks_input/KAH7860325.1_vs_AEE33268.1.axt
+    wildcards: query=DELLA_family, pair=KAH7860325.1_vs_AEE33268.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/DELLA_family/pairs_calculations/kaks/KAH7860325.1_vs_AEE33268.1.kaks.txt)
+        KaKs_Calculator -i output/DELLA_family/pairs_calculations/kaks_input/KAH7860325.1_vs_AEE33268.1.axt -o output/DELLA_family/pairs_calculations/kaks/KAH7860325.1_vs_AEE33268.1.kaks.txt -m NG
+        
+[Tue Jun 30 15:10:48 2026]
+Finished job 54.
+33 of 62 steps (53%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:48 2026]
+rule setup_output:
+    output: output/DELLA_family/.setup_done
+    jobid: 1
+    reason: Forced execution
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+rm -rf outputs/ && mkdir -p $(dirname output/DELLA_family/.setup_done) && touch output/DELLA_family/.setup_done
+Touching output file output/DELLA_family/.setup_done.
+[Tue Jun 30 15:10:48 2026]
+Finished job 1.
+34 of 62 steps (55%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:48 2026]
+rule generate_query_fasta:
+    output: output/DELLA_family/true_query.fasta
+    jobid: 3
+    reason: Forced execution
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:50 2026]
+Finished job 3.
+35 of 62 steps (56%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:50 2026]
+rule extract_filtered_target_hits:
+    input: output/DELLA_family/true_query.fasta, data/proteome/target/proteins.faa
+    output: output/DELLA_family/query.fasta
+    jobid: 2
+    reason: Input files updated by another job: output/DELLA_family/true_query.fasta
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:10:55 2026]
+Finished job 2.
+36 of 62 steps (58%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:10:55 2026]
+rule blastp_base:
+    input: output/DELLA_family/query.fasta, data/proteome/base/proteins.faa
+    output: output/DELLA_family/blast/base_blastp.tsv
+    jobid: 5
+    reason: Input files updated by another job: output/DELLA_family/query.fasta
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        if [ ! -f data/proteome/base.pin ]; then
+            makeblastdb -in data/proteome/base/proteins.faa -dbtype prot -out data/proteome/base
+        fi
+        blastp -query output/DELLA_family/query.fasta -db data/proteome/base -out output/DELLA_family/blast/base_blastp.tsv -outfmt 6 -evalue 1e-5 -max_target_seqs 5
+        
+[Tue Jun 30 15:11:01 2026]
+Finished job 5.
+37 of 62 steps (60%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:02 2026]
+rule run_deeploc2:
+    input: output/DELLA_family/query.fasta
+    output: output/DELLA_family/domain_sorted/subcell_localization_prediction/results.csv
+    jobid: 4
+    reason: Input files updated by another job: output/DELLA_family/query.fasta
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/DELLA_family/domain_sorted/subcell_localization_prediction/results.csv)
+        deeploc2 -f output/DELLA_family/query.fasta -o $(dirname output/DELLA_family/domain_sorted/subcell_localization_prediction/results.csv)
+        # Rename the timestamped output to the expected filename
+        mv $(dirname output/DELLA_family/domain_sorted/subcell_localization_prediction/results.csv)/results_*.csv output/DELLA_family/domain_sorted/subcell_localization_prediction/results.csv
+        
+[Tue Jun 30 15:11:06 2026]
+Finished job 58.
+38 of 62 steps (61%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:06 2026]
+rule extract_unique_pairs_no_dup_within_species:
+    input: output/DELLA_family/blast/base_blastp.tsv
+    output: output/DELLA_family/blast/unique_pairs_no_dup.tsv
+    jobid: 8
+    reason: Input files updated by another job: output/DELLA_family/blast/base_blastp.tsv
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:06 2026]
+Finished job 56.
+39 of 62 steps (63%) done
+Select jobs to execute...
+[Tue Jun 30 15:11:07 2026]
+Finished job 43.
+40 of 62 steps (65%) done
+[Tue Jun 30 15:11:08 2026]
+Finished job 57.
+41 of 62 steps (66%) done
+[Tue Jun 30 15:11:08 2026]
+Finished job 8.
+42 of 62 steps (68%) done
+
+[Tue Jun 30 15:11:08 2026]
+rule run_hmmer_on_query:
+    input: output/DELLA_family/query.fasta, preset/pfam/Pfam-A.hmm
+    output: output/DELLA_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/DELLA_family/domain_sorted/query_hmmer/domtblout.txt, output/DELLA_family/domain_sorted/query_hmmer/combined_hits_query.fasta, output/DELLA_family/domain_sorted/query_hmmer/SKIPPED
+    jobid: 15
+    reason: Input files updated by another job: output/DELLA_family/query.fasta
+    wildcards: query=DELLA_family
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:09 2026]
+Finished job 59.
+43 of 62 steps (69%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:09 2026]
+rule calculate_conservation_and_kaks_input:
+    input: data/mcscanx/target_base.wgd_pairs.tsv, output/DELLA_family/blast/unique_pairs_no_dup.tsv
+    output: output/DELLA_family/mcscanx/target_base.filtered_pairs.tsv, output/DELLA_family/mcscanx/conservation_stats.txt, output/DELLA_family/mcscanx/pairs_to_run.txt
+    jobid: 7
+    reason: Input files updated by another job: output/DELLA_family/blast/unique_pairs_no_dup.tsv
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:10 2026]
+Finished job 7.
+44 of 62 steps (71%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:10 2026]
+rule convert_query_to_tsv:
+    input: output/DELLA_family/query.fasta, output/DELLA_family/mcscanx/target_base.filtered_pairs.tsv
+    output: output/DELLA_family/blast/target_blastp.tsv
+    jobid: 6
+    reason: Input files updated by another job: output/DELLA_family/query.fasta, output/DELLA_family/mcscanx/target_base.filtered_pairs.tsv
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:11 2026]
+Finished job 6.
+45 of 62 steps (73%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:11 2026]
+rule extract_hit_ids:
+    input: output/DELLA_family/blast/base_blastp.tsv, output/DELLA_family/blast/target_blastp.tsv
+    output: output/DELLA_family/hmmer/hit_ids.txt
+    jobid: 12
+    reason: Input files updated by another job: output/DELLA_family/blast/target_blastp.tsv, output/DELLA_family/blast/base_blastp.tsv
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:13 2026]
+Finished job 12.
+46 of 62 steps (74%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:13 2026]
+rule extract_hit_sequences:
+    input: output/DELLA_family/hmmer/hit_ids.txt, data/proteome/base/proteins.faa, data/proteome/target/proteins.faa
+    output: output/DELLA_family/hmmer/hit_sequences.fasta
+    jobid: 11
+    reason: Input files updated by another job: output/DELLA_family/hmmer/hit_ids.txt
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:15 2026]
+Finished job 11.
+47 of 62 steps (76%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:15 2026]
+rule combine_hits_and_query:
+    input: output/DELLA_family/hmmer/hit_sequences.fasta, output/DELLA_family/query.fasta
+    output: output/DELLA_family/hmmer/combined_hits_query.fasta
+    jobid: 10
+    reason: Input files updated by another job: output/DELLA_family/query.fasta, output/DELLA_family/hmmer/hit_sequences.fasta
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:16 2026]
+Finished job 10.
+48 of 62 steps (77%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:16 2026]
+rule run_hmmer:
+    input: output/DELLA_family/hmmer/combined_hits_query.fasta, preset/pfam/Pfam-A.hmm
+    output: output/DELLA_family/hmmer/hmmer_scan.txt
+    jobid: 9
+    reason: Input files updated by another job: output/DELLA_family/hmmer/combined_hits_query.fasta
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        hmmscan --cpu 8 --tblout output/DELLA_family/hmmer/hmmer_scan.txt preset/pfam/Pfam-A.hmm output/DELLA_family/hmmer/combined_hits_query.fasta
+        
+[Tue Jun 30 15:11:18 2026]
+Finished job 38.
+49 of 62 steps (79%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:18 2026]
+rule meme_promoters:
+    input: output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta
+    output: output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.xml, output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.html, output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/SKIPPED
+    jobid: 40
+    reason: Missing output files: output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.html; Input files updated by another job: output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta
+    wildcards: query=DELLA_family, domain=DELLA
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.xml)
+            touch output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.xml output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.html
+        else
+            meme output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta -dna -oc $(dirname output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/SKIPPED
+        fi
+        
+[Tue Jun 30 15:11:18 2026]
+Finished job 15.
+50 of 62 steps (81%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:18 2026]
+rule split_query_by_domain:
+    input: output/DELLA_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/DELLA_family/domain_sorted/query_hmmer/combined_hits_query.fasta
+    output: output/DELLA_family/domain_sorted/query_hmmer/domains/.done
+    jobid: 14
+    reason: Input files updated by another job: output/DELLA_family/domain_sorted/query_hmmer/combined_hits_query.fasta, output/DELLA_family/domain_sorted/query_hmmer/hmmer_scan.txt
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:21 2026]
+Finished job 14.
+51 of 62 steps (82%) done
+[Tue Jun 30 15:11:36 2026]
+Finished job 9.
+52 of 62 steps (84%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:36 2026]
+rule split_by_domain:
+    input: output/DELLA_family/hmmer/hmmer_scan.txt, output/DELLA_family/hmmer/combined_hits_query.fasta, output/DELLA_family/query.fasta
+    output: output/DELLA_family/hmmer/domains/.done
+    jobid: 13
+    reason: Input files updated by another job: output/DELLA_family/query.fasta, output/DELLA_family/hmmer/combined_hits_query.fasta, output/DELLA_family/hmmer/hmmer_scan.txt
+    wildcards: query=DELLA_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:37 2026]
+Finished job 13.
+53 of 62 steps (85%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:37 2026]
+rule msa_per_domain:
+    input: output/DELLA_family/hmmer/domains/DELLA.fasta, output/DELLA_family/hmmer/domains/.done
+    output: output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta
+    jobid: 18
+    reason: Missing output files: output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta; Input files updated by another job: output/DELLA_family/hmmer/domains/.done
+    wildcards: query=DELLA_family, domain=DELLA
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/DELLA_family/hmmer/domains/DELLA.fasta -output output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta.tmp > output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta
+
+        rm output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta.tmp
+        
+[Tue Jun 30 15:11:38 2026]
+Finished job 18.
+54 of 62 steps (87%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:38 2026]
+rule iqtree_per_domain:
+    input: output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta
+    output: output/DELLA_family/domain_sorted/tree/DELLA/DELLA.treefile, output/DELLA_family/domain_sorted/tree/DELLA/SKIPPED
+    log: output/DELLA_family/domain_sorted/tree/DELLA/DELLA.iqtree.log
+    jobid: 20
+    reason: Missing output files: output/DELLA_family/domain_sorted/tree/DELLA/DELLA.treefile; Input files updated by another job: output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta
+    wildcards: query=DELLA_family, domain=DELLA
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:11:40 2026]
+Finished job 40.
+55 of 62 steps (89%) done
+Select jobs to execute...
+[Tue Jun 30 15:11:49 2026]
+Finished job 39.
+56 of 62 steps (90%) done
+
+[Tue Jun 30 15:11:49 2026]
+rule meme_promoters:
+    input: output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta
+    output: output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.xml, output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.html, output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/SKIPPED
+    jobid: 41
+    reason: Missing output files: output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.html; Input files updated by another job: output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta
+    wildcards: query=DELLA_family, domain=GRAS
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.xml)
+            touch output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.xml output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.html
+        else
+            meme output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta -dna -oc $(dirname output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/SKIPPED
+        fi
+        
+[Tue Jun 30 15:11:52 2026]
+Finished job 20.
+57 of 62 steps (92%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:52 2026]
+rule msa_per_domain:
+    input: output/DELLA_family/hmmer/domains/GRAS.fasta, output/DELLA_family/hmmer/domains/.done
+    output: output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta
+    jobid: 19
+    reason: Missing output files: output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta; Input files updated by another job: output/DELLA_family/hmmer/domains/.done
+    wildcards: query=DELLA_family, domain=GRAS
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/DELLA_family/hmmer/domains/GRAS.fasta -output output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta.tmp > output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta
+
+        rm output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta.tmp
+        
+[Tue Jun 30 15:11:53 2026]
+Finished job 19.
+58 of 62 steps (94%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:11:53 2026]
+rule iqtree_per_domain:
+    input: output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta
+    output: output/DELLA_family/domain_sorted/tree/GRAS/GRAS.treefile, output/DELLA_family/domain_sorted/tree/GRAS/SKIPPED
+    log: output/DELLA_family/domain_sorted/tree/GRAS/GRAS.iqtree.log
+    jobid: 21
+    reason: Missing output files: output/DELLA_family/domain_sorted/tree/GRAS/GRAS.treefile; Input files updated by another job: output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta
+    wildcards: query=DELLA_family, domain=GRAS
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:12:08 2026]
+Finished job 4.
+59 of 62 steps (95%) done
+[Tue Jun 30 15:12:11 2026]
+Finished job 21.
+60 of 62 steps (97%) done
+[Tue Jun 30 15:13:21 2026]
+Finished job 41.
+61 of 62 steps (98%) done
+Select jobs to execute...
+
+[Tue Jun 30 15:13:21 2026]
+localrule all:
+    input: output/DELLA_family/.setup_done, output/DELLA_family/query.fasta, output/DELLA_family/true_query.fasta, output/DELLA_family/domain_sorted/subcell_localization_prediction/results.csv, output/DELLA_family/blast/base_blastp.tsv, output/DELLA_family/blast/target_blastp.tsv, output/DELLA_family/blast/unique_pairs_no_dup.tsv, output/DELLA_family/hmmer/hmmer_scan.txt, output/DELLA_family/hmmer/domains/.done, output/DELLA_family/domain_sorted/query_hmmer/domains/.done, output/DELLA_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/DELLA_family/domain_sorted/meme_results/DELLA/meme.xml, output/DELLA_family/domain_sorted/meme_results/GRAS/meme.xml, output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta, output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta, output/DELLA_family/domain_sorted/tree/DELLA/DELLA.treefile, output/DELLA_family/domain_sorted/tree/GRAS/GRAS.treefile, output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta, output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta, output/DELLA_family/domain_sorted/properties/DELLA_pi_mw.tsv, output/DELLA_family/domain_sorted/properties/GRAS_pi_mw.tsv, output/DELLA_family/domain_sorted/gmap/DELLA.gff3, output/DELLA_family/domain_sorted/gmap/GRAS.gff3, output/DELLA_family/domain_sorted/primers/DELLA/cloning.txt, output/DELLA_family/domain_sorted/primers/DELLA/validation.txt, output/DELLA_family/domain_sorted/primers/DELLA/qpcr.txt, output/DELLA_family/domain_sorted/primers/GRAS/cloning.txt, output/DELLA_family/domain_sorted/primers/GRAS/validation.txt, output/DELLA_family/domain_sorted/primers/GRAS/qpcr.txt, output/DELLA_family/domain_sorted/annotations_by_domain/DELLA.gff, output/DELLA_family/domain_sorted/annotations_by_domain/GRAS.gff, output/DELLA_family/domain_sorted/selected_genes/DELLA.txt, output/DELLA_family/domain_sorted/selected_genes/GRAS.txt, output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta, output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta, output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.html, output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.html, output/DELLA_family/domain_sorted/crispr/DELLA/scored.tsv, output/DELLA_family/domain_sorted/crispr/GRAS/scored.tsv, output/DELLA_family/mcscanx/pairs_to_run.txt, output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEE29242.1.fasta, output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEC05469.1.fasta, output/DELLA_family/pairs_calculations/cds/KAH7860325.1_vs_AEE33268.1.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.codon.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.codon.fasta, output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.codon.fasta, output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEE29242.1.kaks.txt, output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEC05469.1.kaks.txt, output/DELLA_family/pairs_calculations/kaks/KAH7860325.1_vs_AEE33268.1.kaks.txt, output/DELLA_family/domain_sorted/chromosal_map/DELLA/chromosomal_map.png, output/DELLA_family/domain_sorted/chromosal_map/GRAS/chromosomal_map.png, output/DELLA_family/domain_sorted/gene_structures/DELLA/gene_structures, output/DELLA_family/domain_sorted/gene_structures/GRAS/gene_structures, output/DELLA_family/domain_sorted/extra_properties/DELLA_physicochemical.csv, output/DELLA_family/domain_sorted/extra_properties/GRAS_physicochemical.csv
+    jobid: 0
+    reason: Input files updated by another job: output/DELLA_family/domain_sorted/selected_genes/DELLA.txt, output/DELLA_family/pairs_calculations/kaks/KAH7860325.1_vs_AEE33268.1.kaks.txt, output/DELLA_family/domain_sorted/properties/DELLA_pi_mw.tsv, output/DELLA_family/domain_sorted/tree/GRAS/GRAS.treefile, output/DELLA_family/domain_sorted/gene_structures/DELLA/gene_structures, output/DELLA_family/domain_sorted/promoters/meme_results/DELLA/meme.html, output/DELLA_family/domain_sorted/promoters/meme_results/GRAS/meme.html, output/DELLA_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/DELLA_family/pairs_calculations/cds/KAH7860325.1_vs_AEE33268.1.fasta, output/DELLA_family/domain_sorted/primers/DELLA/cloning.txt, output/DELLA_family/domain_sorted/meme_results/GRAS/meme.xml, output/DELLA_family/domain_sorted/chromosal_map/DELLA/chromosomal_map.png, output/DELLA_family/domain_sorted/annotations_by_domain/DELLA.gff, output/DELLA_family/domain_sorted/promoters/DELLA_promoters.fasta, output/DELLA_family/query.fasta, output/DELLA_family/domain_sorted/crispr/DELLA/scored.tsv, output/DELLA_family/.setup_done, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEC05469.1.codon.fasta, output/DELLA_family/true_query.fasta, output/DELLA_family/domain_sorted/mrna/GRAS/mrna.fasta, output/DELLA_family/blast/unique_pairs_no_dup.tsv, output/DELLA_family/domain_sorted/primers/DELLA/qpcr.txt, output/DELLA_family/pairs_calculations/cds_aligned/KAH7834344.1_vs_AEE29242.1.codon.fasta, output/DELLA_family/domain_sorted/gene_structures/GRAS/gene_structures, output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEC05469.1.kaks.txt, output/DELLA_family/domain_sorted/mrna/DELLA/mrna.fasta, output/DELLA_family/domain_sorted/gmap/GRAS.gff3, output/DELLA_family/domain_sorted/selected_genes/GRAS.txt, output/DELLA_family/domain_sorted/chromosal_map/GRAS/chromosomal_map.png, output/DELLA_family/domain_sorted/primers/GRAS/qpcr.txt, output/DELLA_family/domain_sorted/annotations_by_domain/GRAS.gff, output/DELLA_family/domain_sorted/gmap/DELLA.gff3, output/DELLA_family/domain_sorted/extra_properties/DELLA_physicochemical.csv, output/DELLA_family/domain_sorted/primers/GRAS/validation.txt, output/DELLA_family/domain_sorted/extra_properties/GRAS_physicochemical.csv, output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEE29242.1.fasta, output/DELLA_family/domain_sorted/promoters/GRAS_promoters.fasta, output/DELLA_family/hmmer/hmmer_scan.txt, output/DELLA_family/pairs_calculations/cds_aligned/KAH7860325.1_vs_AEE33268.1.codon.fasta, output/DELLA_family/mcscanx/pairs_to_run.txt, output/DELLA_family/domain_sorted/subcell_localization_prediction/results.csv, output/DELLA_family/domain_sorted/primers/DELLA/validation.txt, output/DELLA_family/domain_sorted/properties/GRAS_pi_mw.tsv, output/DELLA_family/domain_sorted/tree/DELLA/DELLA.treefile, output/DELLA_family/pairs_calculations/kaks/KAH7834344.1_vs_AEE29242.1.kaks.txt, output/DELLA_family/pairs_calculations/cds/KAH7834344.1_vs_AEC05469.1.fasta, output/DELLA_family/domain_sorted/primers/GRAS/cloning.txt, output/DELLA_family/blast/base_blastp.tsv, output/DELLA_family/domain_sorted/query_hmmer/domains/.done, output/DELLA_family/domain_sorted/msa/DELLA.aligned.fasta, output/DELLA_family/domain_sorted/crispr/GRAS/scored.tsv, output/DELLA_family/hmmer/domains/.done, output/DELLA_family/domain_sorted/msa/GRAS.aligned.fasta, output/DELLA_family/domain_sorted/meme_results/DELLA/meme.xml, output/DELLA_family/blast/target_blastp.tsv
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Tue Jun 30 15:13:21 2026]
+Finished job 0.
+62 of 62 steps (100%) done
+Complete log: .snakemake/log/2026-06-30T151012.992375.snakemake.log

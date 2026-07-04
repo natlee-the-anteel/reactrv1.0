@@ -206,7 +206,7 @@ rule meme_promoters:
         # Count sequences in the fasta
         seq_count=$(grep -c ">" {input.fasta} || true)
 
-        if [ "$seq_count" -lt 1 ]; then
+        if [ "$seq_count" -lt 2 ]; then
             echo "Too few sequences ($seq_count). Skipping MEME."
             mkdir -p $(dirname {output.xml})
             touch {output.skipped}

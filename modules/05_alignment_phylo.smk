@@ -38,11 +38,38 @@ rule iqtree_per_domain:
         os.makedirs(outdir, exist_ok=True)
 
         records = list(SeqIO.parse(input.aln, "fasta"))
-        nseq = len(records)
 
+        def pairwise_identity(seq_a, seq_b):
+            seq_a = str(seq_a)
+            seq_b = str(seq_b)
+            aligned = sum(1 for a, b in zip(seq_a, seq_b) if a != "-" or b != "-")
+            if aligned == 0:
+                return 1.0
+            matches = sum(1 for a, b in zip(seq_a, seq_b) if a == b and a != "-")
+            return matches / aligned
+
+        kept_records = []
+        collapsed = []
+        collapse_threshold = 0.995
+
+        for record in records:
+            seq = str(record.seq)
+            is_duplicate = False
+            for kept in kept_records:
+                if pairwise_identity(seq, str(kept.seq)) >= collapse_threshold:
+                    collapsed.append((record.id, kept.id))
+                    is_duplicate = True
+                    break
+            if not is_duplicate:
+                kept_records.append(record)
+
+        reduced_aln = os.path.join(outdir, f"{wildcards.domain}.collapsed.fasta")
+        SeqIO.write(kept_records, reduced_aln, "fasta")
+
+        nseq = len(kept_records)
         unique_seqs = {
             str(r.seq).replace("-", "")
-            for r in records
+            for r in kept_records
             if str(r.seq).replace("-", "")
         }
 
@@ -71,7 +98,7 @@ rule iqtree_per_domain:
                     "-m", "TEST",
                     "-bb", "1000",
                     "-nt", str(threads),
-                    "-s", input.aln,
+                    "-s", reduced_aln,
                     "-pre", os.path.join(outdir, wildcards.domain),
                 ],
                 stdout=open(log[0], "w"),

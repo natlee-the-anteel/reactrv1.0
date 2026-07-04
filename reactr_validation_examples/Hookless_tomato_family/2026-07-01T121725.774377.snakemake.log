@@ -1,0 +1,2346 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                           count
+------------------------------------------  -------
+all                                               1
+blastp_base                                       1
+calculate_conservation_and_kaks_input             1
+calculate_extra_properties                        6
+calculate_kaks                                    5
+codon_align_pair                                  5
+codon_to_axt                                      5
+combine_hits_and_query                            1
+compute_protein_properties_per_domain             6
+convert_query_to_tsv                              1
+design_primers_per_domain                        18
+discover_and_score_grna                           6
+extract_annotations_by_domain                     6
+extract_filtered_target_hits                      1
+extract_hit_ids                                   1
+extract_hit_sequences                             1
+extract_mrna_for_domain                           6
+extract_pair_cds                                  5
+extract_promoters                                 6
+extract_selected_genes                            6
+extract_unique_pairs_no_dup_within_species        1
+generate_query_fasta                              1
+gmap_per_domain                                   6
+iqtree_per_domain                                 6
+meme_per_domain                                   6
+meme_promoters                                    6
+msa_per_domain                                    6
+plot_chromosomes                                  6
+plot_gene_structure                               6
+run_deeploc2                                      1
+run_hmmer                                         1
+run_hmmer_on_query                                1
+setup_output                                      1
+split_by_domain                                   1
+split_query_by_domain                             1
+total                                           138
+
+Select jobs to execute...
+
+[Wed Jul  1 12:17:26 2026]
+rule extract_mrna_for_domain:
+    input: output/Hookless_family/hmmer/domains/Rv0428c_C.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    jobid: 39
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:26 2026]
+rule extract_mrna_for_domain:
+    input: output/Hookless_family/hmmer/domains/FR47.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    jobid: 35
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:26 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta, data/genome/target/genome.fna.fai
+    output: output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_7/chromosomal_map.png
+    jobid: 122
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:26 2026]
+rule extract_mrna_for_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    jobid: 34
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:26 2026]
+rule extract_mrna_for_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    jobid: 36
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:26 2026]
+rule extract_mrna_for_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    jobid: 38
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:26 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta, data/genome/target/genome.fna.fai
+    output: output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_1/chromosomal_map.png
+    jobid: 123
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:26 2026]
+rule extract_mrna_for_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta, data/genome/target/mrna.fasta, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    jobid: 37
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:28 2026]
+Finished job 38.
+1 of 138 steps (1%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:28 2026]
+rule discover_and_score_grna:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/discovery.output, output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/scored.tsv
+    jobid: 98
+    reason: Missing output files: output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/scored.tsv; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/discovery.output             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+[Wed Jul  1 12:17:28 2026]
+Finished job 35.
+2 of 138 steps (1%) done
+[Wed Jul  1 12:17:28 2026]
+Finished job 39.
+3 of 138 steps (2%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:28 2026]
+rule discover_and_score_grna:
+    input: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/Hookless_family/domain_sorted/crispr/FR47/discovery.output, output/Hookless_family/domain_sorted/crispr/FR47/scored.tsv
+    jobid: 95
+    reason: Missing output files: output/Hookless_family/domain_sorted/crispr/FR47/scored.tsv; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta             --output output/Hookless_family/domain_sorted/crispr/FR47/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/Hookless_family/domain_sorted/crispr/FR47/discovery.output             --output output/Hookless_family/domain_sorted/crispr/FR47/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+
+[Wed Jul  1 12:17:28 2026]
+rule discover_and_score_grna:
+    input: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/Hookless_family/domain_sorted/crispr/Rv0428c_C/discovery.output, output/Hookless_family/domain_sorted/crispr/Rv0428c_C/scored.tsv
+    jobid: 99
+    reason: Missing output files: output/Hookless_family/domain_sorted/crispr/Rv0428c_C/scored.tsv; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta             --output output/Hookless_family/domain_sorted/crispr/Rv0428c_C/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/Hookless_family/domain_sorted/crispr/Rv0428c_C/discovery.output             --output output/Hookless_family/domain_sorted/crispr/Rv0428c_C/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+[Wed Jul  1 12:17:28 2026]
+Finished job 36.
+4 of 138 steps (3%) done
+[Wed Jul  1 12:17:28 2026]
+Finished job 34.
+5 of 138 steps (4%) done
+[Wed Jul  1 12:17:28 2026]
+Finished job 37.
+6 of 138 steps (4%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:28 2026]
+rule discover_and_score_grna:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/discovery.output, output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/scored.tsv
+    jobid: 94
+    reason: Missing output files: output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/scored.tsv; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/discovery.output             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+
+[Wed Jul  1 12:17:28 2026]
+rule discover_and_score_grna:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/discovery.output, output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/scored.tsv
+    jobid: 96
+    reason: Missing output files: output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/scored.tsv; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/discovery.output             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+
+[Wed Jul  1 12:17:28 2026]
+rule discover_and_score_grna:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta, data/flashfry_index/genome, data/flashfry_index/genome.header
+    output: output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/discovery.output, output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/scored.tsv
+    jobid: 97
+    reason: Missing output files: output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/scored.tsv; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Step A: Discover candidates in the mRNA sequences
+        java -Xmx4g -jar preset/FlashFry.jar discover             --database data/flashfry_index/genome             --fasta output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/discovery.output
+
+        # Step B: Score candidates (Doench for efficiency, Hsu for off-targets)
+        # 'dangerous' flag checks for poly-T (terminators) and high GC content
+        java -Xmx4g -jar preset/FlashFry.jar score             --input output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/discovery.output             --output output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/scored.tsv             --database data/flashfry_index/genome             --scoringMetrics doench2014ontarget,hsu2013,dangerous
+        
+Select jobs to execute...
+[Wed Jul  1 12:17:51 2026]
+Finished job 94.
+7 of 138 steps (5%) done
+
+[Wed Jul  1 12:17:51 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/FR47.fasta, data/genome/target/genome.fna.fai
+    output: output/Hookless_family/domain_sorted/chromosal_map/FR47/chromosomal_map.png
+    jobid: 121
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:51 2026]
+Finished job 98.
+8 of 138 steps (6%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:51 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta
+    output: output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_1/gene_structures
+    jobid: 129
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:55 2026]
+Finished job 99.
+9 of 138 steps (7%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:55 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/FR47.fasta
+    output: output/Hookless_family/domain_sorted/gene_structures/FR47/gene_structures
+    jobid: 127
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:55 2026]
+Finished job 96.
+10 of 138 steps (7%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:55 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta
+    output: output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_7/gene_structures
+    jobid: 128
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:56 2026]
+Finished job 95.
+11 of 138 steps (8%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:56 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Rv0428c_C.fasta, data/genome/target/genome.fna.fai
+    output: output/Hookless_family/domain_sorted/chromosal_map/Rv0428c_C/chromosomal_map.png
+    jobid: 125
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:17:56 2026]
+Finished job 97.
+12 of 138 steps (9%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:17:56 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta, data/genome/target/genome.fna.fai
+    output: output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_10/chromosomal_map.png
+    jobid: 120
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:21:13 2026]
+Finished job 123.
+13 of 138 steps (9%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:21:13 2026]
+rule plot_chromosomes:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta, data/genome/target/genome.fna.fai
+    output: output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_3/chromosomal_map.png
+    jobid: 124
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:21:13 2026]
+Finished job 122.
+14 of 138 steps (10%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:21:13 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Rv0428c_C.fasta
+    output: output/Hookless_family/domain_sorted/gene_structures/Rv0428c_C/gene_structures
+    jobid: 131
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:00 2026]
+Finished job 127.
+15 of 138 steps (11%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:00 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta
+    output: output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_10/gene_structures
+    jobid: 126
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:00 2026]
+Finished job 120.
+16 of 138 steps (12%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:00 2026]
+rule plot_gene_structure:
+    input: data/genome/target/annotation.gff3, output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta
+    output: output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_3/gene_structures
+    jobid: 130
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:00 2026]
+Finished job 125.
+17 of 138 steps (12%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:00 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004231914.1.fasta
+    jobid: 100
+    reason: Forced execution
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:00 2026]
+Finished job 121.
+18 of 138 steps (13%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:00 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004233456.1.fasta
+    jobid: 101
+    reason: Forced execution
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:03 2026]
+Finished job 129.
+19 of 138 steps (14%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:03 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/Hookless_family/pairs_calculations/cds/AEE86813.1_vs_XP_004231914.1.fasta
+    jobid: 102
+    reason: Forced execution
+    wildcards: query=Hookless_family, pair=AEE86813.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:05 2026]
+Finished job 100.
+20 of 138 steps (14%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:05 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004231914.1.fasta
+    jobid: 103
+    reason: Forced execution
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:05 2026]
+Finished job 101.
+21 of 138 steps (15%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:05 2026]
+rule extract_pair_cds:
+    input: data/genome/base/cds.fasta, data/genome/target/cds.fasta
+    output: output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004233456.1.fasta
+    jobid: 104
+    reason: Forced execution
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:08 2026]
+Finished job 102.
+22 of 138 steps (16%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:08 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Rv0428c_C/qpcr.txt
+    jobid: 69
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Rv0428c_C/qpcr.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    wildcards: query=Hookless_family, domain=Rv0428c_C, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:09 2026]
+Finished job 103.
+23 of 138 steps (17%) done
+[Wed Jul  1 12:22:09 2026]
+Finished job 104.
+24 of 138 steps (17%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:09 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_1/validation.txt
+    jobid: 62
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_1/validation.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_1, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:09 2026]
+rule gmap_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    output: output/Hookless_family/domain_sorted/gmap/FR47.gff3
+    jobid: 47
+    reason: Missing output files: output/Hookless_family/domain_sorted/gmap/FR47.gff3; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/domain_sorted/gmap/FR47.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta > output/Hookless_family/domain_sorted/gmap/FR47.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/Hookless_family/domain_sorted/gmap/FR47.gff3
+        fi
+        
+Select jobs to execute...
+[Wed Jul  1 12:22:10 2026]
+Finished job 69.
+25 of 138 steps (18%) done
+
+[Wed Jul  1 12:22:10 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/FR47/cloning.txt
+    jobid: 55
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/FR47/cloning.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    wildcards: query=Hookless_family, domain=FR47, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:11 2026]
+Finished job 128.
+26 of 138 steps (19%) done
+[Wed Jul  1 12:22:11 2026]
+Finished job 62.
+27 of 138 steps (20%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:11 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_1/qpcr.txt
+    jobid: 63
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_1/qpcr.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_1, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:11 2026]
+rule gmap_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    output: output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3
+    jobid: 48
+    reason: Missing output files: output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta > output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3
+        fi
+        
+Select jobs to execute...
+[Wed Jul  1 12:22:11 2026]
+Finished job 55.
+28 of 138 steps (20%) done
+
+[Wed Jul  1 12:22:11 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/FR47/validation.txt
+    jobid: 56
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/FR47/validation.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    wildcards: query=Hookless_family, domain=FR47, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:13 2026]
+Finished job 63.
+29 of 138 steps (21%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:13 2026]
+rule gmap_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    output: output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3
+    jobid: 49
+    reason: Missing output files: output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta > output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3
+        fi
+        
+[Wed Jul  1 12:22:13 2026]
+Finished job 56.
+30 of 138 steps (22%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:13 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/FR47/qpcr.txt
+    jobid: 57
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/FR47/qpcr.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta
+    wildcards: query=Hookless_family, domain=FR47, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:13 2026]
+Finished job 48.
+31 of 138 steps (22%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:13 2026]
+rule extract_annotations_by_domain:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_7.gff
+    jobid: 72
+    reason: Missing output files: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_7.gff; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:13 2026]
+Finished job 47.
+32 of 138 steps (23%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:13 2026]
+rule extract_annotations_by_domain:
+    input: output/Hookless_family/domain_sorted/gmap/FR47.gff3, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/annotations_by_domain/FR47.gff
+    jobid: 71
+    reason: Missing output files: output/Hookless_family/domain_sorted/annotations_by_domain/FR47.gff; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/FR47.gff3
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:13 2026]
+Finished job 49.
+33 of 138 steps (24%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:13 2026]
+rule extract_annotations_by_domain:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_1.gff
+    jobid: 73
+    reason: Missing output files: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_1.gff; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:15 2026]
+Finished job 57.
+34 of 138 steps (25%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:15 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_7/cloning.txt
+    jobid: 58
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_7/cloning.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_7, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:16 2026]
+Finished job 58.
+35 of 138 steps (25%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:16 2026]
+rule gmap_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    output: output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3
+    jobid: 51
+    reason: Missing output files: output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta > output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3
+        fi
+        
+[Wed Jul  1 12:22:17 2026]
+Finished job 51.
+36 of 138 steps (26%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:17 2026]
+rule extract_annotations_by_domain:
+    input: output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/annotations_by_domain/Rv0428c_C.gff
+    jobid: 75
+    reason: Missing output files: output/Hookless_family/domain_sorted/annotations_by_domain/Rv0428c_C.gff; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:29 2026]
+Finished job 72.
+37 of 138 steps (27%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:29 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_7/validation.txt
+    jobid: 59
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_7/validation.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_7, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:29 2026]
+Finished job 71.
+38 of 138 steps (28%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:29 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Rv0428c_C/cloning.txt
+    jobid: 67
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Rv0428c_C/cloning.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    wildcards: query=Hookless_family, domain=Rv0428c_C, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:29 2026]
+Finished job 73.
+39 of 138 steps (28%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:29 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_7/qpcr.txt
+    jobid: 60
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_7/qpcr.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_7, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:30 2026]
+Finished job 75.
+40 of 138 steps (29%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:30 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Rv0428c_C/validation.txt
+    jobid: 68
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Rv0428c_C/validation.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta
+    wildcards: query=Hookless_family, domain=Rv0428c_C, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:31 2026]
+Finished job 67.
+41 of 138 steps (30%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:31 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_1/cloning.txt
+    jobid: 61
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_1/cloning.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_1, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:31 2026]
+Finished job 59.
+42 of 138 steps (30%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:31 2026]
+rule meme_per_domain:
+    input: output/Hookless_family/hmmer/domains/FR47.fasta
+    output: output/Hookless_family/domain_sorted/meme_results/FR47/meme.xml
+    jobid: 17
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/Hookless_family/domain_sorted/meme_results/FR47/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/Hookless_family/hmmer/domains/FR47.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Wed Jul  1 12:22:31 2026]
+Finished job 60.
+43 of 138 steps (31%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:31 2026]
+rule meme_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta
+    output: output/Hookless_family/domain_sorted/meme_results/Acetyltransf_7/meme.xml
+    jobid: 18
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/Hookless_family/domain_sorted/meme_results/Acetyltransf_7/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Wed Jul  1 12:22:32 2026]
+Finished job 68.
+44 of 138 steps (32%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:32 2026]
+rule compute_protein_properties_per_domain:
+    input: output/Hookless_family/hmmer/domains/FR47.fasta
+    output: output/Hookless_family/domain_sorted/properties/FR47_pi_mw.tsv
+    jobid: 41
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:33 2026]
+Finished job 61.
+45 of 138 steps (33%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:33 2026]
+rule meme_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta
+    output: output/Hookless_family/domain_sorted/meme_results/Acetyltransf_1/meme.xml
+    jobid: 19
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/Hookless_family/domain_sorted/meme_results/Acetyltransf_1/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Wed Jul  1 12:22:34 2026]
+Finished job 41.
+46 of 138 steps (33%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:34 2026]
+rule compute_protein_properties_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta
+    output: output/Hookless_family/domain_sorted/properties/Acetyltransf_7_pi_mw.tsv
+    jobid: 42
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:35 2026]
+Finished job 42.
+47 of 138 steps (34%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:35 2026]
+rule calculate_extra_properties:
+    input: output/Hookless_family/hmmer/domains/FR47.fasta
+    output: output/Hookless_family/domain_sorted/extra_properties/FR47_physicochemical.csv
+    jobid: 133
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:37 2026]
+Finished job 133.
+48 of 138 steps (35%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:37 2026]
+rule compute_protein_properties_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta
+    output: output/Hookless_family/domain_sorted/properties/Acetyltransf_1_pi_mw.tsv
+    jobid: 43
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:39 2026]
+Finished job 43.
+49 of 138 steps (36%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:39 2026]
+rule calculate_extra_properties:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta
+    output: output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_7_physicochemical.csv
+    jobid: 134
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:39 2026]
+Finished job 18.
+50 of 138 steps (36%) done
+[Wed Jul  1 12:22:39 2026]
+Finished job 17.
+51 of 138 steps (37%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:39 2026]
+rule calculate_extra_properties:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta
+    output: output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_1_physicochemical.csv
+    jobid: 135
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:39 2026]
+rule calculate_extra_properties:
+    input: output/Hookless_family/hmmer/domains/Rv0428c_C.fasta
+    output: output/Hookless_family/domain_sorted/extra_properties/Rv0428c_C_physicochemical.csv
+    jobid: 137
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+Select jobs to execute...
+[Wed Jul  1 12:22:41 2026]
+Finished job 19.
+52 of 138 steps (38%) done
+
+[Wed Jul  1 12:22:41 2026]
+rule meme_per_domain:
+    input: output/Hookless_family/hmmer/domains/Rv0428c_C.fasta
+    output: output/Hookless_family/domain_sorted/meme_results/Rv0428c_C/meme.xml
+    jobid: 21
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/Hookless_family/domain_sorted/meme_results/Rv0428c_C/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/Hookless_family/hmmer/domains/Rv0428c_C.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Wed Jul  1 12:22:41 2026]
+Finished job 134.
+53 of 138 steps (38%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:41 2026]
+rule compute_protein_properties_per_domain:
+    input: output/Hookless_family/hmmer/domains/Rv0428c_C.fasta
+    output: output/Hookless_family/domain_sorted/properties/Rv0428c_C_pi_mw.tsv
+    jobid: 45
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:41 2026]
+Finished job 135.
+54 of 138 steps (39%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:41 2026]
+rule meme_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta
+    output: output/Hookless_family/domain_sorted/meme_results/Acetyltransf_10/meme.xml
+    jobid: 16
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/Hookless_family/domain_sorted/meme_results/Acetyltransf_10/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Wed Jul  1 12:22:41 2026]
+Finished job 137.
+55 of 138 steps (40%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:41 2026]
+rule compute_protein_properties_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta
+    output: output/Hookless_family/domain_sorted/properties/Acetyltransf_10_pi_mw.tsv
+    jobid: 40
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:43 2026]
+Finished job 45.
+56 of 138 steps (41%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:43 2026]
+rule calculate_extra_properties:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta
+    output: output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_10_physicochemical.csv
+    jobid: 132
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:43 2026]
+Finished job 40.
+57 of 138 steps (41%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:43 2026]
+rule codon_align_pair:
+    input: output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004231914.1.fasta
+    output: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.prot.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.prot.aln.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.codon.fasta
+    jobid: 105
+    reason: Missing output files: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.codon.fasta; Input files updated by another job: output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004231914.1.fasta
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:45 2026]
+Finished job 132.
+58 of 138 steps (42%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:45 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_3/cloning.txt
+    jobid: 64
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_3/cloning.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_3, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:45 2026]
+Finished job 105.
+59 of 138 steps (43%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:45 2026]
+rule codon_to_axt:
+    input: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.codon.fasta
+    output: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004231914.1.axt
+    jobid: 111
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004231914.1.axt; Input files updated by another job: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.codon.fasta
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:46 2026]
+Finished job 111.
+60 of 138 steps (43%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:46 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_3/validation.txt
+    jobid: 65
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_3/validation.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_3, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:46 2026]
+Finished job 64.
+61 of 138 steps (44%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:46 2026]
+rule gmap_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    output: output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3
+    jobid: 50
+    reason: Missing output files: output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta > output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3
+        fi
+        
+[Wed Jul  1 12:22:47 2026]
+Finished job 50.
+62 of 138 steps (45%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:47 2026]
+rule extract_annotations_by_domain:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_3.gff
+    jobid: 74
+    reason: Missing output files: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_3.gff; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:47 2026]
+Finished job 21.
+63 of 138 steps (46%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:47 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_3/qpcr.txt
+    jobid: 66
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_3/qpcr.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_3, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:47 2026]
+Finished job 16.
+64 of 138 steps (46%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:47 2026]
+rule calculate_kaks:
+    input: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004231914.1.axt
+    output: output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004231914.1.kaks.txt
+    jobid: 110
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004231914.1.kaks.txt; Input files updated by another job: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004231914.1.axt
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004231914.1.kaks.txt)
+        KaKs_Calculator -i output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004231914.1.axt -o output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004231914.1.kaks.txt -m NG
+        
+[Wed Jul  1 12:22:48 2026]
+Finished job 110.
+65 of 138 steps (47%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:48 2026]
+rule codon_align_pair:
+    input: output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004233456.1.fasta
+    output: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.prot.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.prot.aln.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.codon.fasta
+    jobid: 106
+    reason: Missing output files: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.codon.fasta; Input files updated by another job: output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004233456.1.fasta
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:49 2026]
+Finished job 65.
+66 of 138 steps (48%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:49 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_10/cloning.txt
+    jobid: 52
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_10/cloning.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_10, ptype=cloning
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:49 2026]
+Finished job 66.
+67 of 138 steps (49%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:49 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_10/qpcr.txt
+    jobid: 54
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_10/qpcr.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_10, ptype=qpcr
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:50 2026]
+Finished job 106.
+68 of 138 steps (49%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:50 2026]
+rule codon_to_axt:
+    input: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.codon.fasta
+    output: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004233456.1.axt
+    jobid: 113
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004233456.1.axt; Input files updated by another job: output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.codon.fasta
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:51 2026]
+Finished job 52.
+69 of 138 steps (50%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:51 2026]
+rule design_primers_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    output: output/Hookless_family/domain_sorted/primers/Acetyltransf_10/validation.txt
+    jobid: 53
+    reason: Missing output files: output/Hookless_family/domain_sorted/primers/Acetyltransf_10/validation.txt; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_10, ptype=validation
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:52 2026]
+Finished job 54.
+70 of 138 steps (51%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:52 2026]
+rule gmap_per_domain:
+    input: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    output: output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3
+    jobid: 46
+    reason: Missing output files: output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3; Input files updated by another job: output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3)
+
+        # Check if the input file has data (-s means file exists and size > 0)
+        if [ -s output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta ]; then
+            # We call 'gmap' directly now, relying on the Conda environment
+            gmap -D data/gmap_db/target -d db                  -f gff3_match_cdna -n 0 -t 4 output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta > output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3
+        else
+            # Create a dummy/empty GFF if there are no inputs to prevent errors
+            echo "## No mRNA sequences to map for domain" > output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3
+        fi
+        
+[Wed Jul  1 12:22:52 2026]
+Finished job 113.
+71 of 138 steps (51%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:52 2026]
+rule calculate_kaks:
+    input: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004233456.1.axt
+    output: output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004233456.1.kaks.txt
+    jobid: 112
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004233456.1.kaks.txt; Input files updated by another job: output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004233456.1.axt
+    wildcards: query=Hookless_family, pair=AEC07401.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004233456.1.kaks.txt)
+        KaKs_Calculator -i output/Hookless_family/pairs_calculations/kaks_input/AEC07401.1_vs_XP_004233456.1.axt -o output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004233456.1.kaks.txt -m NG
+        
+[Wed Jul  1 12:22:52 2026]
+Finished job 112.
+72 of 138 steps (52%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:52 2026]
+rule codon_align_pair:
+    input: output/Hookless_family/pairs_calculations/cds/AEE86813.1_vs_XP_004231914.1.fasta
+    output: output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.prot.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.prot.aln.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.codon.fasta
+    jobid: 107
+    reason: Missing output files: output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.codon.fasta; Input files updated by another job: output/Hookless_family/pairs_calculations/cds/AEE86813.1_vs_XP_004231914.1.fasta
+    wildcards: query=Hookless_family, pair=AEE86813.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:53 2026]
+Finished job 46.
+73 of 138 steps (53%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:53 2026]
+rule extract_annotations_by_domain:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3, data/genome/target/annotation.db
+    output: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_10.gff
+    jobid: 70
+    reason: Missing output files: output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_10.gff; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:53 2026]
+Finished job 53.
+74 of 138 steps (54%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:53 2026]
+rule codon_align_pair:
+    input: output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004231914.1.fasta
+    output: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.prot.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.prot.aln.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.codon.fasta
+    jobid: 108
+    reason: Missing output files: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.codon.fasta; Input files updated by another job: output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004231914.1.fasta
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:54 2026]
+Finished job 107.
+75 of 138 steps (54%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:54 2026]
+rule codon_to_axt:
+    input: output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.codon.fasta
+    output: output/Hookless_family/pairs_calculations/kaks_input/AEE86813.1_vs_XP_004231914.1.axt
+    jobid: 115
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks_input/AEE86813.1_vs_XP_004231914.1.axt; Input files updated by another job: output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.codon.fasta
+    wildcards: query=Hookless_family, pair=AEE86813.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:55 2026]
+Finished job 108.
+76 of 138 steps (55%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:55 2026]
+rule codon_to_axt:
+    input: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.codon.fasta
+    output: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004231914.1.axt
+    jobid: 117
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004231914.1.axt; Input files updated by another job: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.codon.fasta
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:56 2026]
+Finished job 115.
+77 of 138 steps (56%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:56 2026]
+rule calculate_kaks:
+    input: output/Hookless_family/pairs_calculations/kaks_input/AEE86813.1_vs_XP_004231914.1.axt
+    output: output/Hookless_family/pairs_calculations/kaks/AEE86813.1_vs_XP_004231914.1.kaks.txt
+    jobid: 114
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks/AEE86813.1_vs_XP_004231914.1.kaks.txt; Input files updated by another job: output/Hookless_family/pairs_calculations/kaks_input/AEE86813.1_vs_XP_004231914.1.axt
+    wildcards: query=Hookless_family, pair=AEE86813.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/pairs_calculations/kaks/AEE86813.1_vs_XP_004231914.1.kaks.txt)
+        KaKs_Calculator -i output/Hookless_family/pairs_calculations/kaks_input/AEE86813.1_vs_XP_004231914.1.axt -o output/Hookless_family/pairs_calculations/kaks/AEE86813.1_vs_XP_004231914.1.kaks.txt -m NG
+        
+[Wed Jul  1 12:22:56 2026]
+Finished job 114.
+78 of 138 steps (57%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:56 2026]
+rule codon_align_pair:
+    input: output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004233456.1.fasta
+    output: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.prot.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.prot.aln.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.codon.fasta
+    jobid: 109
+    reason: Missing output files: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.codon.fasta; Input files updated by another job: output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004233456.1.fasta
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:57 2026]
+Finished job 117.
+79 of 138 steps (57%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:57 2026]
+rule calculate_kaks:
+    input: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004231914.1.axt
+    output: output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004231914.1.kaks.txt
+    jobid: 116
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004231914.1.kaks.txt; Input files updated by another job: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004231914.1.axt
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004231914.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004231914.1.kaks.txt)
+        KaKs_Calculator -i output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004231914.1.axt -o output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004231914.1.kaks.txt -m NG
+        
+[Wed Jul  1 12:22:57 2026]
+Finished job 116.
+80 of 138 steps (58%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:57 2026]
+rule calculate_extra_properties:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta
+    output: output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_3_physicochemical.csv
+    jobid: 136
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:57 2026]
+Finished job 124.
+81 of 138 steps (59%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:57 2026]
+rule compute_protein_properties_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta
+    output: output/Hookless_family/domain_sorted/properties/Acetyltransf_3_pi_mw.tsv
+    jobid: 44
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:58 2026]
+Finished job 109.
+82 of 138 steps (59%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:58 2026]
+rule codon_to_axt:
+    input: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.codon.fasta
+    output: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004233456.1.axt
+    jobid: 119
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004233456.1.axt; Input files updated by another job: output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.codon.fasta
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:59 2026]
+Finished job 136.
+83 of 138 steps (60%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:59 2026]
+rule meme_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta
+    output: output/Hookless_family/domain_sorted/meme_results/Acetyltransf_3/meme.xml
+    jobid: 20
+    reason: Forced execution
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # 1. Get the directory path dynamically from the output file
+        OUT_DIR=$(dirname output/Hookless_family/domain_sorted/meme_results/Acetyltransf_3/meme.xml)
+
+        # 2. Create the directory (safely handles if it doesn't exist)
+        mkdir -p "$OUT_DIR"
+
+        # 3. Run MEME using the dynamic directory variable
+        meme output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta -protein -mod zoops              -nmotifs 10              -minw 6              -maxw 50              -oc "$OUT_DIR"
+        
+[Wed Jul  1 12:22:59 2026]
+Finished job 44.
+84 of 138 steps (61%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:59 2026]
+rule extract_selected_genes:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3
+    output: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_1.txt
+    jobid: 79
+    reason: Missing output files: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_1.txt; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_1.txt
+        
+[Wed Jul  1 12:22:59 2026]
+Finished job 79.
+85 of 138 steps (62%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:59 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_1.txt
+    output: output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta
+    jobid: 85
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta; Input files updated by another job: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_1.txt
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:22:59 2026]
+Finished job 119.
+86 of 138 steps (62%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:59 2026]
+rule calculate_kaks:
+    input: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004233456.1.axt
+    output: output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004233456.1.kaks.txt
+    jobid: 118
+    reason: Missing output files: output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004233456.1.kaks.txt; Input files updated by another job: output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004233456.1.axt
+    wildcards: query=Hookless_family, pair=AED98343.1_vs_XP_004233456.1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004233456.1.kaks.txt)
+        KaKs_Calculator -i output/Hookless_family/pairs_calculations/kaks_input/AED98343.1_vs_XP_004233456.1.axt -o output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004233456.1.kaks.txt -m NG
+        
+[Wed Jul  1 12:22:59 2026]
+Finished job 118.
+87 of 138 steps (63%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:59 2026]
+rule extract_selected_genes:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3
+    output: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_7.txt
+    jobid: 78
+    reason: Missing output files: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_7.txt; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_7.txt
+        
+[Wed Jul  1 12:22:59 2026]
+Finished job 78.
+88 of 138 steps (64%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:22:59 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_7.txt
+    output: output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta
+    jobid: 84
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta; Input files updated by another job: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_7.txt
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:04 2026]
+Finished job 20.
+89 of 138 steps (64%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:04 2026]
+rule extract_selected_genes:
+    input: output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3
+    output: output/Hookless_family/domain_sorted/selected_genes/Rv0428c_C.txt
+    jobid: 81
+    reason: Missing output files: output/Hookless_family/domain_sorted/selected_genes/Rv0428c_C.txt; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/Hookless_family/domain_sorted/selected_genes/Rv0428c_C.txt
+        
+[Wed Jul  1 12:23:04 2026]
+Finished job 81.
+90 of 138 steps (65%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:04 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/Hookless_family/domain_sorted/selected_genes/Rv0428c_C.txt
+    output: output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta
+    jobid: 87
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta; Input files updated by another job: output/Hookless_family/domain_sorted/selected_genes/Rv0428c_C.txt
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:04 2026]
+Finished job 131.
+91 of 138 steps (66%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:04 2026]
+rule extract_selected_genes:
+    input: output/Hookless_family/domain_sorted/gmap/FR47.gff3
+    output: output/Hookless_family/domain_sorted/selected_genes/FR47.txt
+    jobid: 77
+    reason: Missing output files: output/Hookless_family/domain_sorted/selected_genes/FR47.txt; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/FR47.gff3
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/Hookless_family/domain_sorted/gmap/FR47.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/Hookless_family/domain_sorted/selected_genes/FR47.txt
+        
+[Wed Jul  1 12:23:04 2026]
+Finished job 77.
+92 of 138 steps (67%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:04 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/Hookless_family/domain_sorted/selected_genes/FR47.txt
+    output: output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta
+    jobid: 83
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta; Input files updated by another job: output/Hookless_family/domain_sorted/selected_genes/FR47.txt
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:07 2026]
+Finished job 70.
+93 of 138 steps (67%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:07 2026]
+rule extract_selected_genes:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3
+    output: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_10.txt
+    jobid: 76
+    reason: Missing output files: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_10.txt; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_10.txt
+        
+[Wed Jul  1 12:23:07 2026]
+Finished job 74.
+94 of 138 steps (68%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:07 2026]
+rule extract_selected_genes:
+    input: output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3
+    output: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_3.txt
+    jobid: 80
+    reason: Missing output files: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_3.txt; Input files updated by another job: output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        grep "Name=" output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3 | sed 's/.*Name=//;s/;.*//' | sort -u > output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_3.txt
+        
+[Wed Jul  1 12:23:07 2026]
+Finished job 76.
+95 of 138 steps (69%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:07 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_10.txt
+    output: output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta
+    jobid: 82
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta; Input files updated by another job: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_10.txt
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:07 2026]
+Finished job 80.
+96 of 138 steps (70%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:07 2026]
+rule extract_promoters:
+    input: data/genome/target/genome.fna, data/genome/target/annotation.db, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_3.txt
+    output: output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta
+    jobid: 86
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta; Input files updated by another job: output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_3.txt
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:39 2026]
+Finished job 86.
+97 of 138 steps (70%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:39 2026]
+rule meme_promoters:
+    input: output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta
+    output: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.xml, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/SKIPPED
+    jobid: 92
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.html; Input files updated by another job: output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.xml)
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.xml output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.html
+        else
+            meme output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta -dna -oc $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/SKIPPED
+        fi
+        
+[Wed Jul  1 12:23:39 2026]
+Finished job 82.
+98 of 138 steps (71%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:39 2026]
+rule meme_promoters:
+    input: output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta
+    output: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.xml, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/SKIPPED
+    jobid: 88
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.html; Input files updated by another job: output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.xml)
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.xml output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.html
+        else
+            meme output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta -dna -oc $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/SKIPPED
+        fi
+        
+[Wed Jul  1 12:23:42 2026]
+Finished job 130.
+99 of 138 steps (72%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:42 2026]
+rule setup_output:
+    output: output/Hookless_family/.setup_done
+    jobid: 1
+    reason: Forced execution
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+rm -rf outputs/ && mkdir -p $(dirname output/Hookless_family/.setup_done) && touch output/Hookless_family/.setup_done
+Touching output file output/Hookless_family/.setup_done.
+[Wed Jul  1 12:23:42 2026]
+Finished job 1.
+100 of 138 steps (72%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:42 2026]
+rule generate_query_fasta:
+    output: output/Hookless_family/true_query.fasta
+    jobid: 3
+    reason: Forced execution
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:42 2026]
+Finished job 126.
+101 of 138 steps (73%) done
+[Wed Jul  1 12:23:44 2026]
+Finished job 3.
+102 of 138 steps (74%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:44 2026]
+rule extract_filtered_target_hits:
+    input: output/Hookless_family/true_query.fasta, data/proteome/target/proteins.faa
+    output: output/Hookless_family/query.fasta
+    jobid: 2
+    reason: Input files updated by another job: output/Hookless_family/true_query.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:47 2026]
+Finished job 2.
+103 of 138 steps (75%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:47 2026]
+rule run_deeploc2:
+    input: output/Hookless_family/query.fasta
+    output: output/Hookless_family/domain_sorted/subcell_localization_prediction/results.csv
+    jobid: 4
+    reason: Input files updated by another job: output/Hookless_family/query.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        mkdir -p $(dirname output/Hookless_family/domain_sorted/subcell_localization_prediction/results.csv)
+        deeploc2 -f output/Hookless_family/query.fasta -o $(dirname output/Hookless_family/domain_sorted/subcell_localization_prediction/results.csv)
+        # Rename the timestamped output to the expected filename
+        mv $(dirname output/Hookless_family/domain_sorted/subcell_localization_prediction/results.csv)/results_*.csv output/Hookless_family/domain_sorted/subcell_localization_prediction/results.csv
+        
+
+[Wed Jul  1 12:23:47 2026]
+rule blastp_base:
+    input: output/Hookless_family/query.fasta, data/proteome/base/proteins.faa
+    output: output/Hookless_family/blast/base_blastp.tsv
+    jobid: 5
+    reason: Input files updated by another job: output/Hookless_family/query.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        if [ ! -f data/proteome/base.pin ]; then
+            makeblastdb -in data/proteome/base/proteins.faa -dbtype prot -out data/proteome/base
+        fi
+        blastp -query output/Hookless_family/query.fasta -db data/proteome/base -out output/Hookless_family/blast/base_blastp.tsv -outfmt 6 -evalue 1e-5 -max_target_seqs 5
+        
+[Wed Jul  1 12:23:49 2026]
+Finished job 5.
+104 of 138 steps (75%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:49 2026]
+rule extract_unique_pairs_no_dup_within_species:
+    input: output/Hookless_family/blast/base_blastp.tsv
+    output: output/Hookless_family/blast/unique_pairs_no_dup.tsv
+    jobid: 8
+    reason: Input files updated by another job: output/Hookless_family/blast/base_blastp.tsv
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:50 2026]
+Finished job 83.
+105 of 138 steps (76%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:50 2026]
+rule meme_promoters:
+    input: output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta
+    output: output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.xml, output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/FR47/SKIPPED
+    jobid: 89
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.html; Input files updated by another job: output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta
+    wildcards: query=Hookless_family, domain=FR47
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.xml)
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/FR47/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.xml output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.html
+        else
+            meme output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta -dna -oc $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/FR47/SKIPPED
+        fi
+        
+[Wed Jul  1 12:23:50 2026]
+Finished job 85.
+106 of 138 steps (77%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:50 2026]
+rule meme_promoters:
+    input: output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta
+    output: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.xml, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/SKIPPED
+    jobid: 91
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.html; Input files updated by another job: output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.xml)
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.xml output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.html
+        else
+            meme output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta -dna -oc $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/SKIPPED
+        fi
+        
+[Wed Jul  1 12:23:51 2026]
+Finished job 84.
+107 of 138 steps (78%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:51 2026]
+rule meme_promoters:
+    input: output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta
+    output: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.xml, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/SKIPPED
+    jobid: 90
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.html; Input files updated by another job: output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.xml)
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.xml output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.html
+        else
+            meme output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta -dna -oc $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/SKIPPED
+        fi
+        
+[Wed Jul  1 12:23:51 2026]
+Finished job 87.
+108 of 138 steps (78%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:51 2026]
+rule meme_promoters:
+    input: output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta
+    output: output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.xml, output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/SKIPPED
+    jobid: 93
+    reason: Missing output files: output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.html; Input files updated by another job: output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        # Count sequences in the fasta
+        seq_count=$(grep -c ">" output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta || true)
+
+        if [ "$seq_count" -lt 1 ]; then
+            echo "Too few sequences ($seq_count). Skipping MEME."
+            mkdir -p $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.xml)
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/SKIPPED
+            # Create dummy files so Snakemake is happy
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.xml output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.html
+        else
+            meme output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta -dna -oc $(dirname output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.xml) -mod zoops -nmotifs 10 -minw 6 -maxw 50 -revcomp
+            # CRITICAL: Create the SKIPPED file as a placeholder even if we didn't skip
+            touch output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/SKIPPED
+        fi
+        
+[Wed Jul  1 12:23:51 2026]
+Finished job 8.
+109 of 138 steps (79%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:51 2026]
+rule calculate_conservation_and_kaks_input:
+    input: data/mcscanx/target_base.wgd_pairs.tsv, output/Hookless_family/blast/unique_pairs_no_dup.tsv
+    output: output/Hookless_family/mcscanx/target_base.filtered_pairs.tsv, output/Hookless_family/mcscanx/conservation_stats.txt, output/Hookless_family/mcscanx/pairs_to_run.txt
+    jobid: 7
+    reason: Input files updated by another job: output/Hookless_family/blast/unique_pairs_no_dup.tsv
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:51 2026]
+Finished job 92.
+110 of 138 steps (80%) done
+[Wed Jul  1 12:23:51 2026]
+Finished job 88.
+111 of 138 steps (80%) done
+Select jobs to execute...
+[Wed Jul  1 12:23:52 2026]
+Finished job 7.
+112 of 138 steps (81%) done
+
+[Wed Jul  1 12:23:52 2026]
+rule convert_query_to_tsv:
+    input: output/Hookless_family/query.fasta, output/Hookless_family/mcscanx/target_base.filtered_pairs.tsv
+    output: output/Hookless_family/blast/target_blastp.tsv
+    jobid: 6
+    reason: Input files updated by another job: output/Hookless_family/mcscanx/target_base.filtered_pairs.tsv, output/Hookless_family/query.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:54 2026]
+Finished job 6.
+113 of 138 steps (82%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:54 2026]
+rule extract_hit_ids:
+    input: output/Hookless_family/blast/base_blastp.tsv, output/Hookless_family/blast/target_blastp.tsv
+    output: output/Hookless_family/hmmer/hit_ids.txt
+    jobid: 12
+    reason: Input files updated by another job: output/Hookless_family/blast/base_blastp.tsv, output/Hookless_family/blast/target_blastp.tsv
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:55 2026]
+Finished job 12.
+114 of 138 steps (83%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:55 2026]
+rule extract_hit_sequences:
+    input: output/Hookless_family/hmmer/hit_ids.txt, data/proteome/base/proteins.faa, data/proteome/target/proteins.faa
+    output: output/Hookless_family/hmmer/hit_sequences.fasta
+    jobid: 11
+    reason: Input files updated by another job: output/Hookless_family/hmmer/hit_ids.txt
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:57 2026]
+Finished job 11.
+115 of 138 steps (83%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:57 2026]
+rule combine_hits_and_query:
+    input: output/Hookless_family/hmmer/hit_sequences.fasta, output/Hookless_family/query.fasta
+    output: output/Hookless_family/hmmer/combined_hits_query.fasta
+    jobid: 10
+    reason: Input files updated by another job: output/Hookless_family/query.fasta, output/Hookless_family/hmmer/hit_sequences.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:23:58 2026]
+Finished job 10.
+116 of 138 steps (84%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:23:58 2026]
+rule run_hmmer:
+    input: output/Hookless_family/hmmer/combined_hits_query.fasta, preset/pfam/Pfam-A.hmm
+    output: output/Hookless_family/hmmer/hmmer_scan.txt
+    jobid: 9
+    reason: Input files updated by another job: output/Hookless_family/hmmer/combined_hits_query.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        hmmscan --cpu 8 --tblout output/Hookless_family/hmmer/hmmer_scan.txt preset/pfam/Pfam-A.hmm output/Hookless_family/hmmer/combined_hits_query.fasta
+        
+[Wed Jul  1 12:24:12 2026]
+Finished job 9.
+117 of 138 steps (85%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:12 2026]
+rule split_by_domain:
+    input: output/Hookless_family/hmmer/hmmer_scan.txt, output/Hookless_family/hmmer/combined_hits_query.fasta, output/Hookless_family/query.fasta
+    output: output/Hookless_family/hmmer/domains/.done
+    jobid: 13
+    reason: Input files updated by another job: output/Hookless_family/hmmer/combined_hits_query.fasta, output/Hookless_family/hmmer/hmmer_scan.txt, output/Hookless_family/query.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:14 2026]
+Finished job 13.
+118 of 138 steps (86%) done
+Select jobs to execute...
+[Wed Jul  1 12:24:15 2026]
+Finished job 89.
+119 of 138 steps (86%) done
+
+[Wed Jul  1 12:24:15 2026]
+rule run_hmmer_on_query:
+    input: output/Hookless_family/query.fasta, preset/pfam/Pfam-A.hmm
+    output: output/Hookless_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/Hookless_family/domain_sorted/query_hmmer/domtblout.txt, output/Hookless_family/domain_sorted/query_hmmer/combined_hits_query.fasta, output/Hookless_family/domain_sorted/query_hmmer/SKIPPED
+    jobid: 15
+    reason: Input files updated by another job: output/Hookless_family/query.fasta
+    wildcards: query=Hookless_family
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:15 2026]
+Finished job 91.
+120 of 138 steps (87%) done
+Select jobs to execute...
+[Wed Jul  1 12:24:15 2026]
+Finished job 90.
+121 of 138 steps (88%) done
+[Wed Jul  1 12:24:15 2026]
+Finished job 93.
+122 of 138 steps (88%) done
+[Wed Jul  1 12:24:17 2026]
+Finished job 15.
+123 of 138 steps (89%) done
+
+[Wed Jul  1 12:24:17 2026]
+rule msa_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta, output/Hookless_family/hmmer/domains/.done
+    output: output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta
+    jobid: 24
+    reason: Missing output files: output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta; Input files updated by another job: output/Hookless_family/hmmer/domains/.done
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/Hookless_family/hmmer/domains/Acetyltransf_7.fasta -output output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta.tmp > output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta
+
+        rm output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta.tmp
+        
+
+[Wed Jul  1 12:24:17 2026]
+rule split_query_by_domain:
+    input: output/Hookless_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/Hookless_family/domain_sorted/query_hmmer/combined_hits_query.fasta
+    output: output/Hookless_family/domain_sorted/query_hmmer/domains/.done
+    jobid: 14
+    reason: Input files updated by another job: output/Hookless_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/Hookless_family/domain_sorted/query_hmmer/combined_hits_query.fasta
+    wildcards: query=Hookless_family
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:17 2026]
+Finished job 24.
+124 of 138 steps (90%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:17 2026]
+rule iqtree_per_domain:
+    input: output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta
+    output: output/Hookless_family/domain_sorted/tree/Acetyltransf_7/Acetyltransf_7.treefile, output/Hookless_family/domain_sorted/tree/Acetyltransf_7/SKIPPED
+    log: output/Hookless_family/domain_sorted/tree/Acetyltransf_7/Acetyltransf_7.iqtree.log
+    jobid: 30
+    reason: Missing output files: output/Hookless_family/domain_sorted/tree/Acetyltransf_7/Acetyltransf_7.treefile; Input files updated by another job: output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_7
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:18 2026]
+Finished job 14.
+125 of 138 steps (91%) done
+Select jobs to execute...
+[Wed Jul  1 12:24:24 2026]
+Finished job 4.
+126 of 138 steps (91%) done
+
+[Wed Jul  1 12:24:24 2026]
+rule msa_per_domain:
+    input: output/Hookless_family/hmmer/domains/FR47.fasta, output/Hookless_family/hmmer/domains/.done
+    output: output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta
+    jobid: 23
+    reason: Missing output files: output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta; Input files updated by another job: output/Hookless_family/hmmer/domains/.done
+    wildcards: query=Hookless_family, domain=FR47
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/Hookless_family/hmmer/domains/FR47.fasta -output output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta.tmp > output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta
+
+        rm output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta.tmp
+        
+[Wed Jul  1 12:24:24 2026]
+Finished job 23.
+127 of 138 steps (92%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:24 2026]
+rule iqtree_per_domain:
+    input: output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta
+    output: output/Hookless_family/domain_sorted/tree/FR47/FR47.treefile, output/Hookless_family/domain_sorted/tree/FR47/SKIPPED
+    log: output/Hookless_family/domain_sorted/tree/FR47/FR47.iqtree.log
+    jobid: 29
+    reason: Missing output files: output/Hookless_family/domain_sorted/tree/FR47/FR47.treefile; Input files updated by another job: output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta
+    wildcards: query=Hookless_family, domain=FR47
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:30 2026]
+Finished job 30.
+128 of 138 steps (93%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:30 2026]
+rule msa_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta, output/Hookless_family/hmmer/domains/.done
+    output: output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta
+    jobid: 25
+    reason: Missing output files: output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta; Input files updated by another job: output/Hookless_family/hmmer/domains/.done
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/Hookless_family/hmmer/domains/Acetyltransf_1.fasta -output output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta.tmp > output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta
+
+        rm output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta.tmp
+        
+[Wed Jul  1 12:24:30 2026]
+Finished job 25.
+129 of 138 steps (93%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:30 2026]
+rule iqtree_per_domain:
+    input: output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta
+    output: output/Hookless_family/domain_sorted/tree/Acetyltransf_1/Acetyltransf_1.treefile, output/Hookless_family/domain_sorted/tree/Acetyltransf_1/SKIPPED
+    log: output/Hookless_family/domain_sorted/tree/Acetyltransf_1/Acetyltransf_1.iqtree.log
+    jobid: 31
+    reason: Missing output files: output/Hookless_family/domain_sorted/tree/Acetyltransf_1/Acetyltransf_1.treefile; Input files updated by another job: output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_1
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:37 2026]
+Finished job 29.
+130 of 138 steps (94%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:37 2026]
+rule msa_per_domain:
+    input: output/Hookless_family/hmmer/domains/Rv0428c_C.fasta, output/Hookless_family/hmmer/domains/.done
+    output: output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta
+    jobid: 27
+    reason: Missing output files: output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta; Input files updated by another job: output/Hookless_family/hmmer/domains/.done
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/Hookless_family/hmmer/domains/Rv0428c_C.fasta -output output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta.tmp > output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta
+
+        rm output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta.tmp
+        
+[Wed Jul  1 12:24:37 2026]
+Finished job 27.
+131 of 138 steps (95%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:37 2026]
+rule iqtree_per_domain:
+    input: output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta
+    output: output/Hookless_family/domain_sorted/tree/Rv0428c_C/Rv0428c_C.treefile, output/Hookless_family/domain_sorted/tree/Rv0428c_C/SKIPPED
+    log: output/Hookless_family/domain_sorted/tree/Rv0428c_C/Rv0428c_C.iqtree.log
+    jobid: 33
+    reason: Missing output files: output/Hookless_family/domain_sorted/tree/Rv0428c_C/Rv0428c_C.treefile; Input files updated by another job: output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta
+    wildcards: query=Hookless_family, domain=Rv0428c_C
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:43 2026]
+Finished job 31.
+132 of 138 steps (96%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:43 2026]
+rule msa_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta, output/Hookless_family/hmmer/domains/.done
+    output: output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta
+    jobid: 22
+    reason: Missing output files: output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta; Input files updated by another job: output/Hookless_family/hmmer/domains/.done
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/Hookless_family/hmmer/domains/Acetyltransf_10.fasta -output output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta.tmp > output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta
+
+        rm output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta.tmp
+        
+[Wed Jul  1 12:24:43 2026]
+Finished job 22.
+133 of 138 steps (96%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:43 2026]
+rule iqtree_per_domain:
+    input: output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta
+    output: output/Hookless_family/domain_sorted/tree/Acetyltransf_10/Acetyltransf_10.treefile, output/Hookless_family/domain_sorted/tree/Acetyltransf_10/SKIPPED
+    log: output/Hookless_family/domain_sorted/tree/Acetyltransf_10/Acetyltransf_10.iqtree.log
+    jobid: 28
+    reason: Missing output files: output/Hookless_family/domain_sorted/tree/Acetyltransf_10/Acetyltransf_10.treefile; Input files updated by another job: output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_10
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:45 2026]
+Finished job 33.
+134 of 138 steps (97%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:45 2026]
+rule msa_per_domain:
+    input: output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta, output/Hookless_family/hmmer/domains/.done
+    output: output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta
+    jobid: 26
+    reason: Missing output files: output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta; Input files updated by another job: output/Hookless_family/hmmer/domains/.done
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+
+        muscle -quiet -align output/Hookless_family/hmmer/domains/Acetyltransf_3.fasta -output output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta.tmp -threads 4
+
+        # Replace dashes in sequence IDs with underscores to make MEME/IQ-TREE safe
+        awk '/^>/ { gsub(/-/, "_"); } { print }' output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta.tmp > output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta
+
+        rm output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta.tmp
+        
+[Wed Jul  1 12:24:45 2026]
+Finished job 26.
+135 of 138 steps (98%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:45 2026]
+rule iqtree_per_domain:
+    input: output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta
+    output: output/Hookless_family/domain_sorted/tree/Acetyltransf_3/Acetyltransf_3.treefile, output/Hookless_family/domain_sorted/tree/Acetyltransf_3/SKIPPED
+    log: output/Hookless_family/domain_sorted/tree/Acetyltransf_3/Acetyltransf_3.iqtree.log
+    jobid: 32
+    reason: Missing output files: output/Hookless_family/domain_sorted/tree/Acetyltransf_3/Acetyltransf_3.treefile; Input files updated by another job: output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta
+    wildcards: query=Hookless_family, domain=Acetyltransf_3
+    threads: 4
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:50 2026]
+Finished job 28.
+136 of 138 steps (99%) done
+[Wed Jul  1 12:24:51 2026]
+Finished job 32.
+137 of 138 steps (99%) done
+Select jobs to execute...
+
+[Wed Jul  1 12:24:51 2026]
+localrule all:
+    input: output/Hookless_family/.setup_done, output/Hookless_family/query.fasta, output/Hookless_family/true_query.fasta, output/Hookless_family/domain_sorted/subcell_localization_prediction/results.csv, output/Hookless_family/blast/base_blastp.tsv, output/Hookless_family/blast/target_blastp.tsv, output/Hookless_family/blast/unique_pairs_no_dup.tsv, output/Hookless_family/hmmer/hmmer_scan.txt, output/Hookless_family/hmmer/domains/.done, output/Hookless_family/domain_sorted/query_hmmer/domains/.done, output/Hookless_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_10/meme.xml, output/Hookless_family/domain_sorted/meme_results/FR47/meme.xml, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_7/meme.xml, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_1/meme.xml, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_3/meme.xml, output/Hookless_family/domain_sorted/meme_results/Rv0428c_C/meme.xml, output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta, output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta, output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta, output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta, output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta, output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta, output/Hookless_family/domain_sorted/tree/Acetyltransf_10/Acetyltransf_10.treefile, output/Hookless_family/domain_sorted/tree/FR47/FR47.treefile, output/Hookless_family/domain_sorted/tree/Acetyltransf_7/Acetyltransf_7.treefile, output/Hookless_family/domain_sorted/tree/Acetyltransf_1/Acetyltransf_1.treefile, output/Hookless_family/domain_sorted/tree/Acetyltransf_3/Acetyltransf_3.treefile, output/Hookless_family/domain_sorted/tree/Rv0428c_C/Rv0428c_C.treefile, output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta, output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta, output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta, output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta, output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta, output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta, output/Hookless_family/domain_sorted/properties/Acetyltransf_10_pi_mw.tsv, output/Hookless_family/domain_sorted/properties/FR47_pi_mw.tsv, output/Hookless_family/domain_sorted/properties/Acetyltransf_7_pi_mw.tsv, output/Hookless_family/domain_sorted/properties/Acetyltransf_1_pi_mw.tsv, output/Hookless_family/domain_sorted/properties/Acetyltransf_3_pi_mw.tsv, output/Hookless_family/domain_sorted/properties/Rv0428c_C_pi_mw.tsv, output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3, output/Hookless_family/domain_sorted/gmap/FR47.gff3, output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3, output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3, output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3, output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3, output/Hookless_family/domain_sorted/primers/Acetyltransf_10/cloning.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_10/validation.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_10/qpcr.txt, output/Hookless_family/domain_sorted/primers/FR47/cloning.txt, output/Hookless_family/domain_sorted/primers/FR47/validation.txt, output/Hookless_family/domain_sorted/primers/FR47/qpcr.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_7/cloning.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_7/validation.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_7/qpcr.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_1/cloning.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_1/validation.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_1/qpcr.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_3/cloning.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_3/validation.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_3/qpcr.txt, output/Hookless_family/domain_sorted/primers/Rv0428c_C/cloning.txt, output/Hookless_family/domain_sorted/primers/Rv0428c_C/validation.txt, output/Hookless_family/domain_sorted/primers/Rv0428c_C/qpcr.txt, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_10.gff, output/Hookless_family/domain_sorted/annotations_by_domain/FR47.gff, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_7.gff, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_1.gff, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_3.gff, output/Hookless_family/domain_sorted/annotations_by_domain/Rv0428c_C.gff, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_10.txt, output/Hookless_family/domain_sorted/selected_genes/FR47.txt, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_7.txt, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_1.txt, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_3.txt, output/Hookless_family/domain_sorted/selected_genes/Rv0428c_C.txt, output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta, output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta, output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta, output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta, output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta, output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.html, output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.html, output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/scored.tsv, output/Hookless_family/domain_sorted/crispr/FR47/scored.tsv, output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/scored.tsv, output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/scored.tsv, output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/scored.tsv, output/Hookless_family/domain_sorted/crispr/Rv0428c_C/scored.tsv, output/Hookless_family/mcscanx/pairs_to_run.txt, output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004231914.1.fasta, output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004233456.1.fasta, output/Hookless_family/pairs_calculations/cds/AEE86813.1_vs_XP_004231914.1.fasta, output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004231914.1.fasta, output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004233456.1.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.codon.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.codon.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.codon.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.codon.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.codon.fasta, output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004231914.1.kaks.txt, output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004233456.1.kaks.txt, output/Hookless_family/pairs_calculations/kaks/AEE86813.1_vs_XP_004231914.1.kaks.txt, output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004231914.1.kaks.txt, output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004233456.1.kaks.txt, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_10/chromosomal_map.png, output/Hookless_family/domain_sorted/chromosal_map/FR47/chromosomal_map.png, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_7/chromosomal_map.png, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_1/chromosomal_map.png, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_3/chromosomal_map.png, output/Hookless_family/domain_sorted/chromosal_map/Rv0428c_C/chromosomal_map.png, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_10/gene_structures, output/Hookless_family/domain_sorted/gene_structures/FR47/gene_structures, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_7/gene_structures, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_1/gene_structures, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_3/gene_structures, output/Hookless_family/domain_sorted/gene_structures/Rv0428c_C/gene_structures, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_10_physicochemical.csv, output/Hookless_family/domain_sorted/extra_properties/FR47_physicochemical.csv, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_7_physicochemical.csv, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_1_physicochemical.csv, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_3_physicochemical.csv, output/Hookless_family/domain_sorted/extra_properties/Rv0428c_C_physicochemical.csv
+    jobid: 0
+    reason: Input files updated by another job: output/Hookless_family/domain_sorted/properties/FR47_pi_mw.tsv, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_10/gene_structures, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004233456.1.codon.fasta, output/Hookless_family/domain_sorted/tree/Acetyltransf_3/Acetyltransf_3.treefile, output/Hookless_family/hmmer/domains/.done, output/Hookless_family/domain_sorted/extra_properties/FR47_physicochemical.csv, output/Hookless_family/domain_sorted/gmap/Acetyltransf_1.gff3, output/Hookless_family/domain_sorted/msa/Rv0428c_C.aligned.fasta, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_10.gff, output/Hookless_family/domain_sorted/crispr/FR47/scored.tsv, output/Hookless_family/domain_sorted/properties/Acetyltransf_3_pi_mw.tsv, output/Hookless_family/domain_sorted/chromosal_map/FR47/chromosomal_map.png, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_10/meme.xml, output/Hookless_family/domain_sorted/crispr/Acetyltransf_7/scored.tsv, output/Hookless_family/domain_sorted/primers/Acetyltransf_7/qpcr.txt, output/Hookless_family/domain_sorted/mrna/Acetyltransf_7/mrna.fasta, output/Hookless_family/domain_sorted/query_hmmer/hmmer_scan.txt, output/Hookless_family/blast/target_blastp.tsv, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_10.txt, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_1_physicochemical.csv, output/Hookless_family/true_query.fasta, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_3.gff, output/Hookless_family/domain_sorted/properties/Acetyltransf_7_pi_mw.tsv, output/Hookless_family/domain_sorted/annotations_by_domain/FR47.gff, output/Hookless_family/blast/base_blastp.tsv, output/Hookless_family/domain_sorted/gene_structures/FR47/gene_structures, output/Hookless_family/domain_sorted/selected_genes/Rv0428c_C.txt, output/Hookless_family/domain_sorted/promoters/FR47_promoters.fasta, output/Hookless_family/domain_sorted/mrna/Rv0428c_C/mrna.fasta, output/Hookless_family/domain_sorted/properties/Rv0428c_C_pi_mw.tsv, output/Hookless_family/domain_sorted/mrna/Acetyltransf_10/mrna.fasta, output/Hookless_family/pairs_calculations/cds/AEE86813.1_vs_XP_004231914.1.fasta, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_7.txt, output/Hookless_family/domain_sorted/subcell_localization_prediction/results.csv, output/Hookless_family/domain_sorted/primers/Acetyltransf_10/cloning.txt, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_1/meme.xml, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_7/chromosomal_map.png, output/Hookless_family/domain_sorted/crispr/Acetyltransf_10/scored.tsv, output/Hookless_family/domain_sorted/selected_genes/FR47.txt, output/Hookless_family/domain_sorted/tree/Acetyltransf_7/Acetyltransf_7.treefile, output/Hookless_family/domain_sorted/gmap/FR47.gff3, output/Hookless_family/domain_sorted/primers/Acetyltransf_7/validation.txt, output/Hookless_family/domain_sorted/mrna/Acetyltransf_3/mrna.fasta, output/Hookless_family/domain_sorted/primers/Acetyltransf_3/validation.txt, output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004231914.1.kaks.txt, output/Hookless_family/domain_sorted/msa/Acetyltransf_7.aligned.fasta, output/Hookless_family/domain_sorted/primers/FR47/cloning.txt, output/Hookless_family/domain_sorted/msa/Acetyltransf_3.aligned.fasta, output/Hookless_family/domain_sorted/annotations_by_domain/Rv0428c_C.gff, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_1/meme.html, output/Hookless_family/domain_sorted/primers/Acetyltransf_10/qpcr.txt, output/Hookless_family/query.fasta, output/Hookless_family/domain_sorted/query_hmmer/domains/.done, output/Hookless_family/domain_sorted/tree/FR47/FR47.treefile, output/Hookless_family/pairs_calculations/cds_aligned/AED98343.1_vs_XP_004231914.1.codon.fasta, output/Hookless_family/domain_sorted/promoters/Rv0428c_C_promoters.fasta, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_1/chromosomal_map.png, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_10_physicochemical.csv, output/Hookless_family/domain_sorted/tree/Acetyltransf_10/Acetyltransf_10.treefile, output/Hookless_family/domain_sorted/msa/Acetyltransf_1.aligned.fasta, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_1.gff, output/Hookless_family/.setup_done, output/Hookless_family/domain_sorted/primers/Rv0428c_C/cloning.txt, output/Hookless_family/domain_sorted/primers/Rv0428c_C/qpcr.txt, output/Hookless_family/domain_sorted/primers/Acetyltransf_7/cloning.txt, output/Hookless_family/domain_sorted/tree/Rv0428c_C/Rv0428c_C.treefile, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004231914.1.codon.fasta, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_7/gene_structures, output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004233456.1.fasta, output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004233456.1.fasta, output/Hookless_family/domain_sorted/primers/FR47/qpcr.txt, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_3/gene_structures, output/Hookless_family/domain_sorted/primers/Acetyltransf_1/validation.txt, output/Hookless_family/domain_sorted/msa/Acetyltransf_10.aligned.fasta, output/Hookless_family/pairs_calculations/cds_aligned/AEE86813.1_vs_XP_004231914.1.codon.fasta, output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004231914.1.kaks.txt, output/Hookless_family/pairs_calculations/kaks/AEC07401.1_vs_XP_004233456.1.kaks.txt, output/Hookless_family/domain_sorted/properties/Acetyltransf_1_pi_mw.tsv, output/Hookless_family/domain_sorted/promoters/Acetyltransf_10_promoters.fasta, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_3.txt, output/Hookless_family/domain_sorted/properties/Acetyltransf_10_pi_mw.tsv, output/Hookless_family/domain_sorted/primers/Rv0428c_C/validation.txt, output/Hookless_family/pairs_calculations/kaks/AEE86813.1_vs_XP_004231914.1.kaks.txt, output/Hookless_family/domain_sorted/selected_genes/Acetyltransf_1.txt, output/Hookless_family/domain_sorted/crispr/Acetyltransf_3/scored.tsv, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_3_physicochemical.csv, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_7/meme.html, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_3/chromosomal_map.png, output/Hookless_family/pairs_calculations/cds/AED98343.1_vs_XP_004231914.1.fasta, output/Hookless_family/domain_sorted/extra_properties/Rv0428c_C_physicochemical.csv, output/Hookless_family/domain_sorted/primers/Acetyltransf_1/cloning.txt, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_3/meme.xml, output/Hookless_family/domain_sorted/chromosal_map/Rv0428c_C/chromosomal_map.png, output/Hookless_family/domain_sorted/gene_structures/Rv0428c_C/gene_structures, output/Hookless_family/domain_sorted/gmap/Acetyltransf_3.gff3, output/Hookless_family/domain_sorted/tree/Acetyltransf_1/Acetyltransf_1.treefile, output/Hookless_family/domain_sorted/gmap/Rv0428c_C.gff3, output/Hookless_family/pairs_calculations/cds_aligned/AEC07401.1_vs_XP_004233456.1.codon.fasta, output/Hookless_family/domain_sorted/promoters/meme_results/FR47/meme.html, output/Hookless_family/domain_sorted/promoters/Acetyltransf_7_promoters.fasta, output/Hookless_family/pairs_calculations/kaks/AED98343.1_vs_XP_004233456.1.kaks.txt, output/Hookless_family/hmmer/hmmer_scan.txt, output/Hookless_family/domain_sorted/crispr/Rv0428c_C/scored.tsv, output/Hookless_family/domain_sorted/chromosal_map/Acetyltransf_10/chromosomal_map.png, output/Hookless_family/domain_sorted/promoters/Acetyltransf_3_promoters.fasta, output/Hookless_family/domain_sorted/msa/FR47.aligned.fasta, output/Hookless_family/domain_sorted/annotations_by_domain/Acetyltransf_7.gff, output/Hookless_family/domain_sorted/primers/FR47/validation.txt, output/Hookless_family/domain_sorted/meme_results/FR47/meme.xml, output/Hookless_family/domain_sorted/primers/Acetyltransf_1/qpcr.txt, output/Hookless_family/domain_sorted/extra_properties/Acetyltransf_7_physicochemical.csv, output/Hookless_family/domain_sorted/mrna/FR47/mrna.fasta, output/Hookless_family/domain_sorted/gmap/Acetyltransf_10.gff3, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_10/meme.html, output/Hookless_family/blast/unique_pairs_no_dup.tsv, output/Hookless_family/domain_sorted/meme_results/Acetyltransf_7/meme.xml, output/Hookless_family/domain_sorted/primers/Acetyltransf_10/validation.txt, output/Hookless_family/domain_sorted/crispr/Acetyltransf_1/scored.tsv, output/Hookless_family/mcscanx/pairs_to_run.txt, output/Hookless_family/domain_sorted/gmap/Acetyltransf_7.gff3, output/Hookless_family/domain_sorted/gene_structures/Acetyltransf_1/gene_structures, output/Hookless_family/domain_sorted/promoters/Acetyltransf_1_promoters.fasta, output/Hookless_family/domain_sorted/meme_results/Rv0428c_C/meme.xml, output/Hookless_family/domain_sorted/primers/Acetyltransf_3/qpcr.txt, output/Hookless_family/domain_sorted/mrna/Acetyltransf_1/mrna.fasta, output/Hookless_family/domain_sorted/primers/Acetyltransf_3/cloning.txt, output/Hookless_family/domain_sorted/promoters/meme_results/Acetyltransf_3/meme.html, output/Hookless_family/pairs_calculations/cds/AEC07401.1_vs_XP_004231914.1.fasta, output/Hookless_family/domain_sorted/promoters/meme_results/Rv0428c_C/meme.html
+    resources: tmpdir=/var/folders/dt/51mysmg16mx90ht205m8fq380000gp/T
+
+[Wed Jul  1 12:24:51 2026]
+Finished job 0.
+138 of 138 steps (100%) done
+Complete log: .snakemake/log/2026-07-01T121725.774377.snakemake.log
