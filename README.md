@@ -122,7 +122,8 @@ I did validation on the DELLA blueberry (Vaccinium darrowii), HOOKLESS tomato (S
 
         DELLA (Zhou et al., 2024) https://pmc.ncbi.nlm.nih.gov/articles/PMC11360860/
         HOOKLESS (Chaabouni et al., 2016) https://www.sciencedirect.com/science/article/abs/pii/S0176161716300931
-        PHY (Takano et al., 2009) https://www.pnas.org/doi/10.1073/pnas.0907378106
+        PHY (Schrager-Lavelle et al., 2016) https://doi.org/10.3389/fpls.2016.01275
+        
 
 Sidenote: there were some discrepancies (relating to the isoforms), in which additional splice variants/isoforms are included during BLAST searches. However, further examinations with the phylogenetic trees makes it obvious to researchers that those are isoforms (we do have some counter measures by removing identical sequences, but small errors i.e. small variations in the C-terminus, do pass through). The speed of all of them was remarkably quick compared to doing it by hand and also was highly accurate. 
 
