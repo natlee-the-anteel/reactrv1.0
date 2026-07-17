@@ -1,7 +1,6 @@
 [![DOI](https://zenodo.org/badge/1129249052.svg)](https://doi.org/10.5281/zenodo.18306541)
 DOWNLOAD AND INSTALL INSTRUCTIONS:
 ---------------------------------------------
-please contact natlee@nuevaschool.org for a copy of current citations, if help is needed, or want to reach out.
 ## 1. System Preparation
 Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries. you must also download java. 
         
@@ -72,6 +71,13 @@ wait. this should take a few minutes max, though it scales with the number of pr
 
     snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p
 
+Detailed Capabilites
+-----------------------------------------------------
+**List of current sequential modules:** MCSCANX (synteny, collinear blocks); pair duplication type identification; Ka/Ks calculations when applicable; double blast calculation to retrieve orthologs of base species in target species and rescue additional homologs of base species; DIAMOND of target and base proteomes; conserved domain identification and sorting; protein motif detection among protein families; multiple sequence alignment and phylogenetic tree generation of gene families of target and base proteomes; gene annotation extraction; mRNA extraction; gene structure visualization, such as exons and introns; chromosomal localization and visualization; protein physiochemical property calculation, such as Pi/Mw; protein promoter detection and motif analysis of promoter; DeepLoc subcellular localization; PCR primer generation for qPCR, validation, and cloning; Primer Search off-target PCR scanning; FlashFry CRISPR gRNA generation and off-target scanning.
+
+**Currently developing:** Gene expression fetching per target ortholog via NCBI GEO (Gene Expression Omnibus); Cis-regulatory element identification with promoter motifs; 3D protein visualization; protein-protein interaction prediction
+
+
 Format Instructions
 -----------------------------------------------------
 The only things that you really should need to edit (unless you're directly manipulating to code), is just the config.yaml. Specifically, just the taxonids (they're ncbi ids, they autodownload all the necesary stuff if you simply run the loaddatasets.smk rule (see above), and the query). Below is an example format: 
@@ -99,7 +105,7 @@ The only things that you really should need to edit (unless you're directly mani
 
 As you can see you only need to manipulate the line below the bar (|), and make sure that it startings with a "<", then continues with the name (the name format really does not matter, we clean your query's header to turn into the ncbi header in the output files). After that, you have the query in amino acid fasta format, all in caps with all the letters. 
 
-Q&A
+Notes
 ------------------------------------------
 1. We have wildcards based on domains detected, the first one is to identify them,and the second is to do all the domain_sorted rules (i.e. meme, iqtree) its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file rather than just a singular gene.
 2. Make sure that you know what assembly accession you're using (go to NCBI for more details, example for arabidopsis: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=3702. Enter the Gen Bank ID please (RefSeq ID's preferable whenever (even though they can often be misannotated with tons of unresolved isoforms)). Sidenote: we do have rules built in place to remove isoforms, but it's not 100% perfect yet. Bad annotations WILL cause problems with the pipeline as we're merely analyzing that data.
@@ -112,20 +118,13 @@ Q&A
 
 Further directions
 ------------------------------------------------------------------------------------------
-Please reach out if you or your lab has access to HPCs. We're looking to use the HPCs to run this pipeline en masse and create a larger database that has the characterization profiles of as many species as possible, therby decreasing the need for more independent papers that analyze singular genes with the tools we already integrate. Also haven't conducted as many tests with larger gene families (i.e. 100+ genes per family) yet, due to limiations in personal computing power. Next, we're looking to increase compatibility with other OS systems (specifically Linux then Windows), which will likely be done through some Docker testing. Finally, a fully drafted manuscript that comprehensively describes this program is in the works. Integrating NCBI GEO data for gene expression profiling will also be incredibly useful as it could wet-lab confirmation of predicted protein functions
+See Detailed Capabilites for in-development modules. 
+
+One of the big aims of this project is to run this en mass. Due to personal computational limits, we're looking to collaborate with any labs that may have any access to HPCs to run this pipeline en masse and create a larger database that has standard characterization profiles of as many species as possible, therby decreasing the need for more independent papers that analyze singular genes with the tools we already integrate. Please reach out to natlee@nuevaschool.org if you or your lab is interested.
 
 Validation/Case studies Walkthough
 --------------------------------------------------------------------------------------------
-In each subfolder of /reactr_validation_examples, you can find the output table (similar structure to what you'll get if you run your own sequences and species in it). You'll see stuff like trees and protein properties, motifs and chromosomal localization, etc. The analysis modules are all sorted by domain (Pfam database). Addtionally, you'll see three snakemake logs, which detail the 3 commands and their outputs in your terminal (i.e. the step progress) when you run the program. 
-
-I did validation on the DELLA blueberry (Vaccinium darrowii), HOOKLESS tomato (Solanum lycopersicum), and PHY rice (Oryza sativa) gene families . These were generally smaller (due to computational limits stated earlier) gene families. The number of genes, their identity, chromosomal localization, and phylogenetic trees strongly agree with previous literature. The papers can be found here.
-
-        DELLA (Zhou et al., 2024) https://pmc.ncbi.nlm.nih.gov/articles/PMC11360860/
-        HOOKLESS (Chaabouni et al., 2016) https://www.sciencedirect.com/science/article/abs/pii/S0176161716300931
-        PHY (Schrager-Lavelle et al., 2016) https://doi.org/10.3389/fpls.2016.01275
-        
-
-Sidenote: there were some discrepancies (relating to the isoforms), in which additional splice variants/isoforms are included during BLAST searches. However, further examinations with the phylogenetic trees makes it obvious to researchers that those are isoforms (we do have some counter measures by removing identical sequences, but small errors i.e. small variations in the C-terminus, do pass through). The speed of all of them was remarkably quick compared to doing it by hand and also was highly accurate. 
+See: https://dataverse.harvard.edu/dataverse/reactr
 
 Acknowledgements
 --------------------------------------------------------------
