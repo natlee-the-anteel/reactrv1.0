@@ -1,1 +1,0 @@
-# HMMER skipped: no Pfam hits detected
