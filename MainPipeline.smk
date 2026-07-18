@@ -9,7 +9,7 @@ include: "modules/00_init.smk"
 # Include all functional modules
 include: "modules/01_setup.smk"
 include: "modules/02_query_filtering.smk"
-include: "modules/03_deeploc2.smk"
+#include: "modules/03_deeploc2.smk"
 include: "modules/04_hmmer.smk"
 include: "modules/05_alignment_phylo.smk"
 include: "modules/06_domain_analysis.smk"
@@ -31,7 +31,7 @@ rule all:
         expand(config["setup_marker"], query=QUERIES),
         expand(config["secondary_query"], query=QUERIES),
         expand(config["true_query"], query=QUERIES),
-        expand(config["deeploc2_results"], query=QUERIES),
+        #expand(config["deeploc2_results"], query=QUERIES),
         
         # BLAST outputs (per query)
         expand(config["base_blast"], query=QUERIES),
