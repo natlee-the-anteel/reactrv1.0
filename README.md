@@ -55,24 +55,24 @@ run the following
         hmmpress -f preset/pfam/Pfam-A.hmm
 
 OPTIONAL for subcelllular localization prediction:
-install deeploc2 from DTU (requires academic license). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
+Install deeploc2 from DTU (requires academic license). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
 If you chose to proceed with this, you can uncomment out lines 12 and 34 on the MainPipeline.smk
 
 Usage Instructions
 -----------------------------------------------------
 
-steps for users
-if you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml and the asssembly accession number if needed. (2) delete the folder "reactr/data" if applicable, (3) run 
+Steps for users
+If you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml and the asssembly accession number if needed. (2) delete the folder "reactr/data" if applicable, (3) run 
     
-    snakemake -s LoadDatasets.smk --cores 8 --rerun-incomplete --forceall -p
+    snakemake -s LoadDatasets.smk --cores 8 
 
-if you are content with the current genomes or don't have one yet: (1) edit in desired protein fasta(s) from the base genome, in the top of the config.yaml, (2) check if it matches the base genome and ideally, the same sequenced version, (3) delete the folder "reactr/output" if applicable, (4) run
+If you are content with the current genomes or don't have one yet: (1) edit in desired protein fasta(s) from the base genome, in the top of the config.yaml, (2) check if it matches the base genome and ideally, the same sequenced version, (3) delete the folder "reactr/output" if applicable, (4) run
 
-    snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p
+    snakemake -s MainPipeline.smk --cores all 
     
-wait. this should take a few minutes max, though it scales with the number of proteins you query. next, once it says it's complete, then run 
+After the snakemake job finishes (shows x out of x jobs complete in terminal, or the .smakemake/logs), you can run it once again.The reason why you have to rerun it is because this is meant to be a way for you to get an estimate of the jobs and time that it will take for the following command to run. Usually, the first MainPipeline run will be a bit more static in terms of amount of jobs it runs. However, the second iteration which has the brunt of the analysis (domain sorted analysis), will scale with the number of domains and proteins identified. It's suggested that you take a look at output/hmmer/domains to do a quick check to make sure that everything's reasonable and ready to proceed. 
 
-    snakemake -s MainPipeline.smk --cores all --rerun-incomplete --forceall -p
+    snakemake -s MainPipeline.smk --cores all 
 
 Detailed Capabilites
 -----------------------------------------------------
@@ -83,7 +83,7 @@ Detailed Capabilites
 
 Format Instructions
 -----------------------------------------------------
-The only things that you really should need to edit (unless you're directly manipulating to code), is just the config.yaml. Specifically, just the taxonids (they're ncbi ids, they autodownload all the necesary stuff if you simply run the loaddatasets.smk rule (see above), and the query). Below is an example format: 
+The only things that you really should need to edit (unless you're directly manipulating to code), is just the config.yaml. Specifically, just the taxonids and assembly IDs (they're ncbi ids, they autodownload all the necesary stuff if you simply run the loaddatasets.smk rule (see above), and the query). Below is an example format: 
 
         query_contents: |
           >sp|Q9LQT8.1|GAI_ARATH RecName: Full=DELLA protein GAI; AltName: Full=GRAS family protein 3; Short=AtGRAS-3; AltName: Full=Gibberellic acid-insensitive mutant protein; AltName: Full=Restoration of growth on ammonia protein 2
@@ -127,7 +127,7 @@ One of the big aims of this project is to run this en mass. Due to personal comp
 
 Validation/Case studies Walkthough
 --------------------------------------------------------------------------------------------
-See: https://dataverse.harvard.edu/dataverse/reactr
+See the REACTR Validation Summary Table (a pdf in the main REACTR directory) for a summary with % homologs identified, Robinson Foulds distance matrices, and false isoform rates. Raw and example outputs can be found here: https://dataverse.harvard.edu/dataverse/reactr
 
 Acknowledgements
 --------------------------------------------------------------
