@@ -54,9 +54,11 @@ run the following
         cd ../.. 
         hmmpress -f preset/pfam/Pfam-A.hmm
 
-4. install deeploc2 from DTU (requires academic license, use the readme, can be long to install, so if needed, remove rule from main command). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
------------------------------------------------------
+OPTIONAL for subcelllular localization prediction:
+install deeploc2 from DTU (requires academic license). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
+
 Usage Instructions
+-----------------------------------------------------
 
 steps for users
 if you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml and the asssembly accession number if needed. (2) delete the folder "reactr/data" if applicable, (3) run 
