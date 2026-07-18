@@ -56,6 +56,7 @@ run the following
 
 OPTIONAL for subcelllular localization prediction:
 install deeploc2 from DTU (requires academic license). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
+If you chose to proceed with this, you can uncomment out lines 12 and 34 on the MainPipeline.smk
 
 Usage Instructions
 -----------------------------------------------------
