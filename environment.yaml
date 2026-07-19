@@ -28,7 +28,6 @@ dependencies:
   - cpp-expected=1.1.0
   - curl=8.13.0
   - diamond=2.1.12
-  - orthofinder
   - distro=1.9.0
   - emboss=6.6.0
   - entrez-direct=22.4
