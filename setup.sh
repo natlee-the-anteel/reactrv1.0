@@ -42,7 +42,7 @@ fi
 if ! command -v conda &> /dev/null; then
     echo ""
     echo "Installing Miniforge..."
-    curl -L "$MINIFORGE_URL" -o /tmp/miniforge.sh
+    wget -q "$MINIFORGE_URL" -o /tmp/miniforge.sh
     bash /tmp/miniforge.sh -b -p "$HOME/miniforge3"
     rm /tmp/miniforge.sh
     source "$HOME/miniforge3/etc/profile.d/conda.sh"
