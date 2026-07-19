@@ -1,6 +1,25 @@
 [![DOI](https://zenodo.org/badge/1129249052.svg)](https://doi.org/10.5281/zenodo.18306541)
 DOWNLOAD AND INSTALL INSTRUCTIONS:
 ---------------------------------------------
+
+## Quick install (macOS and Linux)
+
+    git clone https://github.com/natlee-the-anteel/reactrv1.0.git
+    cd reactrv1.0
+    bash setup.sh
+
+This handles Miniforge installation, environment creation, PATH setup, and 
+downloading/building the non-conda dependencies (FlashFry, MCScanX, Pfam-A). 
+It's safe to re-run if a step fails partway — it skips anything already 
+completed.
+
+Supported platforms: macOS (Apple Silicon) and Linux (x86_64). 
+Windows users: run via WSL2 (Windows Subsystem for Linux), which behaves 
+as Linux for this pipeline.
+
+## Manual installation (if you'd prefer to run each step yourself, or 
+## setup.sh doesn't work for your system)
+
 ## 1. System Preparation
 Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries. you must also download java. 
         
