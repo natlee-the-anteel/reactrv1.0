@@ -20,41 +20,33 @@ The download is mildy heavy and the speed of the download will depend heavily on
 
 ## Manual installation (if you'd prefer to run each step yourself, or if setup.sh doesn't work for your system)
 
-1. System Preparation
-Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries. you must also download java. 
+1. System Preparation (preparing the MacOS environment)
         
-    xcode-select --install
-    softwareupdate --install-rosetta --agree-to-license
+        xcode-select --install
+        softwareupdate --install-rosetta --agree-to-license
 
 2. Installation of Package Manager (Miniforge)
-We use Miniforge to manage most of the software dependencies automatically.
 
-    curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -o miniforge.sh
-    bash miniforge.sh
+        curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -o miniforge.sh
+        bash miniforge.sh
 
 3. Installation of reactr
-run the following
-  
-    git clone https://github.com/natlee-the-anteel/reactrv1.0.git
-    cd reactrv1.0
-    export PATH=/path/to/reactrv1.0/bin/:$PATH
+      
+        git clone https://github.com/natlee-the-anteel/reactrv1.0.git
+        cd reactrv1.0
+        export PATH=/path/to/reactrv1.0/bin/:$PATH
 
-4. Startup the environment and activate it
-run the following
+5. Startup the environment and activate it
 
-    conda env create --file environment.yaml
-    conda activate reactr
+        conda env create --file environment.yaml
+        conda activate reactr
 
-5. Download the non-conda dependencies
-
-Flash fry
+6. Download the non-conda dependencies (Flash fry, MCscanX, Pfam database (can take longer))
 
         mkdir -p preset
         cd preset
         wget https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar
         mv FlashFry-assembly-1.15.jar FlashFry.jar
-
-MCscanX
 
         wget https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
         unzip MCScanX.zip
@@ -65,7 +57,6 @@ MCscanX
         cd ..
         rm -rf MCScanX-master MCScanX.zip
 
-Pfam database (can take longer)
         mkdir -p pfam
         cd pfam
         wget http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
@@ -75,17 +66,28 @@ Pfam database (can take longer)
 
 OPTIONAL for subcelllular localization prediction:
 Install deeploc2 from DTU (requires academic license). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
-If you chose to proceed with this, you can uncomment out lines 12 and 34 on the MainPipeline.smk
+If you chose to proceed with this, you can uncomment out lines 12 and 34 on the MainPipeline.smk. Generally, after you've received a link for a download after entering institutional affliation, you can run
+
+    pip install ~/Downloads/deeploc-2.1.All.tar
 
 Usage Instructions
 -----------------------------------------------------
 
 Steps for users
-If you want to load new genomes: (1) edit the taxonomy IDs in the config.yaml and the asssembly accession number if needed. (2) delete the folder "reactr/data" if applicable, (3) run 
+
+Activate the environment if you haven't already
+
+    conda activate reactr
+
+You will need to edit two parts of config.yaml if you want to modify your query and species. 
+
+To change the species:
+Edit the taxonomy IDs in the /config.yaml (and the asssembly accession number if wanted for more precision), then run
     
     snakemake -s LoadDatasets.smk --cores 8 
 
-If you are content with the current genomes or don't have one yet: (1) edit in desired protein fasta(s) from the base genome, in the top of the config.yaml, (2) check if it matches the base genome and ideally, the same sequenced version, (3) delete the folder "reactr/output" if applicable, (4) run
+To change the protein query:
+Edit or in query protein fasta(s) from the base genome, in the top of the /config.yaml, then run
 
     snakemake -s MainPipeline.smk --cores all 
     
@@ -130,13 +132,12 @@ As you can see you only need to manipulate the line below the bar (|), and make 
 Notes
 ------------------------------------------
 1. We have wildcards based on domains detected, the first one is to identify them,and the second is to do all the domain_sorted rules (i.e. meme, iqtree) its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file rather than just a singular gene.
-2. Make sure that you know what assembly accession you're using (go to NCBI for more details, example for arabidopsis: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=3702. Enter the Gen Bank ID please (RefSeq ID's preferable whenever (even though they can often be misannotated with tons of unresolved isoforms)). Sidenote: we do have rules built in place to remove isoforms, but it's not 100% perfect yet. Bad annotations WILL cause problems with the pipeline as we're merely analyzing that data.
-3. We automatically do a blastp on your arabidopsis query against the arabidopsis genome, just to find similar arabdiposis genes when building trees/meme/msa --to note, we get rid of all duplicates
+2. Make sure that you know what assembly accession you're using (go to NCBI for more details, example for arabidopsis: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=3702. Enter the Gen Bank ID please (RefSeq ID's preferable whenever (even though they can often be misannotated with tons of unresolved isoforms)). 
 4. LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level and size of the genomes. This may last up to a few hours for certain large genomes (due to tools that build larger databases). Example: avocado target + arabidopsis base = ~20 minutes. See snakemake validation logs (/reactr_validation_examples/{example_case/}
 5. You should expect MainPipeline.smk to be a lot faster (a few minutes max), but this also depends on the number of query sequences you upload (scales really high). For small gene families (<10), expect a few minutes. However, for larger ones, it make more time and may crash your computer depending on your infrastructure capabilites.
-6. If you don't want to run all the analysis tools, all you need to do is comment out what you dont want in the top of MainPipeline.smk rule all: input. Ddo it line by line, but be aware that if that thing is demanded in line after it, it will still run we allow only select one sequenced version for simplicity.
-7. You can manually upload your data, but make sure the paths are updated and the folder format is wildcard_constraints.
-8. The purpose of the project is mainly to automate plant comparitivive genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be running this on plants, esp. non-model, little annotated, but commerically valuable crops.
+6. If you don't want to run all the analysis tools, all you need to do is comment out what you dont want in the top of MainPipeline.smk "rule all: input." Do it line by line, but be aware that if that thing is demanded in line after it, it will still run we allow only select one sequenced version for simplicity.
+7. You can manually upload your data, but make sure the paths are updated/renamed properly and the folder format is wildcard_constraints.
+8. The purpose of the project is mainly to automate plant comparitivive genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be running this on plants, esp. non-model and little annotated.
 
 Further directions
 ------------------------------------------------------------------------------------------
