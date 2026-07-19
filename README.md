@@ -17,8 +17,7 @@ Supported platforms: macOS (Apple Silicon) and Linux (x86_64).
 Windows users: run via WSL2 (Windows Subsystem for Linux), which behaves 
 as Linux for this pipeline.
 
-## Manual installation (if you'd prefer to run each step yourself, or 
-## setup.sh doesn't work for your system)
+## Manual installation (if you'd prefer to run each step yourself, or if setup.sh doesn't work for your system)
 
 ## 1. System Preparation
 Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries. you must also download java. 
