@@ -16,43 +16,45 @@ completed.
 Supported platforms: macOS (Apple Silicon) and Linux (x86_64). 
 Windows users: run via WSL2 (Windows Subsystem for Linux), which behaves 
 as Linux for this pipeline.
+The download is mildy heavy and the speed of the download will depend heavily on your internet speed (can be a few minutes on optimal regular speeds.)
 
 ## Manual installation (if you'd prefer to run each step yourself, or if setup.sh doesn't work for your system)
 
-## 1. System Preparation
+1. System Preparation
 Before installing the software, you must prepare the MacOS environment to handle developer tools and older bioinformatics binaries. you must also download java. 
         
     xcode-select --install
     softwareupdate --install-rosetta --agree-to-license
 
-## 2. Installation of Package Manager (Miniforge)
+2. Installation of Package Manager (Miniforge)
 We use Miniforge to manage most of the software dependencies automatically.
 
     curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -o miniforge.sh
     bash miniforge.sh
 
-## 3. Installation of reactr
+3. Installation of reactr
 run the following
   
     git clone https://github.com/natlee-the-anteel/reactrv1.0.git
     cd reactrv1.0
     export PATH=/path/to/reactrv1.0/bin/:$PATH
 
-## 3. Startup the environment and activate it
+4. Startup the environment and activate it
 run the following
 
     conda env create --file environment.yaml
     conda activate reactr
 
-## 5. Download the non-conda dependencies
-1. for Flashfry
-    
+5. Download the non-conda dependencies
+
+Flash fry
+
         mkdir -p preset
         cd preset
         wget https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar
         mv FlashFry-assembly-1.15.jar FlashFry.jar
 
-2. for MCScanX
+MCscanX
 
         wget https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
         unzip MCScanX.zip
@@ -63,8 +65,7 @@ run the following
         cd ..
         rm -rf MCScanX-master MCScanX.zip
 
-3. for pfam database
-
+Pfam database (can take longer)
         mkdir -p pfam
         cd pfam
         wget http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
