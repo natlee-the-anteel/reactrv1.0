@@ -69,12 +69,12 @@ if [[ "$OS" == "Linux" && "${NEED_CONDA_COMPILERS:-0}" == "1" ]]; then
 fi
 
 # ---------- 4. PATH setup ----------
-export PATH="$REACTR_DIR/bin:$PATH"
+export PATH="$REACTR_DIR/bin:$REACTR_DIR/preset:$PATH"
 SHELL_RC="$HOME/.bashrc"
 [[ "$SHELL" == *zsh* ]] && SHELL_RC="$HOME/.zshrc"
-if ! grep -qs "reactrv1.0/bin" "$SHELL_RC" 2>/dev/null; then
-    echo "export PATH=\"$REACTR_DIR/bin:\$PATH\"" >> "$SHELL_RC"
-    echo "Added REACTR bin/ to PATH in $SHELL_RC (restart your shell or 'source $SHELL_RC' to pick it up)."
+if ! grep -qs "reactrv1.0/preset" "$SHELL_RC" 2>/dev/null; then
+    echo "export PATH=\"$REACTR_DIR/bin:$REACTR_DIR/preset:\$PATH\"" >> "$SHELL_RC"
+    echo "Added REACTR bin/ and preset/ to PATH in $SHELL_RC (restart your shell or 'source $SHELL_RC' to pick it up)."
 fi
 
 # ---------- 5. Non-conda dependencies ----------
@@ -91,13 +91,13 @@ else
 fi
 
 # MCScanX (built from source — needs a C++ compiler, handled above)
-if [[ ! -f "$REACTR_DIR/MCScanX" ]]; then
+if [[ ! -f "$REACTR_DIR/preset/MCScanX" ]]; then
     echo ""
     echo "Building MCScanX..."
     wget -q https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
     unzip -q MCScanX.zip
     (cd MCScanX-master && make)
-    mv MCScanX-master/MCScanX MCScanX-master/duplicate_gene_classifier "$REACTR_DIR/"
+    mv MCScanX-master/MCScanX MCScanX-master/duplicate_gene_classifier "$REACTR_DIR/preset/"
     rm -rf MCScanX-master MCScanX.zip
 else
     echo "MCScanX already built, skipping."
@@ -122,13 +122,14 @@ cd "$REACTR_DIR"
 echo ""
 echo "--- Verifying installation ---"
 MISSING=0
-for tool in snakemake diamond hmmer iqtree meme primer3_core blastp gmap; do
+for tool in snakemake diamond hmmscan iqtree meme primer3_core blastp gmap; do
     if ! command -v "$tool" &> /dev/null; then
         echo "  WARNING: '$tool' not found on PATH"
         MISSING=1
     fi
 done
-[[ -f "$REACTR_DIR/MCScanX" ]] || { echo "  WARNING: MCScanX binary not found"; MISSING=1; }
+[[ -f "$REACTR_DIR/preset/MCScanX" ]] || { echo "  WARNING: MCScanX binary not found"; MISSING=1; }
+[[ -f "$REACTR_DIR/preset/duplicate_gene_classifier" ]] || { echo "  WARNING: duplicate_gene_classifier binary not found"; MISSING=1; }
 [[ -f "$REACTR_DIR/preset/FlashFry.jar" ]] || { echo "  WARNING: FlashFry.jar not found"; MISSING=1; }
 
 if [[ "$MISSING" == "0" ]]; then
