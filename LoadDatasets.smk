@@ -38,7 +38,9 @@ rule all:
     4. Protein databases created
     5. GMAP and FlashFry indexes built
     6. Synteny analysis completed (MCScanX)
-    
+
+    """
+
     input:
         expand(config["genome_group"], group=groups),
         expand(config["proteome_group"], group=groups),
