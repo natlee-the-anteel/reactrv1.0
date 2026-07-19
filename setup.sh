@@ -42,7 +42,7 @@ fi
 if ! command -v conda &> /dev/null; then
     echo ""
     echo "Installing Miniforge..."
-    wget -q "$MINIFORGE_URL" -o /tmp/miniforge.sh
+    curl -L "$MINIFORGE_URL" -o /tmp/miniforge.sh
     bash /tmp/miniforge.sh -b -p "$HOME/miniforge3"
     rm /tmp/miniforge.sh
     source "$HOME/miniforge3/etc/profile.d/conda.sh"
@@ -85,7 +85,7 @@ cd "$REACTR_DIR/preset"
 if [[ ! -f "FlashFry.jar" ]]; then
     echo ""
     echo "Downloading FlashFry..."
-    wget -q https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar -O FlashFry.jar
+    curl -L https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar -O FlashFry.jar
 else
     echo "FlashFry.jar already present, skipping."
 fi
@@ -94,7 +94,7 @@ fi
 if [[ ! -f "$REACTR_DIR/preset/MCScanX" ]]; then
     echo ""
     echo "Building MCScanX..."
-    wget -q https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
+    curl -L https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
     unzip -q MCScanX.zip
     (cd MCScanX-master && make)
     mv MCScanX-master/MCScanX MCScanX-master/duplicate_gene_classifier "$REACTR_DIR/preset/"
@@ -108,7 +108,7 @@ if [[ ! -f "pfam/Pfam-A.hmm" ]]; then
     echo ""
     echo "Downloading Pfam-A database (large file — may take a while)..."
     mkdir -p pfam && cd pfam
-    wget -q http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+    curl -L http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
     gunzip Pfam-A.hmm.gz
     cd ..
 else
