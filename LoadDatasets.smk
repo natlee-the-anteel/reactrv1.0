@@ -8,7 +8,6 @@
 # 3. Building indexes for downstream analysis
 # 4. Preparing proteomes and extracting sequences
 # 5. Running BLAST and MCScanX for synteny analysis
-# 6. Detecting orthologs with OrthoFinder
 #
 # Module structure: 10 focused modules in LoadDatasets_modules/
 
@@ -26,7 +25,6 @@ include: "LoadDatasets_modules/04_cds_extraction.smk"
 include: "LoadDatasets_modules/05_proteome_prep.smk"
 include: "LoadDatasets_modules/06_alignment.smk"
 include: "LoadDatasets_modules/07_synteny.smk"
-include: "LoadDatasets_modules/08_orthofinder.smk"
 include: "LoadDatasets_modules/09_indexing.smk"
 
 rule all:
@@ -41,9 +39,6 @@ rule all:
     5. GMAP and FlashFry indexes built
     6. Synteny analysis completed (MCScanX)
     
-    Note: OrthoFinder is optional (run separately if needed):
-        snakemake -s LoadDatasets.smk -R orthofinder extract_orthogroups -j 8
-    """
     input:
         expand(config["genome_group"], group=groups),
         expand(config["proteome_group"], group=groups),
