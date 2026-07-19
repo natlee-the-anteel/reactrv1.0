@@ -94,7 +94,7 @@ fi
 if [[ ! -f "$REACTR_DIR/preset/MCScanX" ]]; then
     echo ""
     echo "Building MCScanX..."
-    curl -L https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
+    wget -q https://github.com/wyp1125/MCScanX/archive/refs/heads/master.zip -O MCScanX.zip
     unzip -q MCScanX.zip
     (cd MCScanX-master && make)
     mv MCScanX-master/MCScanX MCScanX-master/duplicate_gene_classifier "$REACTR_DIR/preset/"
