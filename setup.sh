@@ -85,7 +85,7 @@ cd "$REACTR_DIR/preset"
 if [[ ! -f "FlashFry.jar" ]]; then
     echo ""
     echo "Downloading FlashFry..."
-    curl -L https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar -O FlashFry.jar
+    wget -q https://github.com/mckennalab/FlashFry/releases/download/1.15/FlashFry-assembly-1.15.jar -O FlashFry.jar
 else
     echo "FlashFry.jar already present, skipping."
 fi
