@@ -60,7 +60,9 @@ if conda env list | grep -q "^reactr "; then
 else
     conda env create --file "$REACTR_DIR/environment.yaml"
 fi
+set +u
 conda activate reactr
+set -u
 
 # On Linux without a system compiler, pull one in via conda-forge for the MCScanX build step below
 if [[ "$OS" == "Linux" && "${NEED_CONDA_COMPILERS:-0}" == "1" ]]; then
