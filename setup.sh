@@ -108,7 +108,7 @@ if [[ ! -f "pfam/Pfam-A.hmm" ]]; then
     echo ""
     echo "Downloading Pfam-A database (large file — may take a while)..."
     mkdir -p pfam && cd pfam
-    curl -L http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+    wget -q http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
     gunzip Pfam-A.hmm.gz
     cd ..
 else
