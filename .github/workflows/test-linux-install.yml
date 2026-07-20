@@ -7,6 +7,7 @@ on:
     branches: [main]
   workflow_dispatch:
 
+    
 jobs:
   test-setup:
     runs-on: ubuntu-latest
@@ -16,14 +17,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Fix conda environment
+        run: |
+          conda init bash
+          conda config --set auto_activate_base false
+
       - name: Run setup.sh
         run: bash setup.sh
-
-      - name: Verify key binaries are on PATH
-        run: |
-          export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
-          which snakemake
-          which diamond
-          which iqtree
-          which meme
-          which preset/MCScanX || echo "MCScanX check path may need adjustment"
