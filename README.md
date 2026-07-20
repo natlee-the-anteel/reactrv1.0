@@ -101,7 +101,7 @@ Detailed Capabilites
 -----------------------------------------------------
 **List of current sequential modules:** MCSCANX (synteny, collinear blocks); pair duplication type identification; Ka/Ks calculations when applicable; double blast calculation to retrieve orthologs of base species in target species and rescue additional homologs of base species; DIAMOND of target and base proteomes; conserved domain identification and sorting; protein motif detection among protein families; multiple sequence alignment and phylogenetic tree generation of gene families of target and base proteomes; gene annotation extraction; mRNA extraction; gene structure visualization, such as exons and introns; chromosomal localization and visualization; protein physiochemical property calculation, such as Pi/Mw; protein promoter detection and motif analysis of promoter; DeepLoc subcellular localization; PCR primer generation for qPCR, validation, and cloning; Primer Search off-target PCR scanning; FlashFry CRISPR gRNA generation and off-target scanning.
 
-**Currently developing:** Gene expression fetching per target ortholog via NCBI GEO (Gene Expression Omnibus); Cis-regulatory element identification with promoter motifs; 3D protein visualization; protein-protein interaction prediction
+**Currently developing:** Gene expression fetching per target ortholog via NCBI GEO (Gene Expression Omnibus); Cis-regulatory element identification with promoter motifs; 3D protein visualization; protein-protein interaction prediction, cumulative summary generation (compiling graphs, etc)
 
 
 Format Instructions
