@@ -1,4 +1,4 @@
-[![DOI](https://doi.org/10.5281/zenodo.18306541)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21432121.svg)](https://doi.org/10.5281/zenodo.21432121)
 [![Test Linux Install](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-install.yml/badge.svg)](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-install.yml)
 DOWNLOAD AND INSTALL INSTRUCTIONS:
 ---------------------------------------------
