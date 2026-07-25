@@ -9,6 +9,7 @@ dependencies:
   - argh=0.31.3
   - bcbio-gff=0.7.1
   - bedtools=2.31.1
+  - samtools
   - biopython=1.85
   - blast=2.16.0
   - boltons=24.0.0
