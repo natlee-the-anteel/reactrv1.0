@@ -25,7 +25,7 @@ jobs:
       - name: Verify key binaries are on PATH
         run: |
           export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
-          source "$HOME/miniforge3/etc/profile.d/conda.sh"
+          source "$CONDA_BASE/etc/profile.d/conda.sh"
           conda activate reactr
           which snakemake
           which diamond
