@@ -28,26 +28,29 @@ jobs:
       - name: Run setup.sh
         run: bash setup.sh
 
+      - name: Determine conda base path
+        run: echo "CONDA_BASE=$(conda info --base)" >> "$GITHUB_ENV"
+
       - name: Check available disk space before dataset download
         run: df -h
 
       - name: Run LoadDatasets.smk
         run: |
-          source "$HOME/miniforge3/etc/profile.d/conda.sh"
+          source "$CONDA_BASE/etc/profile.d/conda.sh"
           conda activate reactr
           export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
           snakemake -s LoadDatasets.smk --cores 4
 
       - name: Run MainPipeline.smk (pass 1 — job/time estimate)
         run: |
-          source "$HOME/miniforge3/etc/profile.d/conda.sh"
+          source "$CONDA_BASE/etc/profile.d/conda.sh"
           conda activate reactr
           export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
           snakemake -s MainPipeline.smk --cores 4
 
       - name: Run MainPipeline.smk (pass 2 — full analysis)
         run: |
-          source "$HOME/miniforge3/etc/profile.d/conda.sh"
+          source "$CONDA_BASE/etc/profile.d/conda.sh"
           conda activate reactr
           export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
           snakemake -s MainPipeline.smk --cores 4
