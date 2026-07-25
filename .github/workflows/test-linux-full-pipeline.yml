@@ -1,0 +1,65 @@
+name: Test Linux Full Pipeline
+
+# NOTE: this workflow downloads real genomic data and runs the full
+# analysis pipeline twice, per REACTR's documented two-pass behavior.
+# Since this repo is public, GitHub Actions minutes are unmetered here,
+# but runtime and disk space are still real constraints. Consider keeping
+# this on workflow_dispatch until you've confirmed actual runtime and
+# disk usage against your intended test config (e.g. DELLA/blueberry).
+
+on:
+  workflow_dispatch:
+  # Uncomment once config.yaml is confirmed to use your intended test case:
+  # push:
+  #   branches: [main]
+
+jobs:
+  full-pipeline-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300   # adjust based on actual test-case runtime once known
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run setup.sh
+        run: bash setup.sh
+
+      - name: Check available disk space before dataset download
+        run: df -h
+
+      - name: Run LoadDatasets.smk
+        run: |
+          source "$HOME/miniforge3/etc/profile.d/conda.sh"
+          conda activate reactr
+          export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
+          snakemake -s LoadDatasets.smk --cores 4
+
+      - name: Run MainPipeline.smk (pass 1 — job/time estimate)
+        run: |
+          source "$HOME/miniforge3/etc/profile.d/conda.sh"
+          conda activate reactr
+          export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
+          snakemake -s MainPipeline.smk --cores 4
+
+      - name: Run MainPipeline.smk (pass 2 — full analysis)
+        run: |
+          source "$HOME/miniforge3/etc/profile.d/conda.sh"
+          conda activate reactr
+          export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
+          snakemake -s MainPipeline.smk --cores 4
+
+      - name: Check disk space after run
+        if: always()
+        run: df -h
+
+      - name: Upload output directory as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reactr-pipeline-output
+          path: output/
+          retention-days: 7
