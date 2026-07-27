@@ -81,7 +81,11 @@ Activate the environment if you haven't already
 
     conda activate reactr
 
-You will need to edit two parts of config.yaml if you want to modify your query and species. 
+Next, you will need to edit two parts of config.yaml if you want to modify your query and species. Note that the current config.yaml (the file which you clone by default), comes with the example genome assembly string and protein fasta query. If you are intending to run the example dataset, then you don't need to edit the config.yaml and can proceed to run the two snakemake scripts:
+
+    snakemake -s LoadDatasets.smk --cores 8 
+    snakemake -s MainPipeline.smk --cores all 
+    snakemake -s MainPipeline.smk --cores all 
 
 To change the species:
 Edit the taxonomy IDs in the /config.yaml (and the asssembly accession number if wanted for more precision), then run
@@ -106,7 +110,7 @@ Detailed Capabilites
 
 Format Instructions
 -----------------------------------------------------
-The only things that you really should need to edit (unless you're directly manipulating to code), is just the config.yaml. Specifically, just the taxonids and assembly IDs (they're ncbi ids, they autodownload all the necesary stuff if you simply run the loaddatasets.smk rule (see above), and the query). Below is an example format: 
+The only things that you really should need to edit (unless you're directly manipulating to code), is the config.yaml. Specifically, just the taxonids and assembly IDs (they're ncbi ids, they autodownload all the necesary items if you simply run the LoadDatasets.smk rule (see above), and the query). Below is an example format: 
 
         query_contents: |
           >sp|Q9LQT8.1|GAI_ARATH RecName: Full=DELLA protein GAI; AltName: Full=GRAS family protein 3; Short=AtGRAS-3; AltName: Full=Gibberellic acid-insensitive mutant protein; AltName: Full=Restoration of growth on ammonia protein 2
@@ -129,28 +133,28 @@ The only things that you really should need to edit (unless you're directly mani
           MSEVYLGKQICNLVACEGPDRVERHETLSQWGNRFGSSGLAPAHLGSNAFKQASMLLSVFNSGQGYRVEE
           SNGCLMLGWHTRPLITTSAWKLSTAAY 
 
-As you can see you only need to manipulate the line below the bar (|), and make sure that it startings with a "<", then continues with the name (the name format really does not matter, we clean your query's header to turn into the ncbi header in the output files). After that, you have the query in amino acid fasta format, all in caps with all the letters. 
+You only need to manipulate the line below the bar (|), and make sure that it startings with a "<", then continues with the name (the name format really does not matter, we clean your query's header to turn into the ncbi header in the output files). After that, you have the query in amino acid fasta format, all in caps with all the letters. 
 
 Notes
 ------------------------------------------
-1. We have wildcards based on domains detected, the first one is to identify them,and the second is to do all the domain_sorted rules (i.e. meme, iqtree) its highly recommended, for accuracy, that you put a gene FAMILY's fastas into the the true_query file rather than just a singular gene.
-2. Make sure that you know what assembly accession you're using (go to NCBI for more details, example for arabidopsis: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=3702. Enter the Gen Bank ID please (RefSeq ID's preferable whenever (even though they can often be misannotated with tons of unresolved isoforms)). 
-4. LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level and size of the genomes. This may last up to a few hours for certain large genomes (due to tools that build larger databases). Example: avocado target + arabidopsis base = ~20 minutes. See snakemake validation logs (/reactr_validation_examples/{example_case/}
-5. You should expect MainPipeline.smk to be a lot faster (a few minutes max), but this also depends on the number of query sequences you upload (scales really high). For small gene families (<10), expect a few minutes. However, for larger ones, it make more time and may crash your computer depending on your infrastructure capabilites.
-6. If you don't want to run all the analysis tools, all you need to do is comment out what you dont want in the top of MainPipeline.smk "rule all: input." Do it line by line, but be aware that if that thing is demanded in line after it, it will still run we allow only select one sequenced version for simplicity.
+1. We have wildcards based on domains detected, the first one is to identify them, and the second is to do all the domain_sorted rules (i.e. meme, iqtree) its highly recommended, for accuracy, that you put a gene FAMILY's FASTAS into the the true_query file rather than just a singular gene (we do run an auto double BLAST search to recover any missed gene family queries).
+2. Make sure that you know what assembly accession you're using (go to NCBI for more details, example for Arabidopsis: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=3702. Enter the Gen Bank ID please (RefSeq ID's preferable whenever (even though they can often be misannotated with tons of unresolved isoforms)). 
+4. LoadDatasets.smk takes some time (at least many minutes), depending on the annotation level and size of the genomes. This may last up to a few hours for certain large genomes (due to tools that build larger databases). Example: avocado target + Arabidopsis base = ~20 minutes.
+5. You should expect MainPipeline.smk to be a lot faster (a few minutes max), but this also depends on the number of query sequences you upload (can scale really high). For small gene families (<10), expect a few minutes. However, for larger ones, it make more time and may crash your computer depending on your infrastructure capabilities.
+6. If you don't want to run all the analysis tools, all you need to do is comment out what you do not want in the top of MainPipeline.smk "rule all: input." Do it line by line, but be aware that if that thing is demanded in line after it, it will still run we allow only select one sequenced version for simplicity.
 7. You can manually upload your data, but make sure the paths are updated/renamed properly and the folder format is wildcard_constraints.
-8. The purpose of the project is mainly to automate plant comparitivive genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be running this on plants, esp. non-model and little annotated.
+8. The purpose of the project is mainly to automate plant comparative genomics and gene family characterization studies (it can be run on ANY genome, it's just more common and reasonable to be running this on plants, esp. non-model and little annotated.
 
 Further directions
 ------------------------------------------------------------------------------------------
-See Detailed Capabilites for in-development modules. 
+See Detailed Capabilities for in-development modules. 
 
-One of the big aims of this project is to run this en mass. Due to personal computational limits, we're looking to collaborate with any labs that may have any access to HPCs to run this pipeline en masse and create a larger database that has standard characterization profiles of as many species as possible, therby decreasing the need for more independent papers that analyze singular genes with the tools we already integrate. Please reach out to natlee@nuevaschool.org if you or your lab is interested.
+One of the big aims of this project is to run this en mass. Due to personal computational limits, we're looking to collaborate with any labs that may have any access to HPCs to run this pipeline en masse and create a larger database that has standard characterization profiles of as many species as possible, thereby decreasing the need for more independent papers that analyze singular genes with the tools we already integrate.
 
 Validation/Case studies Walkthough
 --------------------------------------------------------------------------------------------
-See the REACTR Validation Summary Table (a pdf in the main REACTR directory) for a summary with % homologs identified, Robinson Foulds distance matrices, and false isoform rates. Raw and example outputs can be found here: https://dataverse.harvard.edu/dataverse/reactr
+See the REACTR Validation Summary Table (a pdf in the repo root) for a summary with % homologs identified, Robinson Foulds distance matrices, and false isoform rates. Raw and example outputs can be found here: https://dataverse.harvard.edu/dataverse/reactr
 
 Acknowledgements
 --------------------------------------------------------------
-The author conducted consultation calls with Dr. Zhiyong Wang, Dr. Jeffrey Groh, Shane Brubaker, and Dr. Lindy Jensen for advice on infrastructure changes, though this release does not necessarily reflect their views, nor does their inclusion constitute an endorsement of this code's content. The author would also like to thank Dr. Morton Nielson at the Technical University of Denmark for granting access to Deeploc (subcellular localization prediction). 
+The author conducted consultation calls with Prof. Zhiyong Wang, Dr. Jeffrey Groh, Shane Brubaker, and Dr. Lindy Jensen for advice on infrastructure changes, though this release does not necessarily reflect their views, nor does their inclusion constitute an endorsement of this code's content. The author would also like to thank Prof. Morton Nielson at the Technical University of Denmark for granting access to Deeploc (subcellular localization prediction). 
