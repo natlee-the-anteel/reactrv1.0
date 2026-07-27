@@ -25,7 +25,7 @@ include: "LoadDatasets_modules/04_cds_extraction.smk"
 include: "LoadDatasets_modules/05_proteome_prep.smk"
 include: "LoadDatasets_modules/06_alignment.smk"
 include: "LoadDatasets_modules/07_synteny.smk"
-include: "LoadDatasets_modules/09_indexing.smk"
+include: "LoadDatasets_modules/08_indexing.smk"
 
 rule all:
     """
