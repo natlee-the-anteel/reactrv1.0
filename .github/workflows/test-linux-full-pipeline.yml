@@ -39,21 +39,21 @@ jobs:
           source "$CONDA_BASE/etc/profile.d/conda.sh"
           conda activate reactr
           export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
-          snakemake -s LoadDatasets.smk --cores 4
+          snakemake -s scripts/LoadDatasets.smk --cores 4
 
       - name: Run MainPipeline.smk (pass 1 — job/time estimate)
         run: |
           source "$CONDA_BASE/etc/profile.d/conda.sh"
           conda activate reactr
           export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
-          snakemake -s MainPipeline.smk --cores 4
+          snakemake -s scripts/MainPipeline.smk --cores 4
 
       - name: Run MainPipeline.smk (pass 2 — full analysis)
         run: |
           source "$CONDA_BASE/etc/profile.d/conda.sh"
           conda activate reactr
           export PATH="$GITHUB_WORKSPACE/bin:$GITHUB_WORKSPACE/preset:$PATH"
-          snakemake -s MainPipeline.smk --cores 4
+          snakemake -s scripts/MainPipeline.smk --cores 4
 
       - name: Check disk space after run
         if: always()

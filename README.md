@@ -81,25 +81,33 @@ Activate the environment if you haven't already
 
     conda activate reactr
 
-Next, you will need to edit two parts of config.yaml if you want to modify your query and species. Note that the current config.yaml (the file which you clone by default), comes with the example genome assembly string and protein fasta query. If you are intending to run the example dataset, then you don't need to edit the config.yaml and can proceed to run the two snakemake scripts:
+Next, you will need to edit two parts of config.yaml if you want to modify your query and species. Note that the current config.yaml (the file which you clone by default), comes with the example genome assembly string and protein fasta query.
 
-    snakemake -s LoadDatasets.smk --cores 8 
-    snakemake -s MainPipeline.smk --cores all 
-    snakemake -s MainPipeline.smk --cores all 
+If you want to run the full pipeline from the new catalog-friendly entrypoint, use:
+
+    snakemake -s Snakefile --cores 8 
+    snakemake -s Snakefile --cores all 
+    snakemake -s Snakefile --cores all 
+
+If you prefer to run only the data-loading/preprocessing stage, `scripts/LoadDatasets.smk` remains runnable by itself:
+
+    snakemake -s scripts/LoadDatasets.smk --cores 8 
+
+Note: `scripts/LoadDatasets.smk` must be run before `scripts/MainPipeline.smk` or Snakefile, because it downloads and prepares the data required by the main analysis pipeline.
 
 To change the species:
 Edit the taxonomy IDs in the /config.yaml (and the asssembly accession number if wanted for more precision), then run
     
-    snakemake -s LoadDatasets.smk --cores 8 
+    snakemake -s scripts/LoadDatasets.smk --cores 8 
 
 To change the protein query:
 Edit or in query protein fasta(s) from the base genome, in the top of the /config.yaml, then run
 
-    snakemake -s MainPipeline.smk --cores all 
+    snakemake -s scripts/MainPipeline.smk --cores all 
     
 After the snakemake job finishes (shows x out of x jobs complete in terminal, or the .smakemake/logs), you can run it once again.The reason why you have to rerun it is because this is meant to be a way for you to get an estimate of the jobs and time that it will take for the following command to run. Usually, the first MainPipeline run will be a bit more static in terms of amount of jobs it runs. However, the second iteration which has the brunt of the analysis (domain sorted analysis), will scale with the number of domains and proteins identified. It's suggested that you take a look at output/hmmer/domains to do a quick check to make sure that everything's reasonable and ready to proceed. 
 
-    snakemake -s MainPipeline.smk --cores all 
+    snakemake -s scripts/MainPipeline.smk --cores all 
 
 Detailed Capabilites
 -----------------------------------------------------
