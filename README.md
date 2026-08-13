@@ -1,5 +1,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21432121.svg)](https://doi.org/10.5281/zenodo.21432121)
 [![Test Linux Install](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-install.yml/badge.svg)](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-install.yml)
+[![CodeQL](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/github-code-scanning/codeql)
+[![Test macOS Install](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-macos-install.yml/badge.svg)](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-macos-install.yml)
+[![Test Linux Full Pipeline](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-full-pipeline.yml/badge.svg)](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-full-pipeline.yml)
 
 ABOUT
 -----------
