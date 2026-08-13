@@ -1,6 +1,14 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21432121.svg)](https://doi.org/10.5281/zenodo.21432121)
 [![Test Linux Install](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-install.yml/badge.svg)](https://github.com/natlee-the-anteel/reactrv1.0/actions/workflows/test-linux-install.yml)
 
+ABOUT
+-----------
+REACTR is a modular bioinformatics pipeline that automates exploration and analysis of genes, in addition to integrating wet-lab applications. It is a snakemake workflow that sequentially runs the following modules in a similar manner to manual gene identification and characterization methods.
+
+**List of current sequential modules:** MCSCANX (synteny, collinear blocks); pair duplication type identification; Ka/Ks calculations when applicable; double blast calculation to retrieve orthologs of base species in target species and rescue additional homologs of base species; DIAMOND of target and base proteomes; conserved domain identification and sorting; protein motif detection among protein families; multiple sequence alignment and phylogenetic tree generation of gene families of target and base proteomes; gene annotation extraction; mRNA extraction; gene structure visualization, such as exons and introns; chromosomal localization and visualization; protein physiochemical property calculation, such as Pi/Mw; protein promoter detection and motif analysis of promoter; DeepLoc subcellular localization; PCR primer generation for qPCR, validation, and cloning; Primer Search off-target PCR scanning; FlashFry CRISPR gRNA generation and off-target scanning.
+
+**Currently developing:** Gene expression fetching per target ortholog via NCBI GEO (Gene Expression Omnibus); Cis-regulatory element identification with promoter motifs; 3D protein visualization; protein-protein interaction prediction, cumulative summary generation (compiling graphs, etc)
+
 DOWNLOAD AND INSTALL INSTRUCTIONS:
 ---------------------------------------------
 
@@ -108,13 +116,6 @@ Edit or in query protein fasta(s) from the base genome, in the top of the /confi
 After the snakemake job finishes (shows x out of x jobs complete in terminal, or the .smakemake/logs), you can run it once again.The reason why you have to rerun it is because this is meant to be a way for you to get an estimate of the jobs and time that it will take for the following command to run. Usually, the first MainPipeline run will be a bit more static in terms of amount of jobs it runs. However, the second iteration which has the brunt of the analysis (domain sorted analysis), will scale with the number of domains and proteins identified. It's suggested that you take a look at output/hmmer/domains to do a quick check to make sure that everything's reasonable and ready to proceed. 
 
     snakemake -s scripts/MainPipeline.smk --cores all 
-
-Detailed Capabilites
------------------------------------------------------
-**List of current sequential modules:** MCSCANX (synteny, collinear blocks); pair duplication type identification; Ka/Ks calculations when applicable; double blast calculation to retrieve orthologs of base species in target species and rescue additional homologs of base species; DIAMOND of target and base proteomes; conserved domain identification and sorting; protein motif detection among protein families; multiple sequence alignment and phylogenetic tree generation of gene families of target and base proteomes; gene annotation extraction; mRNA extraction; gene structure visualization, such as exons and introns; chromosomal localization and visualization; protein physiochemical property calculation, such as Pi/Mw; protein promoter detection and motif analysis of promoter; DeepLoc subcellular localization; PCR primer generation for qPCR, validation, and cloning; Primer Search off-target PCR scanning; FlashFry CRISPR gRNA generation and off-target scanning.
-
-**Currently developing:** Gene expression fetching per target ortholog via NCBI GEO (Gene Expression Omnibus); Cis-regulatory element identification with promoter motifs; 3D protein visualization; protein-protein interaction prediction, cumulative summary generation (compiling graphs, etc)
-
 
 Format Instructions
 -----------------------------------------------------
