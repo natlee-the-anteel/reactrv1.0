@@ -4,21 +4,21 @@
 # ============================================================================
 
 # Include initialization module (must be first)
-include: "modules/00_init.smk"
+include: "../modules/00_init.smk"
 
 # Include all functional modules
-include: "modules/01_setup.smk"
-include: "modules/02_query_filtering.smk"
-#include: "modules/03_deeploc2.smk"
-include: "modules/04_hmmer.smk"
-include: "modules/05_alignment_phylo.smk"
-include: "modules/06_domain_analysis.smk"
-include: "modules/07_annotation.smk"
-include: "modules/08_gmap.smk"
-include: "modules/09_primers.smk"
-include: "modules/10_conservation.smk"
-include: "modules/11_visualization.smk"
-include: "modules/12_crispr.smk"
+include: "../modules/01_setup.smk"
+include: "../modules/02_query_filtering.smk"
+#include: "../modules/03_deeploc2.smk"
+include: "../modules/04_hmmer.smk"
+include: "../modules/05_alignment_phylo.smk"
+include: "../modules/06_domain_analysis.smk"
+include: "../modules/07_annotation.smk"
+include: "../modules/08_gmap.smk"
+include: "../modules/09_primers.smk"
+include: "../modules/10_conservation.smk"
+include: "../modules/11_visualization.smk"
+include: "../modules/12_crispr.smk"
 
 
 # ============================================================================

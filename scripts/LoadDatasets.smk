@@ -17,15 +17,15 @@ from subprocess import run
 configfile: "config.yaml"
 
 # Include all modularized rules
-include: "LoadDatasets_modules/00_init_data.smk"
-include: "LoadDatasets_modules/01_download.smk"
-include: "LoadDatasets_modules/02_gff_processing.smk"
-include: "LoadDatasets_modules/03_annotation_db.smk"
-include: "LoadDatasets_modules/04_cds_extraction.smk"
-include: "LoadDatasets_modules/05_proteome_prep.smk"
-include: "LoadDatasets_modules/06_alignment.smk"
-include: "LoadDatasets_modules/07_synteny.smk"
-include: "LoadDatasets_modules/08_indexing.smk"
+include: "../LoadDatasets_modules/00_init_data.smk"
+include: "../LoadDatasets_modules/01_download.smk"
+include: "../LoadDatasets_modules/02_gff_processing.smk"
+include: "../LoadDatasets_modules/03_annotation_db.smk"
+include: "../LoadDatasets_modules/04_cds_extraction.smk"
+include: "../LoadDatasets_modules/05_proteome_prep.smk"
+include: "../LoadDatasets_modules/06_alignment.smk"
+include: "../LoadDatasets_modules/07_synteny.smk"
+include: "../LoadDatasets_modules/08_indexing.smk"
 
 rule all:
     """
