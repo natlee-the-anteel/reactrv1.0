@@ -74,7 +74,7 @@ The download is mildy heavy and the speed of the download will depend heavily on
         cd ../.. 
         hmmpress -f preset/pfam/Pfam-A.hmm
 
-OPTIONAL for subcelllular localization prediction:
+OPTIONAL for subcellular localization prediction:
 Install deeploc2 from DTU (requires academic license). More installation details can be found here: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/
 If you chose to proceed with this, you can uncomment out lines 12 and 34 on the MainPipeline.smk. Generally, after you've received a link for a download after entering institutional affliation, you can run
 
@@ -91,9 +91,12 @@ Activate the environment if you haven't already
 
 Next, you will need to edit two parts of config.yaml if you want to modify your query and species. Note that the current config.yaml (the file which you clone by default), comes with the example genome assembly string and protein fasta query.
 
+`scripts/LoadDatasets.smk` must be run before `scripts/MainPipeline.smk` or Snakefile, because it downloads and prepares the data required by the main analysis pipeline:
+
+    snakemake -s scripts/LoadDatasets.smk --cores 8 
+
 If you want to run the full pipeline from the new catalog-friendly entrypoint, use:
 
-    snakemake -s Snakefile --cores 8 
     snakemake -s Snakefile --cores all 
     snakemake -s Snakefile --cores all 
 
@@ -101,21 +104,13 @@ If you prefer to run only the data-loading/preprocessing stage, `scripts/LoadDat
 
     snakemake -s scripts/LoadDatasets.smk --cores 8 
 
-Note: `scripts/LoadDatasets.smk` must be run before `scripts/MainPipeline.smk` or Snakefile, because it downloads and prepares the data required by the main analysis pipeline.
-
 To change the species:
-Edit the taxonomy IDs in the /config.yaml (and the asssembly accession number if wanted for more precision), then run
-    
-    snakemake -s scripts/LoadDatasets.smk --cores 8 
+Edit the taxonomy IDs in the /config.yaml (and the asssembly accession number if wanted for more precision), then rerun the LoadDatasets.smk
 
 To change the protein query:
-Edit or in query protein fasta(s) from the base genome, in the top of the /config.yaml, then run
+Edit or in query protein fasta(s) from the base genome, in the top of the /config.yaml, then rerun the MainPipeline.smk
 
-    snakemake -s scripts/MainPipeline.smk --cores all 
-    
 After the snakemake job finishes (shows x out of x jobs complete in terminal, or the .smakemake/logs), you can run it once again.The reason why you have to rerun it is because this is meant to be a way for you to get an estimate of the jobs and time that it will take for the following command to run. Usually, the first MainPipeline run will be a bit more static in terms of amount of jobs it runs. However, the second iteration which has the brunt of the analysis (domain sorted analysis), will scale with the number of domains and proteins identified. It's suggested that you take a look at output/hmmer/domains to do a quick check to make sure that everything's reasonable and ready to proceed. 
-
-    snakemake -s scripts/MainPipeline.smk --cores all 
 
 Format Instructions
 -----------------------------------------------------
